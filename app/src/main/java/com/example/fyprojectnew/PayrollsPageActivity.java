@@ -14,6 +14,8 @@ CardView calculation;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payrolls_page);
         calculation=(CardView)findViewById(R.id.calculation);
+
+        /* Payrolls Calculation Page :-*/
         calculation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -38,14 +38,13 @@ public class DepartmentsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departments);
-
         simmereffect=(ShimmerFrameLayout)findViewById(R.id.simmereffect);
         simmereffect.startShimmer();
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         arrayList=new ArrayList<>();
 
+        /*Departsmnets Data Post into the arraylist :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -69,6 +68,8 @@ public class DepartmentsList extends AppCompatActivity {
         mDatabase.child("departments").addListenerForSingleValueEvent(postListener);
 
     }
+
+    /*ArrayList Functionalities :-*/
     @SuppressLint("WrongViewCast")
     private void initRecyclerView() {
         departrecyclerview = findViewById(R.id.departrecyclerview);

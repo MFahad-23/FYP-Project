@@ -16,7 +16,7 @@ public class VeiwPageActivity extends AppCompatActivity {
         buttlogin=(Button)findViewById(R.id.button1);
         buttSignup=(Button)findViewById(R.id.button2);
 
-        //Button's Area:-
+   /*Login Button for Login :-*/
         buttlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -24,6 +24,8 @@ public class VeiwPageActivity extends AppCompatActivity {
                 startActivity(login);
             }
         });
+
+        /*Signup Button for Signup :-*/
         buttSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

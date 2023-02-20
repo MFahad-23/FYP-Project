@@ -34,8 +34,7 @@ public class HomeFragment extends Fragment {
         slipscard=view.findViewById(R.id.slipscard);
         meunebar=view.findViewById(R.id.meunebar);
 
-
-
+        /*Department List ;-*/
         departcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +42,8 @@ public class HomeFragment extends Fragment {
                 startActivity(next);
             }
         });
+
+        /*Help Page :-*/
         helpcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +51,8 @@ public class HomeFragment extends Fragment {
                 startActivity(next);
             }
         });
+
+        /*Payrolls Activities :-*/
         payrollscard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +60,17 @@ public class HomeFragment extends Fragment {
                 startActivity(next);
             }
         });
-        slipscard.setOnClickListener(new View.OnClickListener() {
+
+      /* Payrolls History Slips :-*/
+         slipscard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getActivity(),PaySlipsActivity.class);
                 startActivity(next);
             }
         });
+
+         /*Side menue Bar Option :-*/
         meunebar.setOnClickListener(new View.OnClickListener() {
 
             @Override

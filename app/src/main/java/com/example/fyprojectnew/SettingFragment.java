@@ -23,8 +23,9 @@ public class SettingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         card1 = view.findViewById(R.id.card1);
+
+        /*Payroll Setting Page :-*/
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

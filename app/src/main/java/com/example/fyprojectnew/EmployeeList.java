@@ -60,15 +60,17 @@ public class EmployeeList extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         addmore =(Button)findViewById(R.id.addmore);
         arrayList = new ArrayList<>();
+
+        /*Add New Employee Dialog Button :-*/
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                /*Field Dialog :-*/
                 showDialog();
 
             }
         });
-
+        /*Departsmnets Data Post into the arraylist :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -93,6 +95,8 @@ public class EmployeeList extends AppCompatActivity {
         };
         mDatabase.child("Employees").addValueEventListener(postListener);
     }
+
+    /*New Employee Dialog :-*/
     public void showDialog()
     {
         fielddialog = new Dialog(EmployeeList.this);
@@ -102,12 +106,16 @@ public class EmployeeList extends AppCompatActivity {
         cut=(ImageView)fielddialog.findViewById(R.id.cut);
         TextInputEditText employeename= (TextInputEditText) fielddialog.findViewById(R.id.employeename);
         newlogin=(Button)fielddialog.findViewById(R.id.newlogin);
+
+       /* Dialog close Function :-*/
         cut.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
         fielddialog.dismiss();
     }
-});
+    });
+
+        /*Data Pust to Firebase Function :-*/
         newlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,8 +124,13 @@ public class EmployeeList extends AppCompatActivity {
                 }else if (employeedesignation.getText().toString().isEmpty()){
                     employeedesignation.setError("Please Complete the fields");
                 }else{
+
+                    /*Data pust to DataBase for save :-*/
                     NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
+
+                    /*For get Ket to firebase auto :-*/
                     String key=  mDatabase.child("Employees").push().getKey();
+
                     mDatabase.child("Employees").child(key).setValue(tempuser)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
@@ -138,6 +151,8 @@ public class EmployeeList extends AppCompatActivity {
         });
         fielddialog.show();
     }
+
+    /*RecyclerView Functions :-*/
     @SuppressLint("WrongViewCast")
     private void initRecyclerView() {
         employeerecyclerview = findViewById(R.id.employeerecyclerview);

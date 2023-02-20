@@ -23,12 +23,12 @@ import java.util.List;
 public class DesignationList extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-RecyclerView designationrecyclerview;
-LinearLayoutManager layoutManager;
-ArrayList<DesignationModel>arrayList;
-List<DesignationModel>designation_listview;
-DesignationViewAdpter adpapter;
-ShimmerFrameLayout shimmereffect;
+    RecyclerView designationrecyclerview;
+    LinearLayoutManager layoutManager;
+    ArrayList<DesignationModel>arrayList;
+    List<DesignationModel>designation_listview;
+    DesignationViewAdpter adpapter;
+    ShimmerFrameLayout shimmereffect;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +39,7 @@ ShimmerFrameLayout shimmereffect;
         mAuth = FirebaseAuth.getInstance();
         arrayList=new ArrayList<>();
 
+        /*Departsmnets Data Post into the arraylist :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -62,7 +63,7 @@ ShimmerFrameLayout shimmereffect;
         mDatabase.child("Designations").addListenerForSingleValueEvent(postListener);
 
     }
-
+    /*ArrayList Functionalities :-*/
     private void initRecyclerView() {
         designationrecyclerview=findViewById(R.id.designationrecyclerview);
         layoutManager=new LinearLayoutManager(this);

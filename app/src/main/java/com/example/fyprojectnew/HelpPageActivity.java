@@ -16,13 +16,13 @@ TextView morepage;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_page);
-
         uploddata=(CardView) findViewById(R.id.uploddata);
         docsupload=(CardView) findViewById(R.id.docsupload);
         newsalarystructure=(CardView) findViewById(R.id.newsalarystructure);
         advancesalary=(CardView) findViewById(R.id.advancesalary);
         morepage=(TextView) findViewById(R.id.morepage);
 
+        /*Question Upload Data :-*/
         uploddata.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
@@ -34,6 +34,8 @@ TextView morepage;
                     startActivity(new Intent(Intent.ACTION_VIEW, link));
             }
         });
+
+        /* Question Documents Upload :-*/
         docsupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,6 +48,8 @@ TextView morepage;
                 startActivity(new Intent(Intent.ACTION_VIEW, link));
             }
         });
+
+        /*Question Advance Salary :-*/
         advancesalary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +60,8 @@ TextView morepage;
                 startActivity(new Intent(Intent.ACTION_VIEW, link));
             }
         });
+
+       /* Question New Salary Structure :-*/
         newsalarystructure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,6 +72,8 @@ TextView morepage;
                 startActivity(new Intent(Intent.ACTION_VIEW, link));
             }
         });
+
+      /*  Answers for Questions more Detail Page :-*/
         morepage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
