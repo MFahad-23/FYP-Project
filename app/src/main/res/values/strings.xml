@@ -1,0 +1,171 @@
+<resources>
+    <string name="app_name">Final Year Project</string>
+    <string name="Caluculate">Calculations</string>
+    <string name="slips">Pay Slips</string>
+    <string name="payrolls">Payrolls</string>
+    <string name="help">Help</string>
+    <string name="setting">Setting</string>
+    <string name="departs">Departs</string>
+    <string name="payroll">Payroll System !</string>
+    <string name="login">LogIn</string>
+    <string name="signup">SignUp</string>
+    <string name="payrollsytem">Payroll System</string>
+    <string name="message">
+        Welcome in Payroll System of mns_uet.
+        It helps to manage our payrolls easy.</string>
+    <string name="instruction">Instructions</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="forget">Forget Password</string>
+    <string name="craeteaccount"><u>Create New Account ?</u></string>
+    <string name="submit">Submit</string>
+    <string name="back">Back</string>
+    <string name="cnic">CNIC</string>
+    <string name="gmail">G-Mail</string>
+    <string name="contact">Contact</string>
+    <string name="city">City</string>
+    <string name="or">OR</string>
+    <string name="payroll_setting">Payroll Setting</string>
+    <string name="pf_setting">PF Settings</string>
+    <string name="decleration_setting">Decleration Settings</string>
+    <string name="payout_setting">Payout Settings</string>
+    <string name="frequency">Pay Frequency</string>
+    <string name="pay_period">Pay Period</string>
+    <string name="from">From :</string>
+    <string name="to">To :</string>
+    <string name="pay_calculate">Pay Calculation</string>
+    <string name="weekends">Include Weekends</string>
+    <string name="holidays">Include Holidays</string>
+    <string name="save">Save</string>
+    <string name="chemicaldepart">Chemical Engineering</string>
+    <string name="electricaldepart">Electrical Engineering</string>
+    <string name="civildepart">Civil Engineering Technology</string>
+    <string name="mechanicaldepart">Mech Engineering Technology</string>
+    <string name="csdepart">Computer Science</string>
+    <string name="bbadepart">Business Administration</string>
+    <string name="mathsdepart">Mathematics Department</string>
+    <string name="physicsdepart">Physics Department</string>
+    <string name="chemistrydepart">Chemistry Department</string>
+    <string name="employee">Employees Department</string>
+    <string name="admin">Administration</string>
+    <string name="helptexta">How to Upload data into the System?</string>
+    <string name="helptextb">Why Documents are not Uploading?</string>
+    <string name="helptextc">How to Apply for Advance Salary?</string>
+    <string name="helptextd">How to Frame a New Salary Structure?</string>
+    <string name="aboutsystem">About the System</string>
+    <string name="systempurpose">System Purpose</string>
+    <string name="intface">Interface</string>
+    <string name="aboutdata">About Data</string>
+    <string name="updates">Software &amp; technical updates</string>
+    <string name="Searchstaff">Search Employees</string>
+    <string name="salaries">Salary</string>
+    <string name="depratments">Departments</string>
+    <string name="selectfy">Select FY</string>
+    <string name="year">2020-21</string>
+    <string name="date">00/00/00</string>
+    <string name="more"><u>More..</u></string>
+    <string name="payperiod">Pay Period</string>
+    <string name="basicpay">Basic Pay</string>
+    <string name="tax">Income Tax</string>
+    <string name="price">00.000</string>
+    <string name="allowance">Allownces</string>
+    <string name="hra">HRA</string>
+    <string name="others">Others</string>
+    <string name="deduction">Deductions</string>
+    <string name="pf">PF</string>
+    <string name="esi">ESI</string>
+    <string name="netpay">Net Pay</string>
+    <string name="amount">Amount</string>
+    <string name="salarystructure">Salary Structure</string>
+    <string name="declaration">Declarations</string>
+    <string name="payout">Payouts</string>
+    <string name="calculate">Calculate Payrolls</string>
+    <string name="calculate_payroll">Calculate</string>
+    <string name="download">Download</string>
+    <string name="navigation_drawer_Open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="error">Oops! Something went Wrong.Please try Again</string>
+    <string name="payslip">(<u>Pay Slip</u>)</string>
+    <string name="number">01</string>
+    <string name="number1">02</string>
+    <string name="number2">02</string>
+    <string name="number3">03</string>
+    <string name="number4">04</string>
+    <string name="number5">05</string>
+    <string name="number6">06</string>
+    <string name="number7">07</string>
+    <string name="number8">08</string>
+    <string name="number9">09</string>
+    <string name="number10">10</string>
+    <string name="number11">11</string>
+    <string name="number12">12</string>
+    <string name="emoluments"><u>EMOLUMENTS</u></string>
+    <string name="basicpayallowance">Basic Pay</string>
+    <string name="seniorpost">Senior Post Allowance</string>
+    <string name="houserent">House Renty Alllowance</string>
+    <string name="conveyance">Conveyance Allowance</string>
+    <string name="qualification">Qualification Allowance</string>
+    <string name="medical">Medical Allowance</string>
+    <string name="adhocrelief16">Adhoc Relief Allowance-2016</string>
+    <string name="adhocrelief17">Adhoc Relief Allowance-2017</string>
+    <string name="adhocrelief18">Adhoc Relief Allowance-2018</string>
+    <string name="adhocrelief19">Adhoc Relief Allowance-2019</string>
+    <string name="adhocrelief21">Adhoc Relief Allowance-2021</string>
+    <string name="socialsecurity">Social Security Benefit(30%)</string>
+    <string name="totalemoluments">Total Emoluments</string>
+    <string name="deductionunderline"><u>Deductions</u></string>
+    <string name="incometax">Income Tax</string>
+    <string name="gpfsubscription">G.P.F Subscription</string>
+    <string name="recoverygpf">Recovery G.P.F</string>
+    <string name="housebuildadvance">House Building Advance</string>
+    <string name="vehicleadvance">Car/Scooter Advance</string>
+    <string name="electricitycharges">Electricity Charges</string>
+    <string name="suigascharge">Sui Gas Charges</string>
+    <string name="watercharge">Water Charges</string>
+    <string name="benevolentfund">Benevolent Fund</string>
+    <string name="groupinsurance">Group Insurance</string>
+    <string name="tradetax">Trade Tax</string>
+    <string name="treasurer"><u>Additional Treasurer</u></string>
+    <string name="uniname">Muhammad Nawaz Sharif University of Engineering and Technology Multan.
+    </string>
+    <string name="helpdialog">Click create new account and enter your data in the required fields then press the Submit Button for submit your data into Database and make sure that you remember Your Email and Password for Login.Thank You !</string>
+
+
+    <!-- Questions Area:- -->
+
+    <string name="ansa">Select the Utilities Tab then Load Data Tab.Use the File Upload Link on left navigation bar.Uploading
+        a document that already exists in digitalform is relatively straightforward. Often, all you need to do is choose the
+        upload option on the destination website or program you are using then select the file from the browser that pops up.
+        We recommend uploading only Tab Delimited Files.
+        Upload and view files
+On your Android phone or tablet open the Google Drive app.
+Tap Add.
+Tap Upload.
+Find and tap the files you want to upload.
+View uploaded files in My Drive until you move them.
+        Upload files and folders
+On your computer go to drive.google.com.
+At the top left click New. File Upload or Folder Upload.
+Choose the file or folder you want to upload.</string>
+
+    <string name="ansb">
+        Your file may be corrupted, which means there are metadata issues in the file that occurred during original document generation
+        scanning or some other conversion process, has produced an invalid PDF.Upload your file using a different browser or Incognito
+        or Private browsing to make sure that certain browser extensions do not affect the process or the site you are loading.
+    </string>
+
+    <string name="ansc">National Bank of Pakistan Loan Scheme is an ideal chance for regular and service workers who plan to receive some
+        cash advance. It is among the top public banks in Pakistan and offers various loans for NBP bank account holders federal employees
+        and semi government workers as well as  government employees.</string>
+
+    <string name="ansd">
+        How to Establish Salary Ranges
+Determine the Organizations Compensation Philosophy.
+Conduct a Job Analysis.
+Group into Job Families.
+Rank Positions Using a Job Evaluation Method.
+Conduct Market Research.
+Create Job Grades.
+Create a Salary Range Based on Research.
+    </string>
+</resources>

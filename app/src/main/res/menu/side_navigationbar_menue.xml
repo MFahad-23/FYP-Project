@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/home"
+            android:title="Home"
+            android:iconTint="@color/selfcolor_blue"
+            android:iconTintMode="add"
+            android:checked="true"
+            android:icon="@drawable/home"/>
+
+        <item android:id="@+id/profile"
+            android:title="Profile"
+            android:icon="@drawable/profilelogo"/>
+
+        <item android:id="@+id/logout"
+            android:title="Logout"
+            android:icon="@drawable/logout"/>
+
+        <item android:id="@+id/newaccount"
+            android:title="New Account"
+            android:icon="@drawable/newaccount"/>
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+
+            <item android:id="@+id/share"
+                android:title="Share"
+                android:icon="@drawable/share"/>
+
+            <item android:id="@+id/rateus"
+                android:title="Rate Us"
+                android:icon="@drawable/rateus"/>
+        </menu>
+    </item>
+
+</menu>
