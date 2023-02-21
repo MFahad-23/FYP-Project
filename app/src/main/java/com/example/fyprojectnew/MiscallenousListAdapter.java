@@ -39,12 +39,12 @@ String image=miscallenousModelList.get(position).staffimgae;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView staffimage;
+        private ImageView staffimgae;
         private TextView staffname;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            staffimage=itemView.findViewById(R.id.staffimage);
             staffname=itemView.findViewById(R.id.staffname);
+            staffimgae=itemView.findViewById(R.id.staffimgae);
         }
 
         public void setdata(String name, String image) {
