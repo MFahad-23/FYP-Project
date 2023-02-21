@@ -15,7 +15,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/background"/>
 
-
     <LinearLayout
         android:id="@+id/meunebar"
         android:layout_width="wrap_content"

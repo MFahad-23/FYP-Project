@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DesignationViewAdpter extends RecyclerView.Adapter<DesignationViewAdpter.ViewHolder> {
 
-     private  List<DesignationModel>designation_listview;
+     private  List<DesignationModel> designation_listview;
      Context context;
      public DesignationViewAdpter(Context context,List<DesignationModel> designation_listview){
          this.context=context;

@@ -2,10 +2,10 @@
     <string name="app_name">Final Year Project</string>
     <string name="Caluculate">Calculations</string>
     <string name="slips">Pay Slips</string>
-    <string name="payrolls">Payrolls</string>
+    <string name="payrolls">Management</string>
     <string name="help">Help</string>
     <string name="setting">Setting</string>
-    <string name="departs">Departs</string>
+    <string name="departs">Departments</string>
     <string name="payroll">Payroll System !</string>
     <string name="login">LogIn</string>
     <string name="signup">SignUp</string>
