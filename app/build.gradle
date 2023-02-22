@@ -61,4 +61,10 @@ dependencies {
     /*Shimmer Loading Effect :-*/
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    /*Background Image Set :-*/
+    implementation 'com.github.Drjacky:ImagePicker:2.3.22'
+
+    /*Circular ImageView ;-*/
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }

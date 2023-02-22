@@ -1,14 +1,16 @@
 package com.example.fyprojectnew;
 
 public class MiscallenousModel {
-    public String staffname;
-    public String staffimgae;
+    public String employeename;
+    public String employeedesignation;
+    public String employeeimage;
 
     public MiscallenousModel() {
     }
 
-    public MiscallenousModel(String staffname, String staffimgae) {
-        this.staffname = staffname;
-        this.staffimgae = "";
+    public MiscallenousModel(String employeename,String employeedesignation, String employeeimage) {
+        this.employeename = employeename;
+        this.employeedesignation = employeedesignation;
+        this.employeeimage = "";
     }
 }

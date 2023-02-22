@@ -10,6 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class DepartListAdapter extends RecyclerView.Adapter<DepartListAdapter.ViewHolder> {
@@ -58,7 +60,12 @@ holder.setdata(image,name);
             departmentlist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context, DesignationList.class));
+                    if(name.equals("Miscallaneous"))
+                    {
+                        context.startActivity(new Intent(context,MiscallennousStaff.class));
+                    }else{
+                        context.startActivity(new Intent(context, DesignationList.class));
+                    }
                 }
             });
         }

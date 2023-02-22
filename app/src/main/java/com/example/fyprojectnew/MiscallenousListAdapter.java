@@ -1,10 +1,12 @@
 package com.example.fyprojectnew;
 
-import android.os.Handler;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +16,13 @@ import java.util.List;
 
 public class MiscallenousListAdapter extends RecyclerView.Adapter<MiscallenousListAdapter.ViewHolder> {
 
-    List<MiscallenousModel>miscallenousModelList;
-    public MiscallenousListAdapter(List<MiscallenousModel> miscallenousModelList) {
-        this.miscallenousModelList = miscallenousModelList;
+    List<MiscallenousModel>miscellenouslist;
+    Context context;
+    public MiscallenousListAdapter(Context context,List<MiscallenousModel> miscallenousModelList) {
+        this.context = context;
+        this.miscellenouslist = miscallenousModelList;
     }
+
 
     @NonNull
     @Override
@@ -28,27 +33,39 @@ public class MiscallenousListAdapter extends RecyclerView.Adapter<MiscallenousLi
 
     @Override
     public void onBindViewHolder(@NonNull MiscallenousListAdapter.ViewHolder holder, int position) {
-String name=miscallenousModelList.get(position).staffname;
-String image=miscallenousModelList.get(position).staffimgae;
-        holder.setdata(name,image);
+String name=miscellenouslist.get(position).employeename;
+String designation=miscellenouslist.get(position).employeedesignation;
+String image=miscellenouslist.get(position).employeeimage;
+        holder.setdata(name,designation,image);
     }
 
     @Override
     public int getItemCount() {
-        return miscallenousModelList.size() ;
+        return miscellenouslist.size() ;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView staffimgae;
-        private TextView staffname;
+        private ImageView employeeimage;
+        private TextView employeename;
+        private TextView employeedesignation;
+        private RelativeLayout employeelist;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            staffname=itemView.findViewById(R.id.staffname);
-            staffimgae=itemView.findViewById(R.id.staffimgae);
+            employeeimage=itemView.findViewById(R.id.employeeimage);
+            employeename=itemView.findViewById(R.id.employeename);
+            employeedesignation=itemView.findViewById(R.id.employeedesignation);
+            employeelist=itemView.findViewById(R.id.employeelist);
         }
 
-        public void setdata(String name, String image) {
-            staffname.setText(name);
+        public void setdata(String name, String designation, String image) {
+            employeename.setText(name);
+            employeedesignation.setText(designation);
+            employeelist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                 context.startActivity(new Intent(context,PayrollSlipTemp.class));
+                }
+            });
         }
     }
 }

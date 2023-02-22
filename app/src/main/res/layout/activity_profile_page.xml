@@ -14,11 +14,11 @@
         android:scaleType="fitXY"
         android:src="@drawable/profilebackground" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userimage"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:scaleType="centerInside"
+        android:scaleType="fitCenter"
         android:src="@drawable/photocapture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/userimage"
         app:layout_constraintVertical_bias="0.030">
 
       <androidx.cardview.widget.CardView
@@ -357,18 +357,33 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/updateprofile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Profile"
         android:layout_marginLeft="130dp"
         android:layout_marginRight="130dp"
         android:textColor="@color/black"
-        android:background="@color/white"
+        android:background="@drawable/signup_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12"
         app:layout_constraintVertical_bias="0.30" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/imagecapture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/userimage"
+        app:layout_constraintEnd_toEndOf="@+id/userimage"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="@+id/userimage"
+        app:layout_constraintTop_toTopOf="@+id/userimage"
+        app:layout_constraintVertical_bias="0.937"
+        app:srcCompat="@drawable/camera" />
 </androidx.constraintlayout.widget.ConstraintLayout>
