@@ -34,8 +34,10 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import me.ibrahimsn.lib.SmoothBottomBar;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    BottomNavigationView bottombar;
+    SmoothBottomBar bottombar;
     NavigationView navigation_view;
     DrawerLayout drawerlayout;
     Timer timer;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bottombar = (BottomNavigationView) findViewById(R.id.bottombar);
+        bottombar = (SmoothBottomBar) findViewById(R.id.bottombar);
         navigation_view = (NavigationView) findViewById(R.id.navigation_view);
         drawerlayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         navigation_view.bringToFront();
@@ -56,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         /*Fragment Moving :-*/
         getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, homeFragment).commit();
-        bottombar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+
+     /*   bottombar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
@@ -69,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
                 return (true);
             }
-        });
+        });*/
 
     /*    Navigation Menue Click Actions :-*/
 

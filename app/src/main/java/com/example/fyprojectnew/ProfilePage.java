@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,14 +42,14 @@ public class ProfilePage extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     TextView name,location,mail,idendity,phone;
-    CircleImageView userimage;
+    CircleImageView circleimage;
     FloatingActionButton imagecapture;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-        userimage=(CircleImageView)findViewById(R.id.userimage);
+        circleimage=(CircleImageView)findViewById(R.id.circleimage);
         imagecapture=(FloatingActionButton)findViewById(R.id.imagecapture);
         name=(TextView) findViewById(R.id.name);
         location=(TextView) findViewById(R.id.location);
@@ -74,8 +75,8 @@ public class ProfilePage extends AppCompatActivity {
             public void onClick(View view) {
                 ImagePicker.Companion.with(ProfilePage.this)
                         .crop()
-                        .crop(16f, 9f)
-                        .maxResultSize(512,512,true)
+                        .cropOval()
+                        .maxResultSize(524,524,true)
                         .provider(ImageProvider.BOTH) //Or bothCameraGallery()
                         .createIntentFromDialog(
                                 (Function1)(new Function1(){
@@ -116,6 +117,6 @@ public class ProfilePage extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Uri uri=data.getData();
-        userimage.setImageURI(uri);
+        circleimage.setImageURI(uri);
     }
 }

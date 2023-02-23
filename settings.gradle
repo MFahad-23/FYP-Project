@@ -5,6 +5,7 @@ pluginManagement {
         mavenCentral()
         mavenCentral() // For ImagePicker library, this line is enough. Although, it has been published on jitpack as well
         maven { url "https://jitpack.io" }
+        maven { url 'https://www.jitpack.io' }
     }
 }
 dependencyResolutionManagement {
@@ -14,6 +15,7 @@ dependencyResolutionManagement {
         mavenCentral()
         mavenCentral() // For ImagePicker library, this line is enough. Although, it has been published on jitpack as well
         maven { url "https://jitpack.io" }
+        maven { url 'https://www.jitpack.io' }
 
     }
 }
