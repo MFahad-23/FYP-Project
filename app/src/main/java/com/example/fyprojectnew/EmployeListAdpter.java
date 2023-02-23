@@ -33,9 +33,10 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
     @Override
     public void onBindViewHolder(@NonNull EmployeListAdpter.ViewHolder holder, int position) {
         String image=employee_items_view.get(position).getEmployeeimage();
+        String delimage=employee_items_view.get(position).getDelimage();
         String name=employee_items_view.get(position).getEmployeename();
         String id=employee_items_view.get(position).getEmployeeid();
-        holder.setdata(image,name,id);
+        holder.setdata(image,delimage,name,id);
     }
 
     @Override
@@ -48,14 +49,16 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
         private TextView employeename;
         private TextView employeeid;
         private RelativeLayout employeelist;
+        private ImageView delimage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             employeeimage=itemView.findViewById(R.id.employeeimage);
+            delimage=itemView.findViewById(R.id.delimage);
             employeename=itemView.findViewById(R.id.employeename);
             employeeid=itemView.findViewById(R.id.employeeid);
             employeelist=itemView.findViewById(R.id.employeelist);
         }
-        public void setdata(String image, String name, String id) {
+        public void setdata(String image, String name, String id, String delimage) {
             //employeeimage.setImageResource(image);
             employeename.setText(name);
             employeeid.setText(id);

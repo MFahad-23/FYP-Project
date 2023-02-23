@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
         android:id="@+id/employeelist"
@@ -55,6 +56,30 @@
             android:textFontWeight="500"
             android:textSize="14sp" />
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:elevation="20dp"
+            android:background="@color/transparent"
+            android:backgroundTint="@color/transparent"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/delimage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerInside"
+            android:layout_gravity="center"
+            android:src="@drawable/delimage" />
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"

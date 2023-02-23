@@ -1,5 +1,7 @@
 package com.example.fyprojectnew;
 
+import static com.example.fyprojectnew.R.anim.scale_up_animation;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -12,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 public class HomeFragment extends Fragment {
@@ -24,6 +28,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
 
+
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -33,6 +38,7 @@ public class HomeFragment extends Fragment {
         payrollscard = view.findViewById(R.id.payrollscard);
         slipscard=view.findViewById(R.id.slipscard);
         meunebar=view.findViewById(R.id.meunebar);
+
 
         /*Department List ;-*/
         departcard.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +55,7 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent next = new Intent(getActivity(), HelpPageActivity.class);
                 startActivity(next);
+
             }
         });
 
@@ -79,5 +86,5 @@ public class HomeFragment extends Fragment {
                 Log.d("Prob","Solution");
             }
         });
+    }
 }
-}  

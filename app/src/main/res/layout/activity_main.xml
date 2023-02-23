@@ -10,6 +10,7 @@
     tools:OpenDrawer="start"
     android:id="@+id/drawerlayout"
     tools:context=".MainActivity">
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
@@ -17,20 +18,37 @@
         android:layout_gravity="start"
         android:visibility="visible"
         app:headerLayout="@layout/side_navigationbar_design"
-        app:menu="@menu/side_navigationbar_menue" />
+        app:menu="@menu/side_navigationbar_menue" >
+
+    </com.google.android.material.navigation.NavigationView>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <me.ibrahimsn.lib.SmoothBottomBar
-        android:id="@+id/bottombar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bottomnavigation_view_background"
-        app:menu="@menu/bottom_navigation_veiw" />
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bottombar">
 
+        </RelativeLayout>
+
+        <me.ibrahimsn.lib.SmoothBottomBar
+            android:id="@+id/bottombar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:scrollIndicators="start"
+            app:backgroundColor="@color/selfcolor_blue"
+            app:iconSize="25dp"
+            app:iconTint="@color/selfcolor_grey"
+            app:iconTintActive="@color/black"
+            app:indicatorColor="@color/white"
+            app:indicatorRadius="10dp"
+            app:menu="@menu/bottom_navigation_veiw"
+            app:sideMargins="50dp"
+            app:textColor="@color/black"
+            app:textSize="10sp" />
     </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

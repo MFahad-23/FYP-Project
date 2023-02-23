@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class VeiwPageActivity extends AppCompatActivity {
@@ -18,7 +21,7 @@ public class VeiwPageActivity extends AppCompatActivity {
         buttlogin=(Button)findViewById(R.id.buttlogin);
         buttSignup=(Button)findViewById(R.id.buttSignup);
 
-   /*Login Button for Login :-*/
+         /*Login Button for Login :-*/
         buttlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

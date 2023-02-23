@@ -172,7 +172,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         /*Data save into the Database :-*/
                                         User tempuser = new User(username.getText().toString(),cnic.getText().toString(),
                                                 gmail.getText().toString(),contact.getText().toString(),city.getText().toString(),
-                                                password.getText().toString());
+                                                password.getText().toString(),"");
                                         mDatabase.child("users").child(user.getUid().toString()).setValue(tempuser)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override

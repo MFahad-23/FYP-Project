@@ -34,13 +34,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import me.ibrahimsn.lib.OnItemSelectedListener;
 import me.ibrahimsn.lib.SmoothBottomBar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private DatabaseReference mDatabase;
+    private FirebaseAuth mAuth;
     SmoothBottomBar bottombar;
     NavigationView navigation_view;
     DrawerLayout drawerlayout;
     Timer timer;
+    User user;
     HomeFragment homeFragment = new HomeFragment();
     SettingFragment settingFragment = new SettingFragment();
 
@@ -54,29 +58,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerlayout = (DrawerLayout) findViewById(R.id.drawerlayout);
         navigation_view.bringToFront();
         navigation_view.setCheckedItem(R.id.home);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mAuth = FirebaseAuth.getInstance();
 
+
+        TextView user_name_header= navigation_view.getHeaderView(0).findViewById(R.id.username);
+        TextView user_mail_header= navigation_view.getHeaderView(0).findViewById(R.id.usermail);
+
+        /*Data push to save into the Database :-*/
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                user = dataSnapshot.getValue(User.class);
+                user_name_header.setText(user.username);
+                user_mail_header.setText(user.gmail);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(postListener);
 
         /*Fragment Moving :-*/
         getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, homeFragment).commit();
 
-     /*   bottombar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+        bottombar.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, homeFragment).commit();
-                        break;
-                    case R.id.setting:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, settingFragment).commit();
-                return (true);
-            }
-                return (true);
-            }
-        });*/
+            public boolean onItemSelect(int i) {
+                if(i==0)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, homeFragment).commit();
 
-    /*    Navigation Menue Click Actions :-*/
+                }else if (i==1){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, settingFragment).commit();
+                }
+                return false;
+            }
+        });
 
-        navigation_view.setNavigationItemSelectedListener(this);
+                /*    Navigation Menue Click Actions :-*/
+
+                navigation_view.setNavigationItemSelectedListener(this);
     }
     public void openDrawer() {
         drawerlayout.open();
