@@ -63,7 +63,10 @@ holder.setdata(image,name);
                     if(name.equals("Miscallaneous"))
                     {
                         context.startActivity(new Intent(context,MiscallennousStaff.class));
-                    }else{
+                    }else if (name.equals("Administration")){
+                        context.startActivity(new Intent(context,Administration_staff.class));
+                    }
+                    else{
                         context.startActivity(new Intent(context, DesignationList.class));
                     }
                 }

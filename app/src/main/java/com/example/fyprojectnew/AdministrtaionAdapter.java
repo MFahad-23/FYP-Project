@@ -14,34 +14,32 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class MiscallenousListAdapter extends RecyclerView.Adapter<MiscallenousListAdapter.ViewHolder> {
+public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAdapter.ViewHolder> {
 
-    List<MiscallenousModel>miscellenouslist;
+    List<AdministrationModel> adminstafflist;
     Context context;
-    public MiscallenousListAdapter(Context context,List<MiscallenousModel> miscellenouslist) {
+    public AdministrtaionAdapter(Context context,List<AdministrationModel> adminstafflist) {
         this.context = context;
-        this.miscellenouslist = miscellenouslist;
+        this.adminstafflist = adminstafflist;
     }
-
-
     @NonNull
     @Override
-    public MiscallenousListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.miscalenous_staff_design,parent,false);
-        return new ViewHolder(view);
+    public AdministrtaionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.adminstaff_design,parent,false);
+        return new AdministrtaionAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MiscallenousListAdapter.ViewHolder holder, int position) {
-String name=miscellenouslist.get(position).employeename;
-String designation=miscellenouslist.get(position).employeedesignation;
-String image=miscellenouslist.get(position).employeeimage;
+    public void onBindViewHolder(@NonNull AdministrtaionAdapter.ViewHolder holder, int position) {
+        String name=adminstafflist.get(position).employeename;
+        String designation=adminstafflist.get(position).employeedesignation;
+        String image=adminstafflist.get(position).employeeimage;
         holder.setdata(name,designation,image);
     }
 
     @Override
     public int getItemCount() {
-        return miscellenouslist.size() ;
+        return adminstafflist.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -60,10 +58,11 @@ String image=miscellenouslist.get(position).employeeimage;
         public void setdata(String name, String designation, String image) {
             employeename.setText(name);
             employeedesignation.setText(designation);
+
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                 context.startActivity(new Intent(context,PayrollSlipTemp.class));
+                    context.startActivity(new Intent(context,PayrollSlipTemp.class));
                 }
             });
         }

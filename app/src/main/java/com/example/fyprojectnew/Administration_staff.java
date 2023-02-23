@@ -9,15 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -33,32 +32,31 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MiscallennousStaff extends AppCompatActivity {
+public class Administration_staff extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     ShimmerFrameLayout shimmereffect;
-    RelativeLayout miscallenousstaff;
-    RecyclerView miscallenouslist;
-    MiscallenousListAdapter myadpter;
+    RecyclerView adminstaff;
+    RelativeLayout adminstafflist;
     TextInputEditText employeename,employeedesignation;
     Button addmore,newlogin;
     Dialog dialog;
     ImageView cut;
-    ArrayList<MiscallenousModel>miscellenouslist;
+    ArrayList<AdministrationModel>administration_listview;
     LinearLayoutManager layoutManager;
+    AdministrtaionAdapter myadpter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_miscallennous_staff);
-        addmore=(Button)findViewById(R.id.addmore);
-        shimmereffect=(ShimmerFrameLayout)findViewById(R.id.shimmereffect);
+        setContentView(R.layout.activity_administration_staff);
+        addmore=(Button) findViewById(R.id.addmore);
+        shimmereffect=(ShimmerFrameLayout) findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
-
+        adminstaff=(RecyclerView) findViewById(R.id.adminstaff);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        miscellenouslist=new ArrayList<>();
+        administration_listview=new ArrayList<>();
 
-       /* Add More Employee Button :-*/
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,15 +69,15 @@ public class MiscallennousStaff extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                miscellenouslist.clear();
+                administration_listview.clear();
                 for (DataSnapshot item:dataSnapshot.getChildren()){
-                    MiscallenousModel miscallenousvalues = item.getValue(MiscallenousModel.class);
-                    miscellenouslist.add(miscallenousvalues);
+                    AdministrationModel adminstrationstaff = item.getValue(AdministrationModel.class);
+                    administration_listview.add(adminstrationstaff);
                 }
                 initRecyclerView();
                 shimmereffect.stopShimmer();
                 shimmereffect.setVisibility(View.GONE);
-                miscallenouslist.setVisibility(View.VISIBLE);
+                adminstaff.setVisibility(View.VISIBLE);
 
             }
             @Override
@@ -88,10 +86,11 @@ public class MiscallennousStaff extends AppCompatActivity {
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
-        mDatabase.child("Miscallenous").addValueEventListener(postListener);
+        mDatabase.child("Administration").addValueEventListener(postListener);
     }
+
     private void openDialog() {
-        dialog =new Dialog(MiscallennousStaff.this);
+        dialog =new Dialog(Administration_staff.this);
         dialog.setContentView(R.layout.employees_creating_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
         employeename= (TextInputEditText) dialog.findViewById(R.id.employeename);
@@ -100,7 +99,7 @@ public class MiscallennousStaff extends AppCompatActivity {
         newlogin=(Button) dialog.findViewById(R.id.newlogin);
         dialog.show();
 
-       /* Dialog Dissmiss Function :-*/
+        /* Dialog Dissmiss Function :-*/
         cut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,49 +108,48 @@ public class MiscallennousStaff extends AppCompatActivity {
         });
 
         /*Create New Employee Function :-*/
-                newlogin.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if (employeename.getText().toString().isEmpty()){
-                            employeename.setError("Please Complete the fields");
-                        }else if (employeedesignation.getText().toString().isEmpty()){
-                            employeedesignation.setError("Please Complete the fields");
-                        }else{
+        newlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (employeename.getText().toString().isEmpty()){
+                    employeename.setError("Please Complete the fields");
+                }else if (employeedesignation.getText().toString().isEmpty()){
+                    employeedesignation.setError("Please Complete the fields");
+                }else{
 
-                            /*Data pust to DataBase for save :-*/
-                            NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
+                    /*Data pust to DataBase for save :-*/
+                    NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
 
-                            /*For get Ket to firebase auto :-*/
-                            String key=  mDatabase.child("Miscallenous").push().getKey();
+                    /*For get Ket to firebase auto :-*/
+                    String key=  mDatabase.child("Administration").push().getKey();
 
-                            mDatabase.child("Miscallenous").child(key).setValue(tempuser)
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            employeename.setText("");
-                                            employeedesignation.setText("");
-                                            dialog.dismiss();
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(MiscallennousStaff.this,"Something Went Wrong!",Toast.LENGTH_SHORT);
-                                        }
-                                    });
-                        }
-                    }
-                });
+                    mDatabase.child("Administration").child(key).setValue(tempuser)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    employeename.setText("");
+                                    employeedesignation.setText("");
+                                    dialog.dismiss();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(Administration_staff.this,"Something Went Wrong!",Toast.LENGTH_SHORT);
+                                }
+                            });
+                }
+            }
+        });
+
     }
 
-    /*ArrayList Functionalities :-*/
-    @SuppressLint("WrongViewCast")
     private void initRecyclerView() {
-        miscallenouslist = findViewById(R.id.miscallenouslist);
+        adminstaff = findViewById(R.id.adminstaff);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(layoutManager.VERTICAL);
-        MiscallenousListAdapter myadpter = new MiscallenousListAdapter(this,miscellenouslist);
-        miscallenouslist.setLayoutManager(layoutManager);
-        miscallenouslist.setAdapter(myadpter);
+        AdministrtaionAdapter myadapter=new AdministrtaionAdapter(this,administration_listview);
+        adminstaff.setAdapter(myadapter);
+        adminstaff.setLayoutManager(layoutManager);
     }
 }
