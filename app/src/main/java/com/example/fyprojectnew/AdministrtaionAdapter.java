@@ -31,9 +31,9 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
 
     @Override
     public void onBindViewHolder(@NonNull AdministrtaionAdapter.ViewHolder holder, int position) {
-        String name=adminstafflist.get(position).employeename;
-        String designation=adminstafflist.get(position).employeedesignation;
-        String image=adminstafflist.get(position).employeeimage;
+        String name= adminstafflist.get(position).getEmployeename();
+        String designation= adminstafflist.get(position).getEmployeedesignation();
+        String image= adminstafflist.get(position).getEmployeeimage();
         holder.setdata(name,designation,image);
     }
 

@@ -1,9 +1,21 @@
 package com.example.fyprojectnew;
 
 public class AdministrationModel {
-    public String employeeimage;
-    public String employeename;
-    public String employeedesignation;
+    private String employeeimage;
+    private String employeename;
+    private String employeedesignation;
+
+    public String getEmployeeimage() {
+        return employeeimage;
+    }
+
+    public String getEmployeename() {
+        return employeename;
+    }
+
+    public String getEmployeedesignation() {
+        return employeedesignation;
+    }
 
     public AdministrationModel() {
     }

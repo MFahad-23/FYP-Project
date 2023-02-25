@@ -1,9 +1,21 @@
 package com.example.fyprojectnew;
 
 public class MiscallenousModel {
-    public String employeename;
-    public String employeedesignation;
-    public String employeeimage;
+   private String employeename;
+    private String employeedesignation;
+    private String employeeimage;
+
+    public String getEmployeename() {
+        return employeename;
+    }
+
+    public String getEmployeedesignation() {
+        return employeedesignation;
+    }
+
+    public String getEmployeeimage() {
+        return employeeimage;
+    }
 
     public MiscallenousModel() {
     }

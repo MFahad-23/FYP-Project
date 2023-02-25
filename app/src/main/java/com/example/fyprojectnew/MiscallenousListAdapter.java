@@ -33,9 +33,9 @@ public class MiscallenousListAdapter extends RecyclerView.Adapter<MiscallenousLi
 
     @Override
     public void onBindViewHolder(@NonNull MiscallenousListAdapter.ViewHolder holder, int position) {
-String name=miscellenouslist.get(position).employeename;
-String designation=miscellenouslist.get(position).employeedesignation;
-String image=miscellenouslist.get(position).employeeimage;
+String name= miscellenouslist.get(position).getEmployeename();
+String designation= miscellenouslist.get(position).getEmployeedesignation();
+String image= miscellenouslist.get(position).getEmployeeimage();
         holder.setdata(name,designation,image);
     }
 
