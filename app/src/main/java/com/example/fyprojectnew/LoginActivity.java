@@ -1,9 +1,7 @@
 package com.example.fyprojectnew;
 
 import static com.example.fyprojectnew.R.color.black;
-import static com.example.fyprojectnew.R.drawable.*;
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
-import static com.example.fyprojectnew.R.id.dialogbox;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,14 +35,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class LoginActivity extends AppCompatActivity {
-    final Context dialog = this;
     TextInputEditText gmail, password;
     TextView tev1, textveiw;
     String TAG;
     Timer timer;
-    ImageView cutimage,close;
-    Dialog dialogbox, helpdialog;
-    LinearLayout help;
+    ImageView dialog_dissmiss,dissmiss;
+    Dialog errordialog,helpdialog;
+    LinearLayout helpcard;
     private FirebaseAuth mauth;
 
     @SuppressLint("MissingInflatedId")
@@ -58,9 +55,9 @@ public class LoginActivity extends AppCompatActivity {
         tev1 = (TextView) findViewById(R.id.tev1);
         textveiw = (TextView) findViewById(R.id.textveiw);
         mauth = FirebaseAuth.getInstance();
-        help = (LinearLayout) findViewById(R.id.help);
+        helpcard =(LinearLayout)findViewById(R.id.helpcard);
 
-       /* Create New Account :-*/
+        /* Create New Account :-*/
         tev1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-       /* Foreget Password :-*/
+        /* Foreget Password :-*/
         textveiw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,19 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                 /*  checkcredencials();*/
                 if (gmail.getText().toString().isEmpty()) {
                     gmail.setError("*Please Complete the Fields*");
-                    if (gmail.getText().toString() != "Someone@gmail.com") {
-                        gmail.setError("*Wrong Format*");
-                    } else {
-                        gmail.getText().toString();
-                    }
                 } else if (password.getText().toString().isEmpty()) {
                     password.setError("*Please Complete the Field*");
-                    if (password.getText().toString().length() < 9) {
-                        password.setError("*Please Enter 9 Digits Password*");
-                    }
-                    else {
-                        password.getText().toString();
-                    }
                 } else {
                     /*Firebase Authentication :-*/
                     mauth.signInWithEmailAndPassword(gmail.getText().toString(), password.getText().toString())
@@ -116,25 +102,24 @@ public class LoginActivity extends AppCompatActivity {
                                         timer.schedule(new TimerTask() {
                                             @Override
                                             public void run() {
-                                                startActivity(new Intent(LoginActivity.this, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                             }
-                                        }, 3000);
+                                        }, 2000);
                                         gmail.setText("");
                                         password.setText("");
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         Log.w(TAG, "signInWithEmail:failure", task.getException());
                                         /*Error Dialog :-*/
-                                        Opendialogbox();
+                                        Openerrordialog();
                                     }
                                 }
                             });
                 }
             }
         });
-
-      /*  Help Dialog :-*/
-        help.setOnClickListener(new View.OnClickListener() {
+        /*  Help Dialog :-*/
+        helpcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Openhelpdialog();
@@ -142,33 +127,35 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-/*Error Dialog Method :-*/
-    private void Opendialogbox() {
-        close=(ImageView)dialogbox.findViewById(R.id.close);
-        dialogbox = new Dialog(LoginActivity.this);
-        dialogbox.setContentView(R.layout.custom_error_dialog);
-        dialogbox.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
-        dialogbox.show();
-        close.setOnClickListener(new View.OnClickListener() {
+    /*Error Dialog Method :-*/
+    private void Openerrordialog() {
+        errordialog = new Dialog(LoginActivity.this);
+        dissmiss =errordialog.findViewById(R.id.dissmiss);
+        errordialog.setContentView(R.layout.custom_error_dialog);
+        errordialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
+
+        dissmiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialogbox.dismiss();
+                errordialog.dismiss();
             }
         });
+        errordialog.show();
     }
 
-/*Help Dialog Method :-*/
+    /*Help Dialog Method :-*/
     private void Openhelpdialog() {
-        cutimage=(ImageView)helpdialog.findViewById(R.id.cutimage);
         helpdialog = new Dialog(LoginActivity.this);
+        dialog_dissmiss =helpdialog.findViewById(R.id.dialog_dissmiss);
         helpdialog.setContentView(R.layout.help_dialog_box);
         helpdialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
-        helpdialog.show();
-        cutimage.setOnClickListener(new View.OnClickListener() {
+
+        dialog_dissmiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 helpdialog.dismiss();
             }
         });
+        helpdialog.show();
     }
 }

@@ -13,7 +13,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/cutimage"
+        android:id="@+id/dialog_dissmiss"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_alignParentTop="true"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/layout"
-        android:layout_below="@id/cutimage"
+        android:layout_below="@id/dialog_dissmiss"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">

@@ -84,7 +84,7 @@
     <string name="download">Download</string>
     <string name="navigation_drawer_Open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>
-    <string name="error">Oops! Something went Wrong.Please try Again</string>
+    <string name="error">Oops! Something went Wrong.Please try Again.Please check the fields again.</string>
     <string name="payslip">(<u>Pay Slip</u>)</string>
     <string name="number">01</string>
     <string name="number1">02</string>

@@ -39,6 +39,8 @@ public class SignUpActivity extends AppCompatActivity {
     String TAG;
     Timer timer;
     Dialog dialogbox;
+    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String passwordpattern = "[^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,30}$]";
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
@@ -99,57 +101,40 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(username.getText().toString().isEmpty()){
-                    username.setError("Please complete the field");
-
-                    if(username.getText().toString().length()<5){
-                        username.setError("*Enter Complete Name*");
-                    }
-                    else{
-                        username.getText().toString();
-                    }
-                }else if(cnic.getText().toString().isEmpty())
+                    username.setError("*Please complete the field*");
+                }
+                else if(cnic.getText().toString().isEmpty())
                 {
-                   cnic.setError("Please complete the field");
-                    if(cnic.getText().toString().length()<13)
-                    {
-                        cnic.setError("*Wrong Formate*");
-                    }
-                    else{
-                        cnic.getText().toString();
-                    }
+                   cnic.setError("" +
+                           "*Please complete the field*");
                 }
                 else if (gmail.getText().toString().isEmpty()){
-                    gmail.setError("Please complete the field");
+                    gmail.setError("*Please complete the field*");
+                }
+                else if (gmail.getText().toString().matches(emailPattern)){
+                    Toast.makeText(SignUpActivity.this,"*Wrong Format*",Toast.LENGTH_LONG).show();
                 }
                 else if (contact.getText().toString().isEmpty()){
                     contact.setError("*Please Complete the Field*");
-                    if (contact.getText().toString().length()<12){
-                        contact.setError("*Wrong Formate*");
-                    }else
-                    {
-                        contact.getText().toString();
-                    }
+                }
+                else if (contact.getText().toString().length()<12){
+                    Toast.makeText(SignUpActivity.this,"Please Enter Correct Contact",Toast.LENGTH_LONG).show();
                 }
                 else if (city.getText().toString().isEmpty()){
                     city.setError("*Please Complete the Field*");
-                    if (city.getText().toString().length()<9){
-                        city.setError("*Wrong Formate*");
-                    }else
-                    {
-                        city.getText().toString();
-                    }
                 }
                 else if (password.getText().toString().isEmpty()){
                     password.setError("*Please Complete the Field*");
-                    if (password.getText().toString().length()<9){
-                        password.setError("*Wrong Formate*");
-                    }else
-                    {
-                        password.getText().toString();
-                    }
+                }
+                else if (password.getText().toString().matches(passwordpattern)){
+                    Toast.makeText(SignUpActivity.this,"Please Enter Password with" +
+                            "Min 1 uppercase letter," +
+                            "Min 1 lowercase letter," +
+                            "Min 1 special character," +
+                            "Min 1 number," +
+                            "Min 8 characters.",Toast.LENGTH_LONG).show();
                 }
                 else{
-
                    /* Firebase Authentication :-*/
                     mAuth.createUserWithEmailAndPassword(gmail.getText().toString(), password.getText().toString())
                             .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
@@ -167,7 +152,7 @@ public class SignUpActivity extends AppCompatActivity {
                                             public void run() {
                                                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                             }
-                                        },2000);
+                                        },3000);
 
                                         /*Data save into the Database :-*/
                                         User tempuser = new User(username.getText().toString(),cnic.getText().toString(),

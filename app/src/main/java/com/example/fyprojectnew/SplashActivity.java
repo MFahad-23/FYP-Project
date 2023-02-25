@@ -9,15 +9,18 @@ import android.util.Log;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 private FirebaseAuth mauth;
+private FirebaseDatabase mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mauth =FirebaseAuth.getInstance();
+        mDatabase=FirebaseDatabase.getInstance();
     }
 
    /* Splash Activity Running :-*/
@@ -27,7 +30,7 @@ private FirebaseAuth mauth;
                 Thread td=new Thread(){
                     public void run() {
                         try {
-                            sleep(4000);
+                            sleep(3000);
                         } catch (Exception ex) {
                             ex.printStackTrace();
                         } finally {
@@ -38,7 +41,6 @@ private FirebaseAuth mauth;
                                 Intent nextpage = new Intent(SplashActivity.this,LoginActivity.class);
                                 startActivity(nextpage);
                             }
-
                             Log.d("peak","Free");
                         }
                     }
