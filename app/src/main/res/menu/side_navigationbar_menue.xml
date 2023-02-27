@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/home"
             android:title="Home"
-            android:iconTint="@color/selfcolor_blue"
+            android:iconTint="@color/SelfBlue"
             android:iconTintMode="add"
             android:checked="true"
             android:icon="@drawable/home"/>

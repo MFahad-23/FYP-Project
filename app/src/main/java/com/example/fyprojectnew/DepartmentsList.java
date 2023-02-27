@@ -27,7 +27,7 @@ import java.util.TimerTask;
 public class DepartmentsList extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    ArrayList<DepartmentModel> designation_listview;
+    ArrayList<DepartmentModel> departlist;
     RecyclerView departrecyclerview;
     DepartListAdapter myadpter;
     LinearLayoutManager layoutManager;
@@ -42,7 +42,7 @@ public class DepartmentsList extends AppCompatActivity {
         simmereffect.startShimmer();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        designation_listview=new ArrayList<>();
+        departlist=new ArrayList<>();
 
         /*Departsmnets Data Post into the arraylist :-*/
         ValueEventListener postListener = new ValueEventListener() {
@@ -51,7 +51,7 @@ public class DepartmentsList extends AppCompatActivity {
                 // Get Post object and use the values to update the UI
                 for (DataSnapshot item:dataSnapshot.getChildren()){
                      DepartmentModel user = item.getValue(DepartmentModel.class);
-                    designation_listview.add(user);
+                    departlist.add(user);
                    }
                         initRecyclerView();
                         simmereffect.stopShimmer();
@@ -75,7 +75,7 @@ public class DepartmentsList extends AppCompatActivity {
         departrecyclerview = findViewById(R.id.departrecyclerview);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(layoutManager.VERTICAL);
-        DepartListAdapter myadpter = new DepartListAdapter(this, designation_listview);
+        DepartListAdapter myadpter = new DepartListAdapter(this, departlist);
         departrecyclerview.setLayoutManager(layoutManager);
         departrecyclerview.setAdapter(myadpter);
     }

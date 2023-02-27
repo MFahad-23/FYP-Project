@@ -109,7 +109,13 @@ public class LoginActivity extends AppCompatActivity {
                                         password.setText("");
                                     } else {
                                         // If sign in fails, display a message to the user.
-                                        Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                        timer = new Timer();
+                                        timer.schedule(new TimerTask() {
+                                            @Override
+                                            public void run() {
+                                                startActivity(new Intent(LoginActivity.this, LoginActivity.class));
+                                            }
+                                        }, 2000);
                                         /*Error Dialog :-*/
                                         Openerrordialog();
                                     }
@@ -130,9 +136,9 @@ public class LoginActivity extends AppCompatActivity {
     /*Error Dialog Method :-*/
     private void Openerrordialog() {
         errordialog = new Dialog(LoginActivity.this);
-        dissmiss =errordialog.findViewById(R.id.dissmiss);
         errordialog.setContentView(R.layout.custom_error_dialog);
         errordialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
+        dissmiss =errordialog.findViewById(R.id.dissmiss);
 
         dissmiss.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -146,9 +152,9 @@ public class LoginActivity extends AppCompatActivity {
     /*Help Dialog Method :-*/
     private void Openhelpdialog() {
         helpdialog = new Dialog(LoginActivity.this);
-        dialog_dissmiss =helpdialog.findViewById(R.id.dialog_dissmiss);
         helpdialog.setContentView(R.layout.help_dialog_box);
         helpdialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
+        dialog_dissmiss =helpdialog.findViewById(R.id.dialog_dissmiss);
 
         dialog_dissmiss.setOnClickListener(new View.OnClickListener() {
             @Override

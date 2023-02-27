@@ -38,7 +38,7 @@ private FirebaseDatabase mDatabase;
                                 Intent backpage = new Intent(SplashActivity.this,MainActivity.class);
                                 startActivity(backpage);
                             }else{
-                                Intent nextpage = new Intent(SplashActivity.this,LoginActivity.class);
+                                Intent nextpage = new Intent(SplashActivity.this,VeiwPageActivity.class);
                                 startActivity(nextpage);
                             }
                             Log.d("peak","Free");

@@ -45,8 +45,7 @@ public class EmployeeList extends AppCompatActivity {
     TextInputEditText employeename,employeedesignation;
     RecyclerView employeerecyclerview;
     LinearLayoutManager layoutmanager;
-    ArrayList<EmployeeModel> arrayList;
-    List<EmployeeModel> employee_items_view;
+    ArrayList<EmployeeModel> employee_items_view;
     EmployeListAdpter adapter;
 
     @SuppressLint({"MissingInflatedId", "ResourceAsColor"})
@@ -59,7 +58,7 @@ public class EmployeeList extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         addmore =(Button)findViewById(R.id.addmore);
-        arrayList = new ArrayList<>();
+        employee_items_view = new ArrayList<>();
 
         /*Add New Employee Dialog Button :-*/
         addmore.setOnClickListener(new View.OnClickListener() {
@@ -75,10 +74,10 @@ public class EmployeeList extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Get Post object and use the values to update the UI
-                arrayList.clear();
+                employee_items_view.clear();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     EmployeeModel employee = item.getValue(EmployeeModel.class);
-                    arrayList.add(employee);
+                    employee_items_view.add(employee);
                 }
                 initRecyclerView();
                 shimmereffect.stopShimmer();
@@ -158,7 +157,7 @@ public class EmployeeList extends AppCompatActivity {
         employeerecyclerview = findViewById(R.id.employeerecyclerview);
         layoutmanager = new LinearLayoutManager(this);
         layoutmanager.setOrientation(RecyclerView.VERTICAL);
-        EmployeListAdpter adapter = new EmployeListAdpter(this, arrayList);
+        EmployeListAdpter adapter = new EmployeListAdpter(this, employee_items_view);
         employeerecyclerview.setLayoutManager(layoutmanager);
         employeerecyclerview.setAdapter(adapter);
 

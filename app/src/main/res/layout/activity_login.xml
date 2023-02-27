@@ -9,8 +9,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background"
+        android:src="@drawable/backgroundwave"
         android:scaleType="fitXY"/>
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -20,17 +21,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottie1"
-            android:layout_width="180dp"
-            android:layout_height="150dp"
-            android:layout_alignParentTop="true"
-            android:scaleType="centerInside"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="false"
-            app:lottie_rawRes="@raw/welcome" />
+        app:layout_constraintTop_toTopOf="parent">
+
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie2"
@@ -41,7 +33,7 @@
             android:layout_gravity="center"
             android:scaleType="fitCenter"
             app:lottie_autoPlay="true"
-            app:lottie_rawRes="@raw/loginicon"/>
+            app:lottie_rawRes="@raw/userlottie" />
 
 
         <LinearLayout
@@ -65,6 +57,7 @@
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_username_white"
                     android:drawablePadding="20dp"
+                    android:fontFamily="@font/adamina"
                     android:hint="G-Mail"
                     android:imeOptions="actionNext"
                     android:inputType="text"
@@ -74,7 +67,6 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="12sp"
-                    android:fontFamily="@font/adamina"
                     tools:ignore="TouchTargetSizeCheck">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -93,6 +85,7 @@
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_password_white"
                     android:drawablePadding="20dp"
+                    android:fontFamily="@font/adamina"
                     android:hint="@string/password"
                     android:imeOptions="actionNext"
                     android:inputType="textWebPassword"
@@ -102,7 +95,6 @@
                     android:textColor="@color/black"
                     android:textColorHint="@color/black"
                     android:textSize="12sp"
-                    android:fontFamily="@font/adamina"
                     tools:ignore="TouchTargetSizeCheck">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -111,12 +103,12 @@
 
             <LinearLayout
                 android:id="@+id/helpcard"
-                android:clickable="true"
-                android:elevation="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:elevation="20dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -128,8 +120,8 @@
                     android:text="@string/help"
                     android:textAlignment="center"
                     android:textAllCaps="false"
-                    android:textFontWeight="600"
                     android:textColor="@color/black"
+                    android:textFontWeight="600"
                     android:textSize="10sp" />
 
                 <ImageView
@@ -153,8 +145,8 @@
                 android:text="@string/forget"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="10sp"
-                android:textFontWeight="600"/>
+                android:textFontWeight="600"
+                android:textSize="10sp" />
 
             <Button
                 android:id="@+id/login"
@@ -162,34 +154,44 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/login_button"
+                android:fontFamily="@font/adamina"
                 android:text="@string/login"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textFontWeight="600"
-                android:fontFamily="@font/adamina"
                 android:textColor="@color/white"
+                android:textFontWeight="600"
                 android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/tev5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/adamina"
+                android:text="@string/noaccount"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tev1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/craeteaccount"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="#009FFF"
+                android:textFontWeight="600"
+                android:textSize="16sp" />
 
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tev1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/craeteaccount"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="14sp"
-        android:textFontWeight="600"
-        android:fontFamily="@font/adamina"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.960" />
 </androidx.constraintlayout.widget.ConstraintLayout>

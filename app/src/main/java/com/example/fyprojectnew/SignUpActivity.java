@@ -150,6 +150,7 @@ public class SignUpActivity extends AppCompatActivity {
                                         timer.schedule(new TimerTask() {
                                             @Override
                                             public void run() {
+                                                mAuth.getInstance().signOut();
                                                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                                             }
                                         },3000);
@@ -173,7 +174,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 .addOnFailureListener(new OnFailureListener() {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
-                                                        Log.w(TAG, "Something went wrong.Please try again!", task.getException());
+                                                        Log.w(TAG, "Something went wrong.Please try Agian!", task.getException());
                                                         Toast.makeText(SignUpActivity.this, task.getException().getMessage(),
                                                                 Toast.LENGTH_SHORT).show();
                                                     }
@@ -181,6 +182,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                                     } else {
                                         // If sign in fails, display a message to the user.
+                                        Log.w(TAG, "Something went wrong.Please LogIn with correct User!", task.getException());
                                         Toast.makeText(SignUpActivity.this, task.getException().getMessage(),
                                                 Toast.LENGTH_SHORT).show();
                                     }

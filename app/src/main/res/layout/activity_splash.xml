@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SplashActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/background"
-        android:scaleType="fitXY"
-        android:contentDescription="TODO" />
+ <ImageView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:scaleType="fitXY"
+     android:src="@drawable/backgroundwave"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,8 +29,8 @@
             android:layout_height="300dp"
             android:layout_centerInParent="true"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/payrollblue" />
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/splashpage" />
 
         <TextView
             android:id="@+id/tev"

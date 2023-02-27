@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/background"/>
+        android:src="@drawable/backgroundwave"/>
 
     <LinearLayout
         android:id="@+id/meunebar"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:orientation="horizontal"
-        android:theme="?attr/actionBarTheme"
+        android:background="@drawable/emplty_ripple_effect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.053"
@@ -66,7 +66,7 @@
             app:layout_constraintHorizontal_bias="0.170"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/meunebar"
-            app:layout_constraintVertical_bias="0.130">
+            app:layout_constraintVertical_bias="0.170">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -108,7 +108,7 @@
             app:layout_constraintHorizontal_bias="0.481"
             app:layout_constraintStart_toEndOf="@+id/departcard"
             app:layout_constraintTop_toBottomOf="@+id/meunebar"
-            app:layout_constraintVertical_bias="0.13">
+            app:layout_constraintVertical_bias="0.17">
 
             <RelativeLayout
                 android:layout_width="match_parent"

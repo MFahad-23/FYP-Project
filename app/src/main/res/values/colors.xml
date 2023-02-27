@@ -17,4 +17,5 @@
     <color name="selfwhite">#E6FFFFFF</color>
     <color name="self_black">#A8000000</color>
     <color name="grey">#B4B3B6</color>
- </resources>
+    <color name="SelfBlue">#34AEFF</color>
+</resources>
