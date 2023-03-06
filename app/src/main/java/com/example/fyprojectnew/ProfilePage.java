@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -169,6 +170,7 @@ public class ProfilePage extends AppCompatActivity {
                 mail.setText(user.gmail);
                 idendity.setText(user.cnic);
                 phone.setText(user.contact);
+                Glide.with(ProfilePage.this).load(user.profile_pic).into(circleimage);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

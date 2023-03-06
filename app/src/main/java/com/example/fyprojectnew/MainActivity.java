@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         TextView user_name_header= navigation_view.getHeaderView(0).findViewById(R.id.username);
         TextView user_mail_header= navigation_view.getHeaderView(0).findViewById(R.id.usermail);
+        ImageView user_image_header=navigation_view.getHeaderView(0).findViewById(R.id.userimage);
 
         /*Data push to save into the Database :-*/
         ValueEventListener postListener = new ValueEventListener() {
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 user = dataSnapshot.getValue(User.class);
                 user_name_header.setText(user.username);
                 user_mail_header.setText(user.gmail);
+                Glide.with(MainActivity.this).load(user.profile_pic).into(user_image_header);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

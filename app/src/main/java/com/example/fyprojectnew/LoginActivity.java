@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity {
     private void Openerrordialog() {
         errordialog = new Dialog(LoginActivity.this);
         errordialog.setContentView(R.layout.custom_error_dialog);
-        errordialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
+        errordialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
         dissmiss =errordialog.findViewById(R.id.dissmiss);
 
         dissmiss.setOnClickListener(new View.OnClickListener() {
@@ -153,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
     private void Openhelpdialog() {
         helpdialog = new Dialog(LoginActivity.this);
         helpdialog.setContentView(R.layout.help_dialog_box);
-        helpdialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
+        helpdialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
         dialog_dissmiss =helpdialog.findViewById(R.id.dialog_dissmiss);
 
         dialog_dissmiss.setOnClickListener(new View.OnClickListener() {

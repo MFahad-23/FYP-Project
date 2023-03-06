@@ -127,6 +127,8 @@
     <string name="groupinsurance">Group Insurance</string>
     <string name="tradetax">Trade Tax</string>
     <string name="treasurer"><u>Additional Treasurer</u></string>
+    <string name="filedel">Are You want to delete this User ?</string>
+    <string name="objection">Please do not write below this line.</string>
     <string name="uniname">Muhammad Nawaz Sharif University of Engineering and Technology Multan.
     </string>
     <string name="helpdialog">Click create new account and enter your data in the required fields then press the Submit Button for submit your data into Database and make sure that you remember Your Email and Password for Login.Thank You !</string>

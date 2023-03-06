@@ -8,8 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +58,40 @@ holder.setdata(image,name);
         }
 
         public void setdata(String image, String name) {
-           // departsimage.setImageResource(image);
             departname.setText(name);
-
+            if (name.equals("Administration"))
+            {
+                Glide.with(context).load(image).into(departsimage);
+//                departsimage.setImageResource(R.drawable.admin_staff);
+            }else if(name.equals("Mechanical Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Mech Technology Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Physics")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Maths Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("CS Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Buissness Adminitration Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Miscallaneous")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Electrical Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Elect Technology Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else {
+            }
             departmentlist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -64,6 +99,7 @@ holder.setdata(image,name);
                     {
                         context.startActivity(new Intent(context,MiscallennousStaff.class));
                     }else if (name.equals("Administration")){
+
                         context.startActivity(new Intent(context,Administration_staff.class));
                     }
                     else{

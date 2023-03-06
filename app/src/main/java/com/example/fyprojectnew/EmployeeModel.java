@@ -5,7 +5,7 @@ public class EmployeeModel {
     private String delimage;
     private String employeename;
     private String employeeid;
-
+    public String key;
     public EmployeeModel() {
     }
 

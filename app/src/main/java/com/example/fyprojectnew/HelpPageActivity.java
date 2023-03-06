@@ -26,7 +26,8 @@ TextView morepage;
         uploddata.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
-                    gotourl("https://support.zinghr.com//");
+
+                gotourl("https://support.zinghr.com//");
                 }
 
                 private void gotourl(String s) {

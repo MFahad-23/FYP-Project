@@ -77,6 +77,7 @@ public class EmployeeList extends AppCompatActivity {
                 employee_items_view.clear();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     EmployeeModel employee = item.getValue(EmployeeModel.class);
+                    employee.key=item.getKey().toString();
                     employee_items_view.add(employee);
                 }
                 initRecyclerView();
