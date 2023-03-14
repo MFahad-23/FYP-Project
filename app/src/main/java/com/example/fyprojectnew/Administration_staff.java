@@ -5,18 +5,26 @@ import static android.content.ContentValues.TAG;
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
@@ -31,6 +39,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Administration_staff extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -39,9 +48,10 @@ public class Administration_staff extends AppCompatActivity {
     RecyclerView adminstaff;
     RelativeLayout adminstafflist;
     TextInputEditText employeename,employeedesignation;
-    Button addmore,newlogin;
+    Button newlogin;
     Dialog dialog;
-    ImageView cut;
+    ImageView cut,addmore;
+//    EditText textwatcher;
     ArrayList<AdministrationModel>administration_listview;
     LinearLayoutManager layoutManager;
     AdministrtaionAdapter myadpter;
@@ -49,7 +59,8 @@ public class Administration_staff extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administration_staff);
-        addmore=(Button) findViewById(R.id.addmore);
+        addmore=(ImageView) findViewById(R.id.addmore);
+//        textwatcher=(EditText) findViewById(R.id.textwatcher);
         shimmereffect=(ShimmerFrameLayout) findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
         adminstaff=(RecyclerView) findViewById(R.id.adminstaff);
@@ -57,13 +68,28 @@ public class Administration_staff extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         administration_listview=new ArrayList<>();
 
+//        textwatcher.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//            myadpter.getFilter().filter(charSequence);
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//            }
+//        });
+
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDialog();
             }
         });
-
         /*Departsmnets Data Post into the arraylist :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
@@ -72,6 +98,7 @@ public class Administration_staff extends AppCompatActivity {
                 administration_listview.clear();
                 for (DataSnapshot item:dataSnapshot.getChildren()){
                     AdministrationModel adminstrationstaff = item.getValue(AdministrationModel.class);
+                    adminstrationstaff.key=item.getKey().toString();
                     administration_listview.add(adminstrationstaff);
                 }
                 initRecyclerView();
@@ -93,7 +120,7 @@ public class Administration_staff extends AppCompatActivity {
         dialog =new Dialog(Administration_staff.this);
         dialog.setContentView(R.layout.employees_creating_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
-        employeename= (TextInputEditText) dialog.findViewById(R.id.employeename);
+        employeename=(TextInputEditText)dialog.findViewById(R.id.employeename);
         employeedesignation=(TextInputEditText)dialog.findViewById(R.id.employeedesignation);
         cut=(ImageView) dialog.findViewById(R.id.cut);
         newlogin=(Button) dialog.findViewById(R.id.newlogin);
@@ -148,8 +175,37 @@ public class Administration_staff extends AppCompatActivity {
         adminstaff = findViewById(R.id.adminstaff);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(layoutManager.VERTICAL);
-        AdministrtaionAdapter myadapter=new AdministrtaionAdapter(this,administration_listview);
-        adminstaff.setAdapter(myadapter);
+        myadpter=new AdministrtaionAdapter(this,administration_listview);
+        adminstaff.setAdapter(myadpter);
         adminstaff.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.serachview_option,menu);
+        MenuItem menueitems=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView) menueitems.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            searchView.setBackgroundColor(getColor(R.color.lightblue));
+            int paddingRight = searchView.getPaddingRight();
+        }
+        searchView.setQueryHint("Search Here!");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                myadpter.getFilter().filter(s);
+
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
     }
 }

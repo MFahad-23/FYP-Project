@@ -1,26 +1,36 @@
 package com.example.fyprojectnew;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAdapter.ViewHolder> {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAdapter.ViewHolder> implements Filterable {
 
     List<AdministrationModel> adminstafflist;
+    List<AdministrationModel>adminstafflistFull;
     Context context;
     public AdministrtaionAdapter(Context context,List<AdministrationModel> adminstafflist) {
         this.context = context;
-        this.adminstafflist = adminstafflist;
+        this.adminstafflistFull = adminstafflist;
+        this.adminstafflist=new ArrayList<>(adminstafflistFull);
     }
     @NonNull
     @Override
@@ -34,28 +44,65 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
         String name= adminstafflist.get(position).getEmployeename();
         String designation= adminstafflist.get(position).getEmployeedesignation();
         String image= adminstafflist.get(position).getEmployeeimage();
-        holder.setdata(name,designation,image);
+        String key=adminstafflist.get(position).key;
+        holder.setdata(name,designation,image,key);
     }
 
     @Override
     public int getItemCount() {
         return adminstafflist.size();
     }
+    //SearchView :-
+    @Override
+    public Filter getFilter() {
+        return Employeefilter;
+    }
+
+    private final Filter Employeefilter =new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<AdministrationModel> adminstafflist = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0) {
+                adminstafflist.addAll(adminstafflistFull);
+            } else {
+                String FilterPatterns = charSequence.toString().toLowerCase().trim();
+                for (AdministrationModel employee : adminstafflistFull) {
+                    if (employee.getEmployeename().toLowerCase().contains(FilterPatterns))
+                        adminstafflist.add(employee);
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = adminstafflist;
+            results.count = adminstafflist.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            adminstafflist.clear();
+            adminstafflist.addAll((ArrayList)filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView employeeimage;
         private TextView employeename;
         private TextView employeedesignation;
         private RelativeLayout employeelist;
+        private ImageView deleteimage;
+        private Dialog deldialog;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             employeeimage=itemView.findViewById(R.id.employeeimage);
             employeename=itemView.findViewById(R.id.employeename);
+            deleteimage=itemView.findViewById(R.id.deleteimage);
             employeedesignation=itemView.findViewById(R.id.employeedesignation);
             employeelist=itemView.findViewById(R.id.employeelist);
         }
 
-        public void setdata(String name, String designation, String image) {
+        public void setdata(String name, String designation, String image,String key) {
             employeename.setText(name);
             employeedesignation.setText(designation);
 
@@ -65,6 +112,35 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
                     context.startActivity(new Intent(context,PayrollSlipTemp.class));
                 }
             });
+
+            deleteimage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                  deldialog=new Dialog(context);
+                    deldialog.setContentView(R.layout.file_delete_dialog);
+                    deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
+                    deldialog.show();
+                    TextView cancel,ok;
+                    cancel=deldialog.findViewById(R.id.cancel);
+                    ok=deldialog.findViewById(R.id.ok);
+
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            deldialog.dismiss();
+                        }
+                    });
+
+                    ok.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            FirebaseDatabase.getInstance().getReference().child("Administration").child(key).removeValue();
+                            deldialog.dismiss();
+                        }
+                    });
+                }
+            });
         }
     }
+
 }

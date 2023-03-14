@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="@string/download"
+        android:id="@+id/download"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/download_white"/>
+
+    <item android:title="Share"
+        android:id="@+id/share"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/share_white"/>
+
+    <item android:title="Generate Cheque"
+        android:id="@+id/option"
+        android:iconTintMode="add"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/option_white"/>
+
+</menu>

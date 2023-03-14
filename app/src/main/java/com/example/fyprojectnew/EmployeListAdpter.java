@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,16 +18,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.ViewHolder> {
+public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.ViewHolder> implements Filterable {
     //Data Delete From Database :-
     private List<EmployeeModel> employee_items_view;
+    List<EmployeeModel>employee_items_viewFull;
     Context context;
 
     public EmployeListAdpter(Context ctx, List<EmployeeModel> employee_items_view){
         this.context=ctx;
-        this.employee_items_view=employee_items_view;
+        this.employee_items_viewFull=employee_items_view;
+        this.employee_items_view=new ArrayList<>(employee_items_viewFull);
     }
 
     @NonNull
@@ -49,6 +54,38 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
     public int getItemCount() {
         return employee_items_view.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return EmployeeFilter;
+    }
+
+    private final Filter EmployeeFilter=new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<EmployeeModel> employee_items_view = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0) {
+                employee_items_view.addAll(employee_items_viewFull);
+            } else {
+                String FilterPatterns = charSequence.toString().toLowerCase().trim();
+                for (EmployeeModel employee : employee_items_viewFull) {
+                    if (employee.getEmployeename().toLowerCase().contains(FilterPatterns))
+                        employee_items_view.add(employee);
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = employee_items_view;
+            results.count = employee_items_view.size();
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            employee_items_view.clear();
+            employee_items_view.addAll((ArrayList)filterResults.values);
+            notifyDataSetChanged();
+        }
+    };
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView employeeimage;

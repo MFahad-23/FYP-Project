@@ -1,8 +1,8 @@
 package com.example.fyprojectnew;
 
 public class DepartmentModel {
-    String departmentimage="";
-    String departname="";
+   public String departmentimage;
+    private String departname;
 
     public DepartmentModel() {
     }

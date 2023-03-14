@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:id="@+id/employeelist"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/recyclerlist_background">
 
         <androidx.cardview.widget.CardView
@@ -28,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerInside"
-                android:src="@drawable/employees" />
+                android:src="@drawable/approved_employees" />
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -46,7 +45,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/employeedesignation"
+            android:id="@+id/employee_designation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/employeename"
@@ -72,12 +71,4 @@
             android:src="@drawable/delete_image"/>
 
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/selfcolor_blue"
-        android:layout_marginLeft="11dp"
-        android:layout_marginRight="11dp"
-        android:layout_below="@id/employeelist"/>
-
 </RelativeLayout>

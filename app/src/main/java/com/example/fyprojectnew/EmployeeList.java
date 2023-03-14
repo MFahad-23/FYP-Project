@@ -13,11 +13,14 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,8 +42,8 @@ public class EmployeeList extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     Dialog fielddialog;
-    ImageView cut;
-    Button addmore,newlogin;
+    ImageView cut,addmore;
+    Button newlogin;
     ShimmerFrameLayout shimmereffect;
     TextInputEditText employeename,employeedesignation;
     RecyclerView employeerecyclerview;
@@ -57,7 +60,7 @@ public class EmployeeList extends AppCompatActivity {
         shimmereffect.startShimmer();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        addmore =(Button)findViewById(R.id.addmore);
+        addmore =(ImageView) findViewById(R.id.addmore);
         employee_items_view = new ArrayList<>();
 
         /*Add New Employee Dialog Button :-*/
@@ -158,9 +161,32 @@ public class EmployeeList extends AppCompatActivity {
         employeerecyclerview = findViewById(R.id.employeerecyclerview);
         layoutmanager = new LinearLayoutManager(this);
         layoutmanager.setOrientation(RecyclerView.VERTICAL);
-        EmployeListAdpter adapter = new EmployeListAdpter(this, employee_items_view);
+        adapter = new EmployeListAdpter(this, employee_items_view);
         employeerecyclerview.setLayoutManager(layoutmanager);
         employeerecyclerview.setAdapter(adapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.serachview_option,menu);
+        MenuItem menueitems=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView) menueitems.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setQueryHint("Search Here!");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 }

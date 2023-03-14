@@ -1,53 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    tools:context=".PayrollSlipTemp"
     android:layout_height="match_parent"
-    tools:context=".PayrollSlipTemp">
+    android:layout_width="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/action_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:menu="@menu/actions_toolbar"
+        app:title="Download Files"
+        android:layout_margin="1dp"
+        app:titleTextColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
 
     <LinearLayout
         android:id="@+id/uniname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.030"
+        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005">
+        app:layout_constraintTop_toBottomOf="@+id/action_toolbar"
+        app:layout_constraintVertical_bias="0.020">
+
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:scaleType="fitStart"
-            android:src="@drawable/unilogo"/>
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:src="@drawable/unilogo"/>
 
         <View
             android:id="@+id/view3"
             android:layout_width="2dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="2dp"
             android:background="@color/black"/>
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:fontFamily="@font/adamina"
-            android:layout_marginTop="10dp"
             android:text="@string/uniname"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/black"
-            android:textFontWeight="600"
-            android:textSize="10sp"/>
+            android:textFontWeight="500"
+            android:textSize="14sp"/>
+
 
     </LinearLayout>
 
@@ -107,6 +131,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
+                android:text="No.s"
+                android:textAlignment="center"
                 android:background="@drawable/tablelayout_border"/>
 
             <TextView
@@ -1386,6 +1412,50 @@
                 android:textSize="14sp" />
         </TableRow>
 
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/tablelayout_border">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:fontFamily="@font/adamina"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/tablelayout_border"
+                android:fontFamily="@font/adamina"
+                android:paddingLeft="3dp"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:fontFamily="@font/adamina"
+                android:text=""
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="14sp" />
+        </TableRow>
+
+
         <TableRow
             android:id="@+id/netpay"
             android:layout_width="match_parent"
@@ -1436,6 +1506,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/adamina"
         android:paddingBottom="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/treasurer"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -1448,4 +1520,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
         app:layout_constraintVertical_bias="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>

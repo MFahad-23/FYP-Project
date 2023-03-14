@@ -69,7 +69,13 @@ holder.setdata(image,name);
             else if(name.equals("Mech Technology Department")) {
                 Glide.with(context).load(image).into(departsimage);
             }
-            else if(name.equals("Physics")) {
+            else if(name.equals("Physics Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if (name.equals("Civil Engineering")){
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if (name.equals("Chemistry Department")){
                 Glide.with(context).load(image).into(departsimage);
             }
             else if(name.equals("Maths Department")) {
@@ -78,7 +84,10 @@ holder.setdata(image,name);
             else if(name.equals("CS Department")) {
                 Glide.with(context).load(image).into(departsimage);
             }
-            else if(name.equals("Buissness Adminitration Department")) {
+            else if(name.equals("IT Department")) {
+                Glide.with(context).load(image).into(departsimage);
+            }
+            else if(name.equals("Buissness Administration Department")) {
                 Glide.with(context).load(image).into(departsimage);
             }
             else if(name.equals("Miscallaneous")) {

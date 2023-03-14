@@ -4,6 +4,16 @@ public class AdministrationModel {
     private String employeeimage;
     private String employeename;
     private String employeedesignation;
+    public String key;
+    private String deleteimage;
+
+    public AdministrationModel(String deleteimage) {
+        this.deleteimage = deleteimage;
+    }
+
+    public String getDeleteimage() {
+        return deleteimage;
+    }
 
     public String getEmployeeimage() {
         return employeeimage;
@@ -20,9 +30,10 @@ public class AdministrationModel {
     public AdministrationModel() {
     }
 
-    public AdministrationModel(String employeeimage, String employeename, String employeedesignation) {
+    public AdministrationModel(String employeeimage, String employeename, String employeedesignation,String key) {
         this.employeeimage = employeeimage;
         this.employeename = employeename;
         this.employeedesignation = "";
+        this.key=key;
     }
 }

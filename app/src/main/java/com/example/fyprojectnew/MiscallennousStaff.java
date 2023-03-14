@@ -11,12 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,16 +45,16 @@ public class MiscallennousStaff extends AppCompatActivity {
     RecyclerView miscallenouslist;
     MiscallenousListAdapter myadpter;
     TextInputEditText employeename,employeedesignation;
-    Button addmore,newlogin;
+    Button newlogin;
     Dialog dialog;
-    ImageView cut;
+    ImageView cut,addmore;
     ArrayList<MiscallenousModel>miscellenouslist;
     LinearLayoutManager layoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_miscallennous_staff);
-        addmore=(Button)findViewById(R.id.addmore);
+        addmore=(ImageView) findViewById(R.id.addmore);
         shimmereffect=(ShimmerFrameLayout)findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
 
@@ -74,6 +78,7 @@ public class MiscallennousStaff extends AppCompatActivity {
                 miscellenouslist.clear();
                 for (DataSnapshot item:dataSnapshot.getChildren()){
                     MiscallenousModel miscallenousvalues = item.getValue(MiscallenousModel.class);
+                    miscallenousvalues.Key=item.getKey().toString();
                     miscellenouslist.add(miscallenousvalues);
                 }
                 initRecyclerView();
@@ -150,8 +155,33 @@ public class MiscallennousStaff extends AppCompatActivity {
         miscallenouslist = findViewById(R.id.miscallenouslist);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(layoutManager.VERTICAL);
-        MiscallenousListAdapter myadpter = new MiscallenousListAdapter(this,miscellenouslist);
+        myadpter = new MiscallenousListAdapter(this,miscellenouslist);
         miscallenouslist.setLayoutManager(layoutManager);
         miscallenouslist.setAdapter(myadpter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.serachview_option,menu);
+        MenuItem menueitems=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView) menueitems.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setQueryHint("Search Here!");
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                myadpter.getFilter().filter(s);
+
+                return false;
+            }
+        });
+
+        return super.onCreateOptionsMenu(menu);
     }
 }
