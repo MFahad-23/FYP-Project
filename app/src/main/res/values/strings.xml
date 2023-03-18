@@ -1,24 +1,36 @@
 <resources>
     <string name="app_name">Final Year Project</string>
-    <string name="Caluculate">Calculations</string>
-    <string name="slips">Pay Slips</string>
-    <string name="approvals">Approvals</string>
-    <string name="help">Help</string>
-    <string name="setting">Setting</string>
-    <string name="departs">Departments</string>
+
+<!--    Splash Page :- -->
     <string name="payroll">Payroll System App</string>
-    <string name="login">LogIn</string>
-    <string name="signup">SignUp</string>
+
+<!--    Veiw Page :- -->
     <string name="payrollsytem">Payroll System</string>
-    <string name="noaccount">I have no account.</string>
     <string name="message">
         Welcome in Payroll System of mns_uet.
         It helps to manage our payrolls easy.</string>
+    <string name="login">LogIn</string>
+    <string name="signup">SignUp</string>
+
+<!--    Login Page :- -->
+    <string name="welcometext">Welcome For LogIn!</string>
+    <string name="help">Help</string>
+    <string name="forget">Forget Password?</string>
+    <string name="noaccount">I have no account.</string>
+    <string name="craeteaccount"><u>Create New Account ?</u></string>
+
+
+
+
+
+    <string name="approvals">Approvals</string>
+    <string name="Caluculate">Calculations</string>
+    <string name="slips">Pay Slips</string>
+    <string name="setting">Setting</string>
+    <string name="departs">Departments</string>
     <string name="instruction">Instructions</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="forget">Forget Password?</string>
-    <string name="craeteaccount"><u>Create New Account ?</u></string>
     <string name="submit">Submit</string>
     <string name="back">Back</string>
     <string name="cnic">CNIC</string>
@@ -171,4 +183,5 @@ Conduct Market Research.
 Create Job Grades.
 Create a Salary Range Based on Research.
     </string>
+
 </resources>

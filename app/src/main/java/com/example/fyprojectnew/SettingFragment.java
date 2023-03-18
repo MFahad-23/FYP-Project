@@ -11,9 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.TextView;
 
 public class SettingFragment extends Fragment {
-    CardView card1;
+    CardView calculate_payrolls,approvals_calculation;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -23,14 +24,21 @@ public class SettingFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        card1 = view.findViewById(R.id.card1);
+        calculate_payrolls=view.findViewById(R.id.calculate_payrolls);
+        approvals_calculation=view.findViewById(R.id.approvals_calculation);
 
         /*Payroll Setting Page :-*/
-        card1.setOnClickListener(new View.OnClickListener() {
+        calculate_payrolls.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent next=new Intent(getActivity(),PayrollSettingsActivity.class);
-                startActivity(next);
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),CalculationPageActivity.class));
+            }
+        });
+
+        approvals_calculation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(),ApprovalsGenerate.class));
             }
         });
     }

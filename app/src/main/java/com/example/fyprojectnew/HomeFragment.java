@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
         payrollscard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent next = new Intent(getActivity(), PayrollsPageActivity.class);
+                Intent next = new Intent(getActivity(), ApprovedFiles.class);
                 startActivity(next);
             }
         });

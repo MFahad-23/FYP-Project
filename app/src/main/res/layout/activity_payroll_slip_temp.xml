@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".PayrollSlipTemp"
+    android:id="@+id/sliplayout"
+    android:background="@color/white"
     android:layout_height="match_parent"
     android:layout_width="wrap_content">
     <LinearLayout
@@ -13,24 +15,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/action_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:menu="@menu/actions_toolbar"
-        app:title="Download Files"
-        android:layout_margin="1dp"
-        app:titleTextColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/uniname"
@@ -41,9 +26,8 @@
         android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/action_toolbar"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.020">
 
         <ImageView
@@ -59,7 +43,7 @@
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="2dp"
-            android:background="@color/black"/>
+            android:background="@color/uniname"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,10 +52,9 @@
             android:text="@string/uniname"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/uniname"
             android:textFontWeight="500"
             android:textSize="14sp"/>
-
 
     </LinearLayout>
 
@@ -1506,7 +1489,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/adamina"
         android:paddingBottom="5dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="30dp"
         android:text="@string/treasurer"
         android:textAlignment="center"

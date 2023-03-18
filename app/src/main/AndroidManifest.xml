@@ -11,8 +11,20 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/app_icon"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FYProjectNew"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".ApprovalsGenerate"
+            android:exported="true">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".ApprovedFiles"
             android:exported="false">
@@ -22,6 +34,7 @@
         </activity>
         <activity
             android:name=".CheckGenerate"
+            android:theme="@style/Theme.AppCompat.Light"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -37,14 +50,15 @@
         </activity>
         <activity
             android:name=".MiscallennousStaff"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/Theme.AppCompat.Light"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".PayrollSlipTemp"
+            android:theme="@style/Theme.AppCompat.Light"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -149,8 +163,8 @@
         </activity>
         <activity
             android:name=".EmployeeList"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/Theme.AppCompat.Light"
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

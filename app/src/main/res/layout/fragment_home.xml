@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/backgroundwave" />
+        android:src="@drawable/setbaxckground" />
 
     <LinearLayout
         android:id="@+id/meunebar"
@@ -126,18 +126,18 @@
                     android:scaleType="centerInside"
                     android:src="@drawable/approval" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/image2"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="@font/adamina"
-                    android:text="Management"
-                    android:textFontWeight="600"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/image2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/adamina"
+                        android:text="Approve Files"
+                        android:textFontWeight="600"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -165,7 +165,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/forms" />
+                android:src="@drawable/application" />
 
             <TextView
                 android:layout_width="wrap_content"

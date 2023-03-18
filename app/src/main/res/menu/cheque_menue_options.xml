@@ -12,11 +12,4 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/share"/>
 
-    <item android:title="Generate Cheque"
-        android:id="@+id/option"
-        android:iconTintMode="add"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/menue_chk"
-        />
-
 </menu>
