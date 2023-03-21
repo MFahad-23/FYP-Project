@@ -19,10 +19,38 @@
     <string name="noaccount">I have no account.</string>
     <string name="craeteaccount"><u>Create New Account ?</u></string>
 
+<!--    Calculation Page :- -->
+    <string name="salaries">Salary</string>
+    <string name="selectfy">Select Date</string>
+    <string name="pay_period">Pay Period</string>
+    <string name="basicpay">Basic Pay</string>
+    <string name="tax">Income Tax</string>
+    <string name="allowance">Allownces</string>
+    <string name="hra">Senior Post</string>
+    <string name="others">House Rent</string>
+    <string name="deduction">Deductions</string>
+    <string name="pf">PF</string>
+    <string name="esi">ESI</string>
+    <string name="date">Month/Year</string>
+    <string name="netpay">Net Pay</string>
+    <string name="calculate_payroll">Calculate</string>
+    <string name="trade">Trade Tax</string>
+    <string name="conveyance_allowance">Conveyance</string>
+    <string name="qualification_allawance">Qualification</string>
+    <string name="medical_allawance">Medical Allowance</string>
+    <string name="adhocreliefa">Adhoc Relief-2016</string>
+    <string name="adhocreliefb">Adhoc Relief-2017</string>
+    <string name="adhocreliefc">Adhoc Relief-2018</string>
+    <string name="adhocreliefd">Adhoc Relief-2019</string>
+    <string name="adhocreliefe">Adhoc Relief-2021</string>
+    <string name="social_security">Social Security Benefit(30%)</string>
+    <string name="price">00.000</string>
 
 
 
 
+
+    <string name="payperiod">Pay Period</string>
     <string name="approvals">Approvals</string>
     <string name="Caluculate">Calculations</string>
     <string name="slips">Pay Slips</string>
@@ -43,7 +71,6 @@
     <string name="decleration_setting">Decleration Settings</string>
     <string name="payout_setting">Payout Settings</string>
     <string name="frequency">Pay Frequency</string>
-    <string name="pay_period">Pay Period</string>
     <string name="from">From :</string>
     <string name="to">To :</string>
     <string name="pay_calculate">Pay Calculation</string>
@@ -71,29 +98,14 @@
     <string name="aboutdata">About Data</string>
     <string name="updates">Software &amp; technical updates</string>
     <string name="Searchstaff">Search Employees</string>
-    <string name="salaries">Salary</string>
     <string name="depratments">Departments</string>
-    <string name="selectfy">Select FY</string>
     <string name="year">2020-21</string>
-    <string name="date">00/00/00</string>
     <string name="more"><u>More..</u></string>
-    <string name="payperiod">Pay Period</string>
-    <string name="basicpay">Basic Pay</string>
-    <string name="tax">Income Tax</string>
-    <string name="price">00.000</string>
-    <string name="allowance">Allownces</string>
-    <string name="hra">HRA</string>
-    <string name="others">Others</string>
-    <string name="deduction">Deductions</string>
-    <string name="pf">PF</string>
-    <string name="esi">ESI</string>
-    <string name="netpay">Net Pay</string>
     <string name="amount">Amount</string>
     <string name="salarystructure">Salary Structure</string>
     <string name="declaration">Declarations</string>
     <string name="payout">Payouts</string>
     <string name="calculate">Calculate Payrolls</string>
-    <string name="calculate_payroll">Calculate</string>
     <string name="download">Download</string>
     <string name="navigation_drawer_Open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close Navigation Drawer</string>

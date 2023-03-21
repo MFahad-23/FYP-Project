@@ -14,4 +14,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="date_dialog_therme">
+        <item
+             name="android:theme">@color/SelfBlue
+        </item>
+    </style>
+
 </resources>

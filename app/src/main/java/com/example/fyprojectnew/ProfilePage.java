@@ -60,8 +60,6 @@ public class ProfilePage extends AppCompatActivity {
     CircleImageView circleimage;
     FloatingActionButton imagecapture;
     User user;
-    Dialog editprofile;
-    Button updateprofile;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,14 +75,6 @@ public class ProfilePage extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        updateprofile=(Button) findViewById(R.id.updateprofile);
-
-        updateprofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialog();
-            }
-        });
 
         ActivityResultLauncher<Intent> launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
@@ -192,32 +182,6 @@ public class ProfilePage extends AppCompatActivity {
             }
         };
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(postListener);
-    }
-
-    private void openDialog() {
-        editprofile= new Dialog(ProfilePage.this);
-        editprofile.setContentView(R.layout.editd_profile_dialog);
-        editprofile.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
-        editprofile.show();
-
-        ImageView dialog_dissmiss;
-        Button update;
-        update=editprofile.findViewById(R.id.update);
-        dialog_dissmiss=editprofile.findViewById(R.id.dialog_dissmiss);
-
-        dialog_dissmiss.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                editprofile.dismiss();
-            }
-        });
-
-        update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              editprofile.dismiss();
-            }
-        });
     }
 
 }
