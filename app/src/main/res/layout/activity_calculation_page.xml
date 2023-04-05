@@ -7,11 +7,6 @@
     android:backgroundTint="@color/selfwhite"
     android:orientation="vertical"
     tools:context=".CalculationPageActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/setbaxckground"
-        android:scaleType="fitXY"/>
 
 
     <ScrollView
@@ -21,9 +16,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="0dp">
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="1dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,7 +38,7 @@
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Enter Name..."
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp" />
 
             <EditText
@@ -58,7 +53,7 @@
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Enter Designation..."
-                android:inputType="textPersonName"
+                android:inputType="text"
                 android:paddingLeft="15dp" />
 
             <TextView
@@ -92,6 +87,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
+                        android:inputType="date"
                         android:text="@string/selectfy"
                         android:textColor="@color/black"
                         android:textFontWeight="500"
@@ -106,6 +102,7 @@
                         android:drawableRight="@drawable/calender"
                         android:drawablePadding="20dp"
                         android:hint="@string/date"
+                        android:inputType="none"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -124,13 +121,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
+                        android:inputType="number"
                         android:text="@string/basicpay"
                         android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="14sp" />
 
                     <EditText
-                        android:id="@+id/calender"
+                        android:id="@+id/baisic_pay"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginTop="5dp"
@@ -138,6 +136,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="20dp"
                         android:hint="@string/price"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -164,12 +163,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
+                        android:inputType="number"
                         android:text="@string/trade"
                         android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/trade_tax"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginTop="5dp"
@@ -177,6 +178,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -194,12 +196,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
+                        android:inputType="number"
                         android:text="@string/tax"
                         android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/income_tax"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginTop="5dp"
@@ -207,6 +211,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -246,12 +251,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
+                        android:inputType="number"
                         android:text="@string/hra"
                         android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/senior_post_allowance"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -259,6 +266,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -276,12 +284,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
+                        android:inputType="number"
                         android:text="@string/others"
                         android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/house_rent_allowance"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -289,6 +299,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="numberDecimal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -321,6 +332,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/conveyance_allowance"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -328,6 +340,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -351,6 +364,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/qualification_allowance"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -358,6 +372,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -390,6 +405,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/medical_allowance"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -397,6 +413,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -420,6 +437,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/adhoc_relief_2016"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -427,6 +445,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -459,6 +478,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/adhoc_relief_2017"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -466,6 +486,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -489,6 +510,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/adhoc_relief_2018"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -496,6 +518,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -528,6 +551,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/adhoc_relief_2019"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -535,6 +559,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -558,6 +583,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/adhoc_relief_2021"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -565,6 +591,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -598,6 +625,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/social_security_benefit"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginTop="5dp"
@@ -605,6 +633,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -639,7 +668,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/text10"
+                        android:id="@+id/leave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/adamina"
@@ -649,6 +678,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/leave_deduction"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -656,6 +686,7 @@
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -679,6 +710,7 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/deduction"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="5dp"
@@ -686,6 +718,7 @@
                         android:drawableLeft="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -731,11 +764,13 @@
                     android:orientation="vertical">
 
                     <EditText
+                        android:id="@+id/total_pay"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/spinner_background_design"
                         android:hint="@string/amount"
+                        android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
@@ -743,7 +778,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/calculate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="150dp"

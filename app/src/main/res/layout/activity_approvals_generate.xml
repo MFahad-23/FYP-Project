@@ -14,6 +14,35 @@
         android:src="@drawable/setbaxckground"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/employee_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/photocapture"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout16"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout16"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.090" />
+
+    <ImageView
+        android:id="@+id/imagecapture"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="@+id/employee_image"
+        app:layout_constraintEnd_toEndOf="@+id/employee_image"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="@+id/employee_image"
+        app:layout_constraintTop_toTopOf="@+id/employee_image"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/image_capture" />
+
     <LinearLayout
         android:id="@+id/linearLayout16"
         android:layout_width="match_parent"
@@ -26,12 +55,16 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toTopOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.31">
 
         <EditText
+            android:id="@+id/employee_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:hint="Employee Name"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/spinner_background_design"
             android:drawableStart="@drawable/ic_username_white"
             android:drawablePadding="10dp"
             android:fontFamily="@font/adamina"
@@ -41,9 +74,13 @@
             android:textColor="@color/black"/>
 
         <EditText
+            android:id="@+id/employee_designation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/spinner_background_design"
             android:textColorHint="@color/grey"
             android:drawableStart="@drawable/ic_designation"
             android:drawablePadding="10dp"
@@ -54,9 +91,13 @@
             android:hint="Designation" />
 
         <EditText
+            android:id="@+id/employee_qualification"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/spinner_background_design"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
             android:drawableStart="@drawable/ic_qualifiction"
@@ -67,9 +108,13 @@
             android:hint="Qualification" />
 
         <EditText
+            android:id="@+id/department"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/spinner_background_design"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
             android:drawableStart="@drawable/ic_department"
@@ -82,8 +127,11 @@
         <EditText
             android:id="@+id/teaching_subject"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginTop="10dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:background="@drawable/spinner_background_design"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
             android:drawableStart="@drawable/ic_subject"
@@ -97,12 +145,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/session"
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout16"
         app:layout_constraintStart_toStartOf="@+id/linearLayout16"
@@ -110,49 +158,94 @@
         app:layout_constraintVertical_bias="0.030">
 
         <LinearLayout
+            android:id="@+id/layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
-<!--            <Spinner-->
-<!--                android:id="@+id/spinner"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="1"-->
-<!--                android:dropDownSelector="@drawable/ic_dropdown"-->
-<!--                android:theme="@style/Theme.AppCompat.Light.DarkActionBar"-->
-<!--                style="@style/Widget.AppCompat.DrawerArrowToggle"-->
-<!--                android:background="@drawable/spinner_background_design"-->
-<!--                android:entries="@array/session"-->
-<!--                android:filterTouchesWhenObscured="false"-->
-<!--                android:popupBackground="@color/white"-->
-<!--                android:scrollbars="none"-->
-<!--                android:spinnerMode="dropdown"-->
-<!--                />-->
-            <com.jaredrummler.materialspinner.MaterialSpinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:backgroundTint="@color/selfwhite"
-                android:layout_weight="1"
-                app:ms_background_color="@color/selfcolor_grey"
-                android:layout_height="45dp"/>
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.1"
-            android:text="Morning" />
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.1"
-            android:text="Evening" />
+            <EditText
+                android:id="@+id/datepicker"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/spinner_background_design"
+                android:drawableRight="@drawable/calender"
+                android:drawablePadding="20dp"
+                android:hint="00-Month-0000"
+                android:inputType="none"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:pointerIcon="none"
+                android:textColorHint="@color/grey" />
+
+            <!--            <Spinner-->
+            <!--                android:id="@+id/spinner"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:dropDownSelector="@drawable/ic_dropdown"-->
+            <!--                android:theme="@style/Theme.AppCompat.Light.DarkActionBar"-->
+            <!--                style="@style/Widget.AppCompat.DrawerArrowToggle"-->
+            <!--                android:background="@drawable/spinner_background_design"-->
+            <!--                android:entries="@array/session"-->
+            <!--                android:filterTouchesWhenObscured="false"-->
+            <!--                android:popupBackground="@color/white"-->
+            <!--                android:scrollbars="none"-->
+            <!--                android:spinnerMode="dropdown"-->
+            <!--                />-->
+
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/section"
+            android:id="@+id/semister_or_class"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/session_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/selfwhite"
+                app:ms_background_color="@color/selfcolor_grey" />
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/semister_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/selfwhite"
+                app:ms_background_color="@color/selfcolor_grey" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/subject_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/class_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/selfwhite"
+                app:ms_background_color="@color/selfcolor_grey" />
+
+            <View
+                android:layout_width="75dp"
+                android:layout_height="45dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/date_or_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -161,124 +254,129 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="0.75"
+                android:layout_weight="1"
                 android:fontFamily="@font/adamina"
-                android:textColor="@color/black"
-                android:textFontWeight="500"
-                android:textSize="14sp"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Section" />
+                android:text="Section"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="14sp" />
 
-            <CheckBox
-                android:id="@+id/a"
+            <RadioGroup
+                android:id="@+id/section"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.45"
-                android:text="A" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/b"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="0.45"
-                android:text="B" />
+                <RadioButton
+                    android:id="@+id/section_a"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Section A"
+                    android:textSize="12sp" />
 
+                <RadioButton
+                    android:id="@+id/section_b"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Section B"
+                    android:textSize="12sp" />
+            </RadioGroup>
         </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/subject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/session"
-        app:layout_constraintVertical_bias="0.030">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:fontFamily="@font/adamina"
-            android:textColor="@color/black"
-            android:textFontWeight="500"
-            android:textSize="14sp"
-            android:paddingLeft="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="Subject" />
-
-        <CheckBox
-            android:id="@+id/morning"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.09"
-            android:text="Theory" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/evening"
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/adamina"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Session"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="14sp" />
+
+            <RadioGroup
+                android:id="@id/session"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/morning_programme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Morning"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/evening_programme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Evenning"
+                    android:textSize="12sp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.04"
-            android:text="Practical" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/adamina"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Subject"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="14sp" />
 
-    <LinearLayout
-        android:id="@+id/semister_or_class"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subject"
-        app:layout_constraintVertical_bias="0.030">
+            <RadioGroup
+                android:id="@+id/subject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-        <com.jaredrummler.materialspinner.MaterialSpinner
-            android:id="@+id/material_spinner"
-            android:layout_width="wrap_content"
-            android:backgroundTint="@color/selfwhite"
-            android:layout_weight="1"
-            app:ms_background_color="@color/selfcolor_grey"
-            android:layout_height="45dp"/>
+                <RadioButton
+                    android:id="@+id/theory_subject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Theory"
+                    android:textSize="12sp" />
 
-        <com.jaredrummler.materialspinner.MaterialSpinner
-            android:id="@+id/material_spinner2"
-            android:layout_width="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/selfwhite"
-            android:layout_weight="1"
-            app:ms_background_color="@color/selfcolor_grey"
-            android:layout_height="45dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/date_or_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/semister_or_class"
-        app:layout_constraintVertical_bias="0.030">
-
-
-    </LinearLayout>
+                <RadioButton
+                    android:id="@+id/practical_subject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:text="Practical"
+                    android:textSize="12sp" />
+            </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/submit"
+        android:id="@+id/submit_button"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -287,12 +385,12 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="12dp"
+        android:textSize="14dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView7"
-        app:layout_constraintEnd_toEndOf="@+id/session"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/session"
-        app:layout_constraintTop_toBottomOf="@+id/session"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.419" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

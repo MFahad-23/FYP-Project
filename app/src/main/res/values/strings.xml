@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Final Year Project</string>
 
-<!--    Splash Page :- -->
+    <!--    Splash Page :- -->
     <string name="payroll">Payroll System App</string>
 
-<!--    Veiw Page :- -->
+    <!--    Veiw Page :- -->
     <string name="payrollsytem">Payroll System</string>
     <string name="message">
         Welcome in Payroll System of mns_uet.
@@ -12,14 +12,14 @@
     <string name="login">LogIn</string>
     <string name="signup">SignUp</string>
 
-<!--    Login Page :- -->
+    <!--    Login Page :- -->
     <string name="welcometext">Welcome For LogIn!</string>
     <string name="help">Help</string>
     <string name="forget">Forget Password?</string>
     <string name="noaccount">I have no account.</string>
     <string name="craeteaccount"><u>Create New Account ?</u></string>
 
-<!--    Calculation Page :- -->
+    <!--    Calculation Page :- -->
     <string name="salaries">Salary</string>
     <string name="selectfy">Select Date</string>
     <string name="pay_period">Pay Period</string>
@@ -29,7 +29,7 @@
     <string name="hra">Senior Post</string>
     <string name="others">House Rent</string>
     <string name="deduction">Deductions</string>
-    <string name="pf">PF</string>
+    <string name="pf">Leaves_Deduction</string>
     <string name="esi">ESI</string>
     <string name="date">Month/Year</string>
     <string name="netpay">Net Pay</string>
@@ -45,9 +45,6 @@
     <string name="adhocreliefe">Adhoc Relief-2021</string>
     <string name="social_security">Social Security Benefit(30%)</string>
     <string name="price">00.000</string>
-
-
-
 
 
     <string name="payperiod">Pay Period</string>

@@ -174,7 +174,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 .addOnFailureListener(new OnFailureListener() {
                                                     @Override
                                                     public void onFailure(@NonNull Exception e) {
-                                                        Log.w(TAG, "Something went wrong.Please try Agian!", task.getException());
+                                                        Log.w(TAG, "Something went wrong.Please try Again!", task.getException());
                                                         Toast.makeText(SignUpActivity.this, task.getException().getMessage(),
                                                                 Toast.LENGTH_SHORT).show();
                                                     }
