@@ -192,5 +192,16 @@ Conduct Market Research.
 Create Job Grades.
 Create a Salary Range Based on Research.
     </string>
+    <string name="subject"><b>Subject :</b></string>
+    <string name="programme">Morning Programme</string>
+    <string name="sir"><b>Respected Sir</b></string>
+    <string name="inform">It is requested to kindly accord the approval of the following</string>
+    <string name="inform_scnd">Visiting Teachers for the Semister</string>
+    <string name="semister">Fall_2018</string>
+    <string name="scnd_half_approval">Computer Science</string>
+    <string name="half_approval">Approval for Visiting Teachers for the Department of</string>
+    <string name="uni_half">UNIVERSITY OF ENGINEERING &amp; TECHNOLOGY,MULTAN.</string>
+    <string name="date_set"><b>Date :</b></string>
+    <string name="uni_scndhalf">c/o.Govt.College of Technology, BCG Chowk, Bahawalpur Road,Multan, Pakistan.</string>
 
 </resources>

@@ -15,6 +15,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -30,6 +31,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -257,14 +259,14 @@ public class ApprovalsGenerate extends AppCompatActivity {
                                                             public void onSuccess(Void aVoid) {
                                                                 Toast.makeText(ApprovalsGenerate.this, "Image Saved Successfully", Toast.LENGTH_SHORT).show();
 
+                                                                String key = mDatabase.child("Employee Approvals").push().getKey();
                                                                 ApprovalsModel approvals=new ApprovalsModel(generatedFilePath,employee_name.getText().toString(),
                                                                         employee_designation.getText().toString(),employee_qualification.getText().toString(),
                                                                         department.getText().toString(),teaching_subject.getText().toString(),datepicker.getText().toString(),
                                                                         session_spinner.getText().toString(),semister_spinner.getText().toString(),class_spinner.getText().toString(),
-                                                                        section_value,session_value,class_value);
+                                                                        section_value,session_value,class_value,key);
 
-                                                                String key = mDatabase.child("Employee-Approvals").push().getKey();
-                                                 mDatabase.child("Employee-Approvals").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                 mDatabase.child("Employee Approvals").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                 @Override
                                                                 public void onSuccess(Void unused) {
                                                                     employee_name.setText("");

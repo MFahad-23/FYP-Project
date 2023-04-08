@@ -10,17 +10,12 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.SearchView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAdapter.ViewHolder> implements Filterable {
 

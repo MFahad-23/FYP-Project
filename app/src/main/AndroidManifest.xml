@@ -15,12 +15,7 @@
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            android:exported="false">
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -29,12 +24,6 @@
         <activity
             android:name=".ApprovalsGenerate"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -48,7 +37,7 @@
         </activity>
         <activity
             android:name=".CheckGenerate"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.Light">
             <meta-data
                 android:name="android.app.lib_name"
@@ -64,7 +53,7 @@
         </activity>
         <activity
             android:name=".MiscallennousStaff"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.Light">
             <meta-data
                 android:name="android.app.lib_name"
@@ -72,7 +61,7 @@
         </activity>
         <activity
             android:name=".PayrollSlipTemp"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.Light">
             <meta-data
                 android:name="android.app.lib_name"
@@ -80,7 +69,7 @@
         </activity>
         <activity
             android:name=".ProfilePage"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -108,22 +97,21 @@
         </activity>
         <activity
             android:name=".PayrollsPageActivity"
-            android:exported="false">
+            android:theme="@style/Theme.AppCompat.Light"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".CalculationPageActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.Light">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
 
             <meta-data
                 android:name="android.app.lib_name"
@@ -159,14 +147,14 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".VeiwPageActivity"
-            android:exported="true">
+            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -175,20 +163,13 @@
             android:name=".SplashActivity"
             android:exported="true">
 
-             <intent-filter>
-             <action android:name="android.intent.action.MAIN" />
-
-
-             <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".EmployeeList"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.Light">
             <meta-data
                 android:name="android.app.lib_name"
