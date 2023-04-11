@@ -99,7 +99,7 @@
         android:fontFamily="@font/adamina"
         android:text="@string/date_set"
         android:textAllCaps="false"
-        android:textColor="@color/uniname"
+        android:textColor="@color/black"
         android:textFontWeight="500"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -118,7 +118,7 @@
         android:paddingLeft="2dp"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/uniname"
+        android:textColor="@color/black"
         android:textFontWeight="500"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -157,7 +157,7 @@
             android:text="@string/subject"
             android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/uniname"
+            android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="12sp" />
 
@@ -168,9 +168,8 @@
             android:fontFamily="@font/adamina"
             android:layout_weight="1"
             android:text="@string/half_approval"
-            android:textAlignment="center"
             android:textAllCaps="false"
-            android:textColor="@color/uniname"
+            android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="12sp" />
 
@@ -190,7 +189,7 @@
                 android:text="@string/scnd_half_approval"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="12sp" />
             <TextView
@@ -215,7 +214,7 @@
                 android:text="@string/programme"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="12sp" />
             <TextView
@@ -246,7 +245,7 @@
         android:text="@string/sir"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/uniname"
+        android:textColor="@color/black"
         android:textFontWeight="500"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -303,7 +302,7 @@
                 android:fontFamily="@font/adamina"
                 android:text="@string/inform"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="12sp" />
 
@@ -321,7 +320,7 @@
                 android:paddingLeft="3dp"
                 android:text="@string/inform_scnd"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="11sp" />
 
@@ -332,7 +331,7 @@
                 android:paddingLeft="3dp"
                 android:text="@string/semister"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="11sp" />
 
@@ -356,7 +355,7 @@
                 android:paddingLeft="3dp"
                 android:text="30 January 2023"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="11sp" />
 
@@ -388,7 +387,7 @@
                 android:text="@string/scnd_half_approval"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="12sp" />
 
@@ -414,7 +413,7 @@
                 android:text="@string/programme"
                 android:textAlignment="center"
                 android:textAllCaps="false"
-                android:textColor="@color/uniname"
+                android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="12sp" />
             <TextView
@@ -446,7 +445,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout14"
-        app:layout_constraintVertical_bias="0.02">
+        app:layout_constraintVertical_bias="0.03">
 
         <TableRow
             android:layout_width="match_parent"
@@ -456,7 +455,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:text="No.s"
+                android:text="No"
                 android:gravity="center"
                 android:textSize="10sp"
                 android:layout_weight="0.2"
@@ -467,7 +466,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:paddingLeft="3dp"
-                android:text="Teachers"
+                android:text="Teacher"
                 android:gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/tablelayout_border"
@@ -518,7 +517,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
-                android:text="Semister"
+                android:text="Semester"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:layout_weight="0.1"

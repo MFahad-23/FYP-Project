@@ -21,32 +21,34 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
-public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.ViewHolder> {
+public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.ViewHolder> implements Filterable {
 
-    private List<ApprovalsModel>aprovedlist;
+    private List<ApprovalsModel> aprovedlist;
+    List<ApprovalsModel>approved_items_viewFull;
     Context context;
+
     public ApprovalsAdapter(List<ApprovalsModel> aprovedlist, Context context) {
-        this.aprovedlist = aprovedlist;
         this.context = context;
+        this.approved_items_viewFull=aprovedlist;
+        this.aprovedlist = new ArrayList<>(approved_items_viewFull);
     }
 
     @NonNull
     @Override
     public ApprovalsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.approved_employees_design,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.approved_employees_design, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ApprovalsAdapter.ViewHolder holder, int position) {
-        String key=aprovedlist.get(position).key;
-    String image=aprovedlist.get(position).employee_image;
-    String name=aprovedlist.get(position).employee_name;
-    String designation=aprovedlist.get(position).employee_designation;
-    String date=aprovedlist.get(position).datepicker;
-        holder.setdata(key,image,name,designation,date);
+        String key = aprovedlist.get(position).key;
+        String image = aprovedlist.get(position).employee_image;
+        String name = aprovedlist.get(position).employee_name;
+        String designation = aprovedlist.get(position).employee_designation;
+        String date = aprovedlist.get(position).datepicker;
+        holder.setdata(key, image, name, designation, date);
     }
 
     @Override
@@ -54,14 +56,42 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
         return aprovedlist.size();
     }
 
-        public class ViewHolder extends RecyclerView.ViewHolder {
+    public Filter getFilter() {
+        return Approvelist;
+    }
+
+    private final Filter Approvelist = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            ArrayList<ApprovalsModel> aprovedlist = new ArrayList<>();
+            if (charSequence == null || charSequence.length() == 0) {
+                aprovedlist.addAll(approved_items_viewFull);
+            } else {
+                String FilterPatterns = charSequence.toString().toLowerCase().trim();
+                for (ApprovalsModel employee : approved_items_viewFull) {
+                if (employee.employee_name.toLowerCase().contains(FilterPatterns))
+                    aprovedlist.add(employee);
+        }
+    }
+    FilterResults results = new FilterResults();
+    results.values =aprovedlist;
+    results.count =aprovedlist.size();
+            return results;
+}
+    @Override
+    protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+        aprovedlist.clear();
+        aprovedlist.addAll((ArrayList)filterResults.values);
+        notifyDataSetChanged();
+    }
+};
+    public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView employeeimage;
         private ImageView deleteimage;
         private TextView employeename;
         private TextView employee_designation;
         private TextView spinner_datepicker;
         private RelativeLayout employeelist;
-        private Dialog deldialog;
         private Dialog imagedialog;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -90,28 +120,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
             deleteimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    deldialog=new Dialog(context);
-                    deldialog.setContentView(R.layout.file_delete_dialog);
-                    deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
-                    TextView cancel,ok;
-                    cancel=deldialog.findViewById(R.id.cancel);
-                    ok=deldialog.findViewById(R.id.ok);
-                    deldialog.show();
-
-                    cancel.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            deldialog.dismiss();
-                        }
-                    });
-
-                    ok.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            FirebaseDatabase.getInstance().getReference().child("Employee Approvals").child(key).removeValue();
-                            deldialog.dismiss();
-                        }
-                    });
+                    openDialog(key);
                 }
             });
 
@@ -121,7 +130,6 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
                     Log.d("this","chk");
                     imagedialog=new Dialog(context);
                     imagedialog.setContentView(R.layout.imagedialog);
-                    imagedialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
                     ImageView imageview;
                     imageview=imagedialog.findViewById(R.id.imageview);
                     imagedialog.show();
@@ -131,6 +139,32 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
                 }
             });
         }
+    }
+
+    private void openDialog(String key) {
+      Dialog deldialog=new Dialog(context);
+        deldialog.setContentView(R.layout.file_delete_dialog);
+        deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
+        TextView cancel,ok;
+        cancel=deldialog.findViewById(R.id.cancel);
+        ok=deldialog.findViewById(R.id.ok);
+        deldialog.show();
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deldialog.dismiss();
+            }
+        });
+
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                FirebaseDatabase.getInstance().getReference().child("Employee Approvals").child(key).removeValue();
+                deldialog.dismiss();
+            }
+        });
     }
 }
 

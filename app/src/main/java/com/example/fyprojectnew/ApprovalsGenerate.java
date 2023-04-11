@@ -250,17 +250,10 @@ public class ApprovalsGenerate extends AppCompatActivity {
                                             public void onComplete(@NonNull Task<Uri> task) {
                                                 /*Update Data into the Dtaatbase :-*/
                                                 String generatedFilePath = task.getResult().toString();
-                                                HashMap<String, Object> data = new HashMap<>();
-                                                data.put("employee_image", generatedFilePath);
 
-                                                mDatabase.child("Employee Approvals").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(data)
-                                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                            @Override
-                                                            public void onSuccess(Void aVoid) {
                                                                 Toast.makeText(ApprovalsGenerate.this, "Image Saved Successfully", Toast.LENGTH_SHORT).show();
-
-                                                                String key = mDatabase.child("Employee Approvals").push().getKey();
-                                                                ApprovalsModel approvals=new ApprovalsModel(generatedFilePath,employee_name.getText().toString(),
+                                                String key = mDatabase.child("Employee Approvals").push().getKey();
+                                                ApprovalsModel approvals=new ApprovalsModel(generatedFilePath,employee_name.getText().toString(),
                                                                         employee_designation.getText().toString(),employee_qualification.getText().toString(),
                                                                         department.getText().toString(),teaching_subject.getText().toString(),datepicker.getText().toString(),
                                                                         session_spinner.getText().toString(),semister_spinner.getText().toString(),class_spinner.getText().toString(),
@@ -285,16 +278,6 @@ public class ApprovalsGenerate extends AppCompatActivity {
                                                                 }
                                                             });
 
-                                                        }
-                                            })
-                                                    .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Log.w(TAG, "Something went wrong.Please try again!", e);
-                                                    Toast.makeText(ApprovalsGenerate.this, e.getMessage(),
-                                                            Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
                                         }
                             });
                         }

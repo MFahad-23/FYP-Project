@@ -27,8 +27,8 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
     List<EmployeeModel>employee_items_viewFull;
     Context context;
 
-    public EmployeListAdpter(Context ctx, List<EmployeeModel> employee_items_view){
-        this.context=ctx;
+    public EmployeListAdpter(Context context, List<EmployeeModel> employee_items_view){
+        this.context=context;
         this.employee_items_viewFull=employee_items_view;
         this.employee_items_view=new ArrayList<>(employee_items_viewFull);
     }

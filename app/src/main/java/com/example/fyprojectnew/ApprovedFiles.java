@@ -54,6 +54,7 @@ public class ApprovedFiles extends AppCompatActivity {
                 aprovedlist.clear();
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     ApprovalsModel user = item.getValue(ApprovalsModel.class);
+                    user.key=item.getKey().toString();
 //                    if(item.child("employee_image").exists())
 //                    {
 //                        Log.d("test",item.child("employee_image").getValue().toString());
@@ -73,7 +74,7 @@ public class ApprovedFiles extends AppCompatActivity {
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
-        mDatabase.child("Employee Approvals").addListenerForSingleValueEvent(postListener);
+        mDatabase.child("Employee Approvals").addValueEventListener(postListener);
 
     }
 
@@ -86,5 +87,27 @@ public class ApprovedFiles extends AppCompatActivity {
         myadpter = new ApprovalsAdapter(aprovedlist, this);
         approved_employees.setLayoutManager(layoutManager);
         approved_employees.setAdapter(myadpter);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.serachview_option,menu);
+        MenuItem menueitems=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView) menueitems.getActionView();
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setQueryHint("Search Here!");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                myadpter.getFilter().filter(s);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
 }

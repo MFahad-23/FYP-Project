@@ -19,10 +19,7 @@ public class ApprovalsModel {
     public ApprovalsModel() {
     }
 
-    public ApprovalsModel(String employee_image, String employee_name, String employee_designation,
-                          String employee_qualification, String department, String teaching_subject,
-                          String datepicker, String session_spinner, String semister_spinner, String class_spinner,
-                          String session, String section, String subject, String key) {
+    public ApprovalsModel(String employee_image, String employee_name, String employee_designation, String employee_qualification, String department, String teaching_subject, String datepicker, String session_spinner, String semister_spinner, String class_spinner, String session, String section, String subject, String key) {
         this.employee_image = employee_image;
         this.employee_name = employee_name;
         this.employee_designation = employee_designation;

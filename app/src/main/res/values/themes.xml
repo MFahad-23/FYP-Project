@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.FYProjectNew" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/SelfBlue</item>
+        <item name="colorPrimary">@color/selfcolor_grey</item>
         <item name="colorPrimaryVariant">@color/SelfBlue</item>
         <item name="colorOnPrimary">@color/SelfBlue</item>
         <!-- Secondary brand color. -->
@@ -17,6 +17,11 @@
     <style name="date_dialog_therme">
         <item
              name="android:theme">@color/SelfBlue
+        </item>
+    </style>
+    <style name="self_theme" parent="Theme.AppCompat.Light">
+        <item
+             name="android:statusBarColor">@color/SelfBlue
         </item>
     </style>
 
