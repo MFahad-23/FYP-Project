@@ -8,40 +8,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SplashActivity">
 
-    <RelativeLayout
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lotti"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/splashpage" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lotti"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="177dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="false"
-            app:lottie_rawRes="@raw/splashpage" />
-
-        <TextView
-            android:id="@+id/tev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lotti"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/adamina"
-            android:text="@string/payroll"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textFontWeight="600"
-            android:textSize="18sp" />
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tev"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lotti"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/adamina"
+        android:text="@string/payroll"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textFontWeight="600"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="@+id/lotti"
+        app:layout_constraintTop_toBottomOf="@+id/lotti"
+        app:layout_constraintVertical_bias="0.130" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

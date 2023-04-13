@@ -53,6 +53,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+import com.tsongkha.spinnerdatepicker.SpinnerDatePickerDialogBuilder;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -72,7 +73,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import me.ibrahimsn.lib.OnItemSelectedListener;
 
-public class ApprovalsGenerate extends AppCompatActivity {
+public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha.spinnerdatepicker.DatePickerDialog.OnDateSetListener {
     private DatabaseReference mDatabase;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
@@ -82,7 +83,7 @@ public class ApprovalsGenerate extends AppCompatActivity {
     ImageView imagecapture;
     Uri final_uri;
     EditText datepicker, employee_name, employee_designation, employee_qualification,
-            department, teaching_subject;
+            department, teaching_subject,english_date;
     MaterialSpinner session_spinner, semister_spinner, class_spinner;
     RadioGroup section,session,subject;
     String section_value="";
@@ -100,6 +101,7 @@ public class ApprovalsGenerate extends AppCompatActivity {
         imagecapture = (ImageView) findViewById(R.id.imagecapture);
         department = (EditText) findViewById(R.id.department);
         employee_name = (EditText) findViewById(R.id.employee_name);
+        english_date = (EditText) findViewById(R.id.english_date);
         teaching_subject = (EditText) findViewById(R.id.teaching_subject);
         employee_qualification = (EditText) findViewById(R.id.employee_qualification);
         employee_designation = (EditText) findViewById(R.id.employee_designation);
@@ -180,7 +182,26 @@ public class ApprovalsGenerate extends AppCompatActivity {
                 Log.d("key", "chk");
             }
         };
+//Date-Picker Implementation :-
+//        English Datepicker Implemetntaion :-
+        english_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new SpinnerDatePickerDialogBuilder()
+                        .context(ApprovalsGenerate.this)
+                        .callback(ApprovalsGenerate.this)
+                        .spinnerTheme(R.style.NumberPickerStyle)
+                        .showTitle(true)
+                        .showDaySpinner(true)
+                        .defaultDate(2023, 0, 1)
+                        .maxDate(2050, 0, 1)
+                        .minDate(1990, 0, 1)
+                        .build()
+                        .show();
+            }
+        });
 
+//        Simple Datepicker Implementaion :-
         datepicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -257,7 +278,7 @@ public class ApprovalsGenerate extends AppCompatActivity {
                                                                         employee_designation.getText().toString(),employee_qualification.getText().toString(),
                                                                         department.getText().toString(),teaching_subject.getText().toString(),datepicker.getText().toString(),
                                                                         session_spinner.getText().toString(),semister_spinner.getText().toString(),class_spinner.getText().toString(),
-                                                                        section_value,session_value,class_value,key);
+                                                                        english_date.getText().toString(),section_value,session_value,class_value,key);
 
                                                  mDatabase.child("Employee Approvals").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                 @Override
@@ -268,6 +289,7 @@ public class ApprovalsGenerate extends AppCompatActivity {
                                                                     teaching_subject.setText("");
                                                                     datepicker.setText("");
                                                                     department.setText("");
+                                                                    english_date.setText("");
                                                                     Toast.makeText(ApprovalsGenerate.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                                                                     startActivity(new Intent(ApprovalsGenerate.this,ApprovedFiles.class));
                                                                 }
@@ -290,6 +312,20 @@ public class ApprovalsGenerate extends AppCompatActivity {
         String myFormat = "MM/dd/yy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
         datepicker.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
+    @Override
+    public void onDateSet(com.tsongkha.spinnerdatepicker.DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        myCalendar.set(Calendar.YEAR, year);
+        myCalendar.set(Calendar.MONTH, monthOfYear);
+        myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        updateLabelA();
+    }
+    private void updateLabelA() {
+        Log.d("on", "Msg");
+        String myFormat = "MMM/dd/yyyy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
+        english_date.setText(dateFormat.format(myCalendar.getTime()));
     }
 }
     /*Session Spinner Implementation :-*/

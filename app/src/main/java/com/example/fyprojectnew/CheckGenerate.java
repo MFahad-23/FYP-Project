@@ -19,6 +19,8 @@ ConstraintLayout cheque;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_generate);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Cheque Page");
         cheque=(ConstraintLayout) findViewById(R.id.cheque);
     }
 
@@ -39,5 +41,11 @@ ConstraintLayout cheque;
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

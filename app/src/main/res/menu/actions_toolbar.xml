@@ -14,8 +14,7 @@
 
     <item android:title="Generate Cheque"
         android:id="@+id/option"
-        android:iconTintMode="add"
-        android:icon="@drawable/menue_chk"
-        />
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_print"/>
 
 </menu>

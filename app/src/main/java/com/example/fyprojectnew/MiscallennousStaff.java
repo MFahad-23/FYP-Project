@@ -54,6 +54,8 @@ public class MiscallennousStaff extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_miscallennous_staff);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Miscallennous Staff");
         addmore=(ImageView) findViewById(R.id.addmore);
         shimmereffect=(ShimmerFrameLayout)findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
@@ -183,5 +185,11 @@ public class MiscallennousStaff extends AppCompatActivity {
         });
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

@@ -2,6 +2,7 @@ package com.example.fyprojectnew;
 
 import static android.content.ContentValues.TAG;
 
+import static com.example.fyprojectnew.R.drawable.background;
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -42,10 +44,11 @@ public class EmployeeList extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
     Dialog fielddialog;
-    ImageView cut,addmore;
+    ImageView cut;
+    ImageButton addmore;
     Button newlogin;
     ShimmerFrameLayout shimmereffect;
-    TextInputEditText employeename,employeedesignation;
+    TextInputEditText employeename,employee_designation;
     RecyclerView employeerecyclerview;
     LinearLayoutManager layoutmanager;
     ArrayList<EmployeeModel> employee_items_view;
@@ -56,11 +59,13 @@ public class EmployeeList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Employees List");
         shimmereffect=(ShimmerFrameLayout)findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        addmore =(ImageView) findViewById(R.id.addmore);
+        addmore =(ImageButton) findViewById(R.id.addmore);
         employee_items_view = new ArrayList<>();
 
         /*Add New Employee Dialog Button :-*/
@@ -105,9 +110,9 @@ public class EmployeeList extends AppCompatActivity {
         fielddialog = new Dialog(EmployeeList.this);
         fielddialog.setContentView(R.layout.employees_creating_dialog);
         fielddialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
-        employeedesignation=(TextInputEditText)fielddialog.findViewById(R.id.employeedesignation);
+        employee_designation=(TextInputEditText)fielddialog.findViewById(R.id.employee_designation);
         cut=(ImageView)fielddialog.findViewById(R.id.cut);
-        TextInputEditText employeename= (TextInputEditText) fielddialog.findViewById(R.id.employeename);
+        employeename= (TextInputEditText) fielddialog.findViewById(R.id.employeename);
         newlogin=(Button)fielddialog.findViewById(R.id.newlogin);
 
        /* Dialog close Function :-*/
@@ -124,12 +129,12 @@ public class EmployeeList extends AppCompatActivity {
             public void onClick(View view) {
                 if (employeename.getText().toString().isEmpty()){
                     employeename.setError("Please Complete the fields");
-                }else if (employeedesignation.getText().toString().isEmpty()){
-                    employeedesignation.setError("Please Complete the fields");
+                }else if (employee_designation.getText().toString().isEmpty()){
+                    employee_designation.setError("Please Complete the fields");
                 }else{
 
                     /*Data pust to DataBase for save :-*/
-                    NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
+                    NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employee_designation.getText().toString());
 
                     /*For get Ket to firebase auto :-*/
                     String key=  mDatabase.child("Employees").push().getKey();
@@ -139,7 +144,7 @@ public class EmployeeList extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     employeename.setText("");
-                                    employeedesignation.setText("");
+                                    employee_designation.setText("");
                                     fielddialog.dismiss();
                                 }
                             })
@@ -188,5 +193,11 @@ public class EmployeeList extends AppCompatActivity {
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

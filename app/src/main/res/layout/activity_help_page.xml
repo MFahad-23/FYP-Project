@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/setbaxckground"/>
+        android:src="@drawable/logo"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/uploddata"
@@ -200,8 +200,8 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView16"
-            android:layout_width="wrap_content"
+            android:id="@+id/system_purpose"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/adamina"
@@ -211,33 +211,33 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView17"
-            android:layout_width="wrap_content"
+            android:id="@+id/intface"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/adamina"
             android:text="@string/intface"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView18"
-            android:layout_width="wrap_content"
+            android:id="@+id/about_data"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/adamina"
             android:text="@string/aboutdata"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
+            android:id="@+id/updates"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/adamina"
+            android:layout_marginTop="10dp"
             android:text="@string/updates"
             android:textColor="@color/black"
             android:textFontWeight="500"

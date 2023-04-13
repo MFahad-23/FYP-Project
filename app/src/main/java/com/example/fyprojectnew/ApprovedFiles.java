@@ -39,6 +39,8 @@ public class ApprovedFiles extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Approved Files");
         setContentView(R.layout.activity_approved_files);
 
         shimmereffect = (ShimmerFrameLayout) findViewById(R.id.shimmereffect);
@@ -109,5 +111,11 @@ public class ApprovedFiles extends AppCompatActivity {
             }
         });
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

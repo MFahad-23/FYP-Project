@@ -36,6 +36,8 @@ public class PayrollsPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payrolls_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Approved File");
     }
 
     @Override
@@ -43,12 +45,17 @@ public class PayrollsPageActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.approvals_menu, menu);
         MenuItem menuItem2 = menu.findItem(R.id.download);
         MenuItem menuItem1 = menu.findItem(R.id.share);
-        MenuItem menuItem = menu.findItem(R.id.print);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

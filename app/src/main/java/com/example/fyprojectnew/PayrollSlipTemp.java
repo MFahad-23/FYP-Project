@@ -28,6 +28,8 @@ public class PayrollSlipTemp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payroll_slip_temp);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Pay Slip");
         sliplayout = (ScrollView) findViewById(R.id.sliplayout);
     }
 
@@ -95,5 +97,11 @@ public class PayrollSlipTemp extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
         return false;
-    };
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
 }

@@ -59,6 +59,8 @@ public class Administration_staff extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_administration_staff);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Administration Staff");
         addmore=(ImageView) findViewById(R.id.addmore);
 //        textwatcher=(EditText) findViewById(R.id.textwatcher);
         shimmereffect=(ShimmerFrameLayout) findViewById(R.id.shimmereffect);
@@ -207,5 +209,11 @@ public class Administration_staff extends AppCompatActivity {
         });
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

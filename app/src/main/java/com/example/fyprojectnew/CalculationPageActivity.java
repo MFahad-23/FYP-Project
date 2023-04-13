@@ -49,6 +49,8 @@ public class CalculationPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculation_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Payrolls Calculations");
         spinner = (EditText) findViewById(R.id.spinner);
         calculate = (Button) findViewById(R.id.calculate);
         employee = (EditText) findViewById(R.id.employee);
@@ -187,5 +189,11 @@ public class CalculationPageActivity extends AppCompatActivity {
         String myFormat = "MM/dd/yy";
         SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
         spinner.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

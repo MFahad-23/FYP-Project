@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/setbaxckground"
+        android:src="@drawable/logg"
         app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -25,16 +25,16 @@
         app:layout_constraintHorizontal_bias="0.500"
         app:layout_constraintStart_toStartOf="@+id/linearLayout16"
         app:layout_constraintTop_toTopOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.090" />
+        app:layout_constraintVertical_bias="0.099" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/imagecapture"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:backgroundTint="@color/white"
+        android:background="@color/transparent"
         android:clickable="true"
         android:elevation="20dp"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/employee_image"
         app:layout_constraintEnd_toEndOf="@+id/employee_image"
         app:layout_constraintHorizontal_bias="0.92"
@@ -164,19 +164,21 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/datepicker"
+                android:id="@+id/english_date"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/spinner_background_design"
                 android:drawableRight="@drawable/calender"
                 android:drawablePadding="20dp"
+                android:editable="false"
                 android:hint="00-Month-0000"
                 android:inputType="none"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:pointerIcon="none"
-                android:textColorHint="@color/grey" />
+                android:textColorHint="@color/grey"
+                android:textSize="14sp" />
 
             <!--            <Spinner-->
             <!--                android:id="@+id/spinner"-->
@@ -237,10 +239,21 @@
                 android:backgroundTint="@color/selfwhite"
                 app:ms_background_color="@color/selfcolor_grey" />
 
-            <View
-                android:layout_width="75dp"
+            <EditText
+                android:id="@+id/datepicker"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@drawable/spinner_background_design"
+                android:drawableRight="@drawable/calender"
+                android:hint="Date"
+                android:editable="false"
+                android:textSize="12sp"
+                android:inputType="none"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColorHint="@color/grey" />
 
         </LinearLayout>
 

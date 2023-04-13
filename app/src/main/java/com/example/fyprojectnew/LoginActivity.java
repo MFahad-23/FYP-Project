@@ -36,13 +36,14 @@ import java.util.TimerTask;
 
 public class LoginActivity extends AppCompatActivity {
     TextInputEditText gmail, password;
-    TextView tev1, textveiw;
+    TextView create_account, textveiw;
     String TAG;
     Timer timer;
     ImageView dialog_dissmiss,dissmiss;
     Dialog errordialog,helpdialog;
     LinearLayout helpcard;
     private FirebaseAuth mauth;
+    Animation slide_left;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -52,17 +53,20 @@ public class LoginActivity extends AppCompatActivity {
         gmail = (TextInputEditText) findViewById(R.id.gmail);
         password = (TextInputEditText) findViewById(R.id.password);
         Button login = (Button) findViewById(R.id.login);
-        tev1 = (TextView) findViewById(R.id.tev1);
+        create_account = (TextView) findViewById(R.id.create_account);
         textveiw = (TextView) findViewById(R.id.textveiw);
         mauth = FirebaseAuth.getInstance();
         helpcard =(LinearLayout)findViewById(R.id.helpcard);
 
+        slide_left=AnimationUtils.loadAnimation(LoginActivity.this,R.anim.slide_left);
+
         /* Create New Account :-*/
-        tev1.setOnClickListener(new View.OnClickListener() {
+        create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent next = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(next);
+                create_account.startAnimation(slide_left);
             }
         });
 

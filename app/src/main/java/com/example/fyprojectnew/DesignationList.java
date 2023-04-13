@@ -33,6 +33,8 @@ public class DesignationList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_designation_list);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Designation List");
         shimmereffect=(ShimmerFrameLayout)findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -71,5 +73,11 @@ public class DesignationList extends AppCompatActivity {
         DesignationViewAdpter adpapter=new DesignationViewAdpter(this,arrayList);
         designationrecyclerview.setAdapter(adpapter);
         designationrecyclerview.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

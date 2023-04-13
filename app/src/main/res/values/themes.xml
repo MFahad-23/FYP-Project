@@ -14,15 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="date_dialog_therme">
-        <item
-             name="android:theme">@color/SelfBlue
-        </item>
+    <style name="NumberPickerStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColorPrimary">@color/SelfBlue</item>
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/SelfBlue</item>
     </style>
-    <style name="self_theme" parent="Theme.AppCompat.Light">
-        <item
-             name="android:statusBarColor">@color/SelfBlue
-        </item>
-    </style>
+
 
 </resources>

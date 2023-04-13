@@ -6,12 +6,13 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
 public class HelpPageActivity extends AppCompatActivity {
 CardView uploddata,docsupload,newsalarystructure,advancesalary;
-TextView morepage;
+TextView morepage,system_purpose,intface,about_data,updates;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,16 @@ TextView morepage;
         newsalarystructure=(CardView) findViewById(R.id.newsalarystructure);
         advancesalary=(CardView) findViewById(R.id.advancesalary);
         morepage=(TextView) findViewById(R.id.morepage);
+        system_purpose=(TextView) findViewById(R.id.system_purpose);
+        intface=(TextView) findViewById(R.id.intface);
+        about_data=(TextView) findViewById(R.id.about_data);
+        updates=(TextView) findViewById(R.id.updates);
+
+//        Text Link :-
+        system_purpose.setMovementMethod(LinkMovementMethod.getInstance());
+        intface.setMovementMethod(LinkMovementMethod.getInstance());
+        about_data.setMovementMethod(LinkMovementMethod.getInstance());
+        updates.setMovementMethod(LinkMovementMethod.getInstance());
 
         /*Question Upload Data :-*/
         uploddata.setOnClickListener(new View.OnClickListener() {

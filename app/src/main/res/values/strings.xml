@@ -2,7 +2,7 @@
     <string name="app_name">Final Year Project</string>
 
     <!--    Splash Page :- -->
-    <string name="payroll">Payroll System App</string>
+    <string name="payroll">Payrolls Manage App</string>
 
     <!--    Veiw Page :- -->
     <string name="payrollsytem">Payroll System</string>
@@ -90,10 +90,18 @@
     <string name="helptextc">How to Apply for Advance Salary?</string>
     <string name="helptextd">How to Frame a New Salary Structure?</string>
     <string name="aboutsystem">About the System</string>
-    <string name="systempurpose">System Purpose</string>
-    <string name="intface">Interface</string>
-    <string name="aboutdata">About Data</string>
-    <string name="updates">Software &amp; technical updates</string>
+    <string name="systempurpose">
+        <a href ="https://www.google.com/">System Purpose</a>
+    </string>
+    <string name="intface">
+        <a href ="https://www.google.com/">Interface</a>
+    </string>
+    <string name="aboutdata">
+        <a href ="https://www.google.com/">About Data</a>
+    </string>
+    <string name="updates">
+        <a href ="https://www.google.com/">Software &amp; Technical Updates</a>
+    </string>
     <string name="Searchstaff">Search Employees</string>
     <string name="depratments">Departments</string>
     <string name="year">2020-21</string>

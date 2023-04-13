@@ -39,6 +39,8 @@ public class DepartmentsList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departments);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Department List");
         simmereffect=(ShimmerFrameLayout)findViewById(R.id.simmereffect);
         simmereffect.startShimmer();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -83,5 +85,11 @@ public class DepartmentsList extends AppCompatActivity {
         DepartListAdapter myadpter = new DepartListAdapter(this, departlist);
         departrecyclerview.setLayoutManager(layoutManager);
         departrecyclerview.setAdapter(myadpter);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

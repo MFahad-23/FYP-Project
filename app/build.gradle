@@ -76,16 +76,17 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
 
 //    File Screeshot Share :-
-            implementation 'com.github.maityamit:Share_Layout_Android_Library:1.0.0'
+    implementation 'com.github.maityamit:Share_Layout_Android_Library:1.0.0'
 
 
 //   Drop Down Menue :-
     implementation 'com.jaredrummler:material-spinner:1.3.1'
 
 //    Convert XML To PDF File :-
-            implementation 'com.github.Gkemon:Android-XML-to-PDF-Generator:2.6.8'
+    implementation 'com.github.Gkemon:Android-XML-to-PDF-Generator:2.6.8'
     
-//    Spinner Datepicker :-
+////     English Date Spinner :-
+    implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
 
 
 }

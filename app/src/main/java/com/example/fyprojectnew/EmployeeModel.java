@@ -4,17 +4,17 @@ public class EmployeeModel {
     private String employeeimage;
     private String delimage;
     private String employeename;
-    private String employeeid;
+    private String employee_designation;
     public String key;
 
     public EmployeeModel() {
     }
 
-    EmployeeModel(String employeeimage,String delimage, String employeename, String employeeid, String key){
+    EmployeeModel(String employeeimage,String delimage, String employeename, String employee_designation, String key){
         this.delimage = "";
         this.employeeimage="";
         this.employeename=employeename;
-        this.employeeid=employeeid;
+        this.employee_designation=employee_designation;
         this.key=key;
     }
     public String getDelimage() {
@@ -28,8 +28,8 @@ public class EmployeeModel {
         return employeename;
     }
 
-    public String getEmployeeid() {
-        return employeeid;
+    public String getEmployee_designation() {
+        return employee_designation;
     }
 
 }

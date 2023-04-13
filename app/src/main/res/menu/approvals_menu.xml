@@ -12,9 +12,4 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/share"/>
 
-    <item android:title="Share"
-        android:id="@+id/print"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_print"/>
-
 </menu>

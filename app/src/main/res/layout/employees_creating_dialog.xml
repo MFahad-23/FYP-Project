@@ -63,7 +63,6 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_below="@id/employeename"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/employee_create_border"
@@ -74,7 +73,7 @@
                 app:endIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/employeedesignation"
+                    android:id="@+id/employee_designation"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:drawableStart="@drawable/ic_username_white"

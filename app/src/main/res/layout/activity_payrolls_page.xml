@@ -561,6 +561,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:paddingLeft="3dp"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/tablelayout_border"
                 android:textAllCaps="false"
@@ -573,6 +574,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.9"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -585,6 +587,7 @@
                 android:background="@drawable/edittext_stroke"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.6"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -596,6 +599,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.1"
                 android:background="@drawable/tablelayout_border"
                 android:textAlignment="center"
@@ -608,6 +612,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:textAlignment="center"
                 android:layout_weight="0.1"
                 android:textAllCaps="false"
@@ -619,6 +624,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.2"
                 android:textAlignment="center"
                 android:background="@drawable/edittext_stroke"
@@ -648,6 +654,7 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:paddingLeft="3dp"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/tablelayout_border"
                 android:textAllCaps="false"
@@ -660,6 +667,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.9"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -672,6 +680,7 @@
                 android:background="@drawable/edittext_stroke"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.6"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -683,6 +692,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.1"
                 android:background="@drawable/tablelayout_border"
                 android:textAlignment="center"
@@ -695,6 +705,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:textAlignment="center"
                 android:layout_weight="0.1"
                 android:textAllCaps="false"
@@ -706,6 +717,7 @@
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text=""
+                android:gravity="center"
                 android:layout_weight="0.2"
                 android:textAlignment="center"
                 android:background="@drawable/edittext_stroke"
@@ -716,7 +728,207 @@
 
         </TableRow>
 
-
     </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:layout_constraintVertical_bias="0.2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/underline"
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/black" />
+
+            <TextView
+                android:id="@+id/signature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="Dr.Samina Naz"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/underline"
+                app:layout_constraintHorizontal_bias="0.453"
+                app:layout_constraintStart_toStartOf="@+id/underline"
+                app:layout_constraintTop_toBottomOf="@+id/underline"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="In-charge(Computer Science)"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="Eng.Dr.Shahzad Ahmad"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/underline"
+                app:layout_constraintHorizontal_bias="0.453"
+                app:layout_constraintStart_toStartOf="@+id/underline"
+                app:layout_constraintTop_toBottomOf="@+id/underline"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="In-charge QEC"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout18"
+        app:layout_constraintHorizontal_bias="0.500"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout18"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout18"
+        app:layout_constraintVertical_bias="0.3">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="Worthy Vice Chancellor"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/underline"
+                app:layout_constraintHorizontal_bias="0.453"
+                app:layout_constraintStart_toStartOf="@+id/underline"
+                app:layout_constraintTop_toBottomOf="@+id/underline"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="1dp"
+                android:layout_alignParentRight="true"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="Eng.Dr.Asim Umer"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="600"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/underline"
+                app:layout_constraintHorizontal_bias="0.453"
+                app:layout_constraintStart_toStartOf="@+id/underline"
+                app:layout_constraintTop_toBottomOf="@+id/underline"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/underline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/adamina"
+                android:text="Add.Registrar"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

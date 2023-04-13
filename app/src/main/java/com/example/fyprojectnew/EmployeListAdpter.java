@@ -46,8 +46,8 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
         String image=employee_items_view.get(position).getEmployeeimage();
         String delimage=employee_items_view.get(position).getDelimage();
         String name=employee_items_view.get(position).getEmployeename();
-        String id=employee_items_view.get(position).getEmployeeid();
-        holder.setdata(key,image,delimage,name,id);
+        String designation=employee_items_view.get(position).getEmployee_designation();
+        holder.setdata(key,image,delimage,name,designation);
     }
 
     @Override
@@ -90,7 +90,7 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView employeeimage;
         private TextView employeename;
-        private TextView employeeid;
+        private TextView employee_designation;
         private RelativeLayout employeelist;
         private ImageView deleteimage;
         private Dialog deldialog;
@@ -100,13 +100,12 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
             employeeimage=itemView.findViewById(R.id.employeeimage);
             deleteimage=itemView.findViewById(R.id.deleteimage);
             employeename=itemView.findViewById(R.id.employeename);
-            employeeid=itemView.findViewById(R.id.employeeid);
+            employee_designation=itemView.findViewById(R.id.employee_designation);
             employeelist=itemView.findViewById(R.id.employeelist);
         }
-        public void setdata( String key,String image, String name, String id, String delimage) {
-            //employeeimage.setImageResource(image);
-            employeename.setText(name);
-            employeeid.setText(id);
+        public void setdata( String key,String image, String name, String designation, String delimage) {
+            employeename.setText(designation);
+            employee_designation.setText(name);
 
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
