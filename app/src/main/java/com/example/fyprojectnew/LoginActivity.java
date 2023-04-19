@@ -36,7 +36,7 @@ import java.util.TimerTask;
 
 public class LoginActivity extends AppCompatActivity {
     TextInputEditText gmail, password;
-    TextView create_account, textveiw;
+    TextView create_account, forget_password;
     String TAG;
     Timer timer;
     ImageView dialog_dissmiss,dissmiss;
@@ -54,9 +54,10 @@ public class LoginActivity extends AppCompatActivity {
         password = (TextInputEditText) findViewById(R.id.password);
         Button login = (Button) findViewById(R.id.login);
         create_account = (TextView) findViewById(R.id.create_account);
-        textveiw = (TextView) findViewById(R.id.textveiw);
+        forget_password = (TextView) findViewById(R.id.forget_password);
         mauth = FirebaseAuth.getInstance();
         helpcard =(LinearLayout)findViewById(R.id.helpcard);
+        String emailAddress =gmail.getText().toString();
 
         slide_left=AnimationUtils.loadAnimation(LoginActivity.this,R.anim.slide_left);
 
@@ -71,15 +72,18 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         /* Foreget Password :-*/
-        textveiw.setOnClickListener(new View.OnClickListener() {
+        forget_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getApplicationContext(), "Data Saved Successfuly", Toast.LENGTH_LONG).show();
-                    }
-                });
+                mauth.sendPasswordResetEmail(emailAddress)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d(TAG, "Email sent.");
+                                }
+                            }
+                        });
             }
         });
 
@@ -111,15 +115,8 @@ public class LoginActivity extends AppCompatActivity {
                                         }, 2000);
                                         gmail.setText("");
                                         password.setText("");
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        timer = new Timer();
-                                        timer.schedule(new TimerTask() {
-                                            @Override
-                                            public void run() {
-                                                startActivity(new Intent(LoginActivity.this, LoginActivity.class));
-                                            }
-                                        }, 2000);
+                                    } else
+                                    {
                                         /*Error Dialog :-*/
                                         Openerrordialog();
                                     }

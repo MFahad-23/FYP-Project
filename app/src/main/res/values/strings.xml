@@ -18,6 +18,7 @@
     <string name="forget">Forget Password?</string>
     <string name="noaccount">I have no account.</string>
     <string name="craeteaccount"><u>Create New Account ?</u></string>
+    <string name="password">Enter Password</string>
 
     <!--    Calculation Page :- -->
     <string name="salaries">Salary</string>
@@ -55,12 +56,11 @@
     <string name="departs">Departments</string>
     <string name="instruction">Instructions</string>
     <string name="username">Username</string>
-    <string name="password">Password</string>
     <string name="submit">Submit</string>
     <string name="back">Back</string>
-    <string name="cnic">CNIC</string>
-    <string name="gmail">G-Mail</string>
-    <string name="contact">Contact</string>
+    <string name="cnic">XXXXX-XXXXXXX-X</string>
+    <string name="gmail">Someone@gmail.com</string>
+    <string name="contact">XXXXXXXXXXXX</string>
     <string name="city">City</string>
     <string name="or">OR</string>
     <string name="payroll_setting">Payroll Setting</string>
@@ -91,16 +91,16 @@
     <string name="helptextd">How to Frame a New Salary Structure?</string>
     <string name="aboutsystem">About the System</string>
     <string name="systempurpose">
-        <a href ="https://www.google.com/">System Purpose</a>
+        <a href="https://www.google.com/">System Purpose</a>
     </string>
     <string name="intface">
-        <a href ="https://www.google.com/">Interface</a>
+        <a href="https://www.google.com/">Interface</a>
     </string>
     <string name="aboutdata">
-        <a href ="https://www.google.com/">About Data</a>
+        <a href="https://www.google.com/">About Data</a>
     </string>
     <string name="updates">
-        <a href ="https://www.google.com/">Software &amp; Technical Updates</a>
+        <a href="https://www.google.com/">Software &amp; Technical Updates</a>
     </string>
     <string name="Searchstaff">Search Employees</string>
     <string name="depratments">Departments</string>
@@ -201,7 +201,7 @@ Create Job Grades.
 Create a Salary Range Based on Research.
     </string>
     <string name="subject"><b>Subject :</b></string>
-    <string name="programme">Morning Programme</string>
+    <string name="programme">Morning</string>
     <string name="sir"><b>Respected Sir</b></string>
     <string name="inform">It is requested to kindly accord the approval of the following</string>
     <string name="inform_scnd">Visiting Teachers for the Semister</string>

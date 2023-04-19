@@ -278,7 +278,7 @@ public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha
                                                                         employee_designation.getText().toString(),employee_qualification.getText().toString(),
                                                                         department.getText().toString(),teaching_subject.getText().toString(),datepicker.getText().toString(),
                                                                         session_spinner.getText().toString(),semister_spinner.getText().toString(),class_spinner.getText().toString(),
-                                                                        english_date.getText().toString(),section_value,session_value,class_value,key);
+                                                                        section_value,session_value,class_value,key,english_date.getText().toString());
 
                                                  mDatabase.child("Employee Approvals").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                 @Override

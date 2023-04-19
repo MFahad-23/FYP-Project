@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,8 +40,9 @@ public class SignUpActivity extends AppCompatActivity {
     String TAG;
     Timer timer;
     Dialog dialogbox;
-    String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+    String emailPattern = "[A-ZA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     String passwordpattern = "[^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,30}$]";
+    String cncicpattern="[0-9+]{5}-[0-9+]{7}-[0-9]{1}";
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
@@ -105,34 +107,32 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                 else if(cnic.getText().toString().isEmpty())
                 {
-                   cnic.setError("" +
-                           "*Please complete the field*");
+                   cnic.setError("*Please complete the field*");
+                }
+                  else if (cnic.getText().toString().length()>15) {
+                    Toast.makeText(SignUpActivity.this,"Please Follow CNIC Pattern",Toast.LENGTH_LONG).show();
                 }
                 else if (gmail.getText().toString().isEmpty()){
                     gmail.setError("*Please complete the field*");
                 }
                 else if (gmail.getText().toString().matches(emailPattern)){
-                    Toast.makeText(SignUpActivity.this,"*Wrong Format*",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this,"Please Follow Email Pattern",Toast.LENGTH_LONG).show();
                 }
                 else if (contact.getText().toString().isEmpty()){
                     contact.setError("*Please Complete the Field*");
                 }
                 else if (contact.getText().toString().length()<12){
-                    Toast.makeText(SignUpActivity.this,"Please Enter Correct Contact",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpActivity.this,"Please Follow contact Pattern",Toast.LENGTH_LONG).show();
                 }
                 else if (city.getText().toString().isEmpty()){
                     city.setError("*Please Complete the Field*");
                 }
-                else if (password.getText().toString().isEmpty()){
+                if (password.getText().toString().isEmpty()){
                     password.setError("*Please Complete the Field*");
                 }
-                else if (password.getText().toString().matches(passwordpattern)){
-                    Toast.makeText(SignUpActivity.this,"Please Enter Password with" +
-                            "Min 1 uppercase letter," +
-                            "Min 1 lowercase letter," +
-                            "Min 1 special character," +
-                            "Min 1 number," +
-                            "Min 8 characters.",Toast.LENGTH_LONG).show();
+                else if (password.getText().toString().length()<9){
+                    Toast.makeText(SignUpActivity.this,
+                            "Enter  Nine Digits Strong Password",Toast.LENGTH_LONG).show();
                 }
                 else{
                    /* Firebase Authentication :-*/

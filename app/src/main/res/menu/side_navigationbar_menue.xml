@@ -21,6 +21,11 @@
             android:title="New Account"
             android:icon="@drawable/newaccount"/>
 
+        <item android:id="@+id/setting"
+            android:title="Settings"
+            android:icon="@drawable/setting"/>
+
+
     </group>
 
     <item android:title="Communicate">

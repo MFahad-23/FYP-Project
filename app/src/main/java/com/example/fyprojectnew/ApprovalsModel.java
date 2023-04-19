@@ -1,6 +1,8 @@
 package com.example.fyprojectnew;
 
-public class ApprovalsModel {
+import java.io.Serializable;
+
+public class ApprovalsModel implements Serializable {
     public String employee_image;
     public String employee_name;
     public String employee_designation;

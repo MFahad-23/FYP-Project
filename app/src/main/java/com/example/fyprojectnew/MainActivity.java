@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent createnewpage=new Intent(MainActivity.this,SplashActivity.class);
+                        Intent createnewpage=new Intent(MainActivity.this,LoginActivity.class);
                         startActivity(createnewpage);
                     }
                 },100);
@@ -149,11 +149,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent loginepage=new Intent(MainActivity.this,LoginActivity.class);
+                        Intent loginepage=new Intent(MainActivity.this,SignUpActivity.class);
                         startActivity(loginepage);
                     }
                 },1000);
                 break;
+            case R.id.setting:
+                timer=new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        Intent createnew_password=new Intent(MainActivity.this,CreateNewPassword.class);
+                        startActivity(createnew_password);
+                    }
+                },100);
         }
         drawerlayout.closeDrawer(GravityCompat.START);
         return true;

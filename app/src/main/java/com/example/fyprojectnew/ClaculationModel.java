@@ -21,6 +21,7 @@ public class ClaculationModel {
     public int leave_deduction;
     public int deduction;
     public int total_pay;
+    public int allowances;
 
     public ClaculationModel() {
     }
@@ -30,7 +31,7 @@ public class ClaculationModel {
                             int income_tax, int senior_post_allowance, int house_rent_allowance, int conveyance_allowance,
                             int qualification_allowance, int medical_allowance, int adhoc_relief_2016, int adhoc_relief_2017,
                             int adhoc_relief_2018, int adhoc_relief_2019, int adhoc_relief_2021, int social_security_benefit,
-                            int leave_deduction, int deduction, int total_pay) {
+                            int leave_deduction, int deduction, int total_pay,int allowances) {
         this.employee = employee;
         this.designation = designation;
         this.spinner = spinner;
@@ -51,5 +52,6 @@ public class ClaculationModel {
         this.leave_deduction = leave_deduction;
         this.deduction = deduction;
         this.total_pay = total_pay;
+        this.allowances =allowances;
     }
 }

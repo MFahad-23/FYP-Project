@@ -42,7 +42,7 @@ public class CalculationPageActivity extends AppCompatActivity {
     EditText employee,spinner, designation, baisic_pay, trade_tax, income_tax,
             senior_post_allowance, house_rent_allowance, conveyance_allowance, qualification_allowance,
             medical_allowance, adhoc_relief_2016, adhoc_relief_2017, adhoc_relief_2018, adhoc_relief_2019,
-            adhoc_relief_2021, social_security_benefit, leave_deduction, deduction, total_pay;
+            adhoc_relief_2021, social_security_benefit, leave_deduction, deduction, total_pay,total_allowances;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,6 +58,7 @@ public class CalculationPageActivity extends AppCompatActivity {
         baisic_pay = (EditText) findViewById(R.id.baisic_pay);
         trade_tax = (EditText) findViewById(R.id.trade_tax);
         income_tax = (EditText) findViewById(R.id.income_tax);
+        total_allowances = (EditText) findViewById(R.id.total_allowances);
         senior_post_allowance = (EditText) findViewById(R.id.senior_post_allowance);
         house_rent_allowance = (EditText) findViewById(R.id.house_rent_allowance);
         conveyance_allowance = (EditText) findViewById(R.id.conveyance_allowance);
@@ -96,6 +97,10 @@ public class CalculationPageActivity extends AppCompatActivity {
                 int o = Integer.parseInt(leave_deduction.getText().toString());
                 int p = Integer.parseInt(deduction.getText().toString());
 
+                int allowances;
+                allowances=a+d+e+f+g+h+i+j+k+l+m+n;
+                total_allowances.setText(allowances +"");
+
                 int result;
                 result = a - b - c + d + e + f + g + h + i + j + k + l + m + n - o - p;
                 total_pay.setText(result + "");
@@ -107,7 +112,7 @@ public class CalculationPageActivity extends AppCompatActivity {
                         Integer.parseInt(conveyance_allowance.getText().toString()),Integer.parseInt(qualification_allowance.getText().toString()),Integer.parseInt(medical_allowance.getText().toString()),
                         Integer.parseInt(adhoc_relief_2016.getText().toString()), Integer.parseInt(adhoc_relief_2017.getText().toString()),Integer.parseInt(adhoc_relief_2019.getText().toString()),
                         Integer.parseInt(adhoc_relief_2019.getText().toString()),Integer.parseInt(adhoc_relief_2021.getText().toString()),Integer.parseInt(social_security_benefit.getText().toString()),
-                        Integer.parseInt(leave_deduction.getText().toString()), Integer.parseInt(deduction.getText().toString()),result);
+                        Integer.parseInt(leave_deduction.getText().toString()), Integer.parseInt(deduction.getText().toString()),result,allowances);
                 /*For get Ket to firebase auto :-*/
                 String key = mDatabase.child("Payrolls").push().getKey();
                 mDatabase.child("Payrolls").child(key).setValue(tempuser)

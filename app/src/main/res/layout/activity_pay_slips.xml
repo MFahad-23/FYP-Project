@@ -7,88 +7,24 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".PaySlipsActivity">
+
     <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/setbaxckground"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/logo" />
 
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="600dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card1"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/edittext_border"
-            android:elevation="20dp"
-            app:cardCornerRadius="10dp" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_below="@id/card1"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/edittext_border"
-            android:elevation="20dp"
-            app:cardCornerRadius="10dp" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.196">
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:background="@drawable/edittext_border"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/eye" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_button"
-            android:textAllCaps="false"
-            android:paddingLeft="20dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/download"
-            android:textColor="@color/black"
-            android:drawableStart="@drawable/download"
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:layout_marginLeft="80dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.86"
-            app:layout_constraintStart_toEndOf="@+id/imageButton"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
-            app:layout_constraintVertical_bias="0.178" />
-
-    </LinearLayout>
-
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.025" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

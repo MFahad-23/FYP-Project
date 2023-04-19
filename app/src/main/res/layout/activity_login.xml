@@ -29,9 +29,10 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.643" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -79,7 +80,7 @@
                     android:drawableStart="@drawable/ic_username_white"
                     android:drawablePadding="20dp"
                     android:fontFamily="@font/adamina"
-                    android:hint="G-Mail"
+                    android:hint="Someone@gmail.com"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLength="20"
@@ -97,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="20dp"
-                app:endIconMode="clear_text"
+                app:endIconMode="password_toggle"
                 app:endIconTint="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -143,7 +144,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:textFontWeight="600"
-                    android:textSize="10sp" />
+                    android:textSize="12sp" />
 
                 <ImageView
                     android:id="@+id/image2"
@@ -156,7 +157,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textveiw"
+                android:id="@+id/forget_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -167,7 +168,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/login"

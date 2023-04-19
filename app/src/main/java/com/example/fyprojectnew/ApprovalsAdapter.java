@@ -48,7 +48,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
         String name = aprovedlist.get(position).employee_name;
         String designation = aprovedlist.get(position).employee_designation;
         String date = aprovedlist.get(position).datepicker;
-        holder.setdata(key, image, name, designation, date);
+        holder.setdata(key, image, name, designation, date,aprovedlist.get(position));
     }
 
     @Override
@@ -103,7 +103,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
             employeelist=itemView.findViewById(R.id.employeelist);
         }
 
-        public void setdata(String key,String image, String name, String designation,String date) {
+        public void setdata(String key,String image, String name, String designation,String date,ApprovalsModel model) {
             if(image!=null) {
                 Glide.with(context).load(image).into(employeeimage);
             }
@@ -114,7 +114,9 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context,PayrollsPageActivity.class));
+                    Intent intent=new Intent(context,PayrollsPageActivity.class);
+                    intent.putExtra("data",model);
+                    context.startActivity(intent);
                 }
             });
             deleteimage.setOnClickListener(new View.OnClickListener() {
@@ -127,15 +129,17 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
             employeeimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("this","chk");
-                    imagedialog=new Dialog(context);
+
+                   Dialog imagedialog=new Dialog(context);
                     imagedialog.setContentView(R.layout.imagedialog);
                     ImageView imageview;
-                    imageview=imagedialog.findViewById(R.id.imageview);
+                    imageview=imagedialog.findViewById(R.id.imageview09);
+
+                    if(image!=null) {
+                        Log.d("this",image);
+                        Glide.with(context).load(image).into(imageview);
+                    }
                     imagedialog.show();
-//                    if(image!=null) {
-//                        Glide.with(context).load(image).into(imageview);
-//                    }
                 }
             });
         }
@@ -144,7 +148,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
     private void openDialog(String key) {
       Dialog deldialog=new Dialog(context);
         deldialog.setContentView(R.layout.file_delete_dialog);
-        deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
+        deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_transparent_background);
         TextView cancel,ok;
         cancel=deldialog.findViewById(R.id.cancel);
         ok=deldialog.findViewById(R.id.ok);

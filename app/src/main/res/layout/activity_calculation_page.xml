@@ -622,20 +622,40 @@
                         android:textColor="@color/black"
                         android:textFontWeight="500"
                         android:textSize="14sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                     <EditText
                         android:id="@+id/social_security_benefit"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="45dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/spinner_background_design"
                         android:drawableStart="@drawable/rupee"
                         android:drawablePadding="10dp"
                         android:hint="@string/price"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
                         android:inputType="number"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:textColorHint="@color/grey" />
+                    <EditText
+                        android:id="@+id/total_allowances"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/spinner_background_design"
+                        android:drawableLeft="@drawable/rupee"
+                        android:drawablePadding="10dp"
+                        android:hint="@string/price"
+                        android:inputType="number"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textColorHint="@color/grey" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 

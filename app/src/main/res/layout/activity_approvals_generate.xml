@@ -279,6 +279,8 @@
 
             <RadioGroup
                 android:id="@+id/section"
+                android:layout_weight="1"
+                android:layout_marginLeft="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -288,7 +290,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:text="Section A"
+                    android:text="A"
+                    android:layout_weight="0.8"
                     android:textSize="12sp" />
 
                 <RadioButton
@@ -296,7 +299,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:text="Section B"
+                    android:text="B"
+                    android:layout_weight="1"
                     android:textSize="12sp" />
             </RadioGroup>
         </LinearLayout>

@@ -1487,10 +1487,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
         android:fontFamily="@font/adamina"
         android:paddingBottom="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
         android:text="@string/treasurer"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -1499,10 +1499,10 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.910"
+        app:layout_constraintHorizontal_bias="0.93"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
