@@ -1,19 +1,12 @@
 package com.example.fyprojectnew;
-
-import static com.example.fyprojectnew.R.color.black;
-import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,15 +15,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.text.BreakIterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -59,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         helpcard =(LinearLayout)findViewById(R.id.helpcard);
         String emailAddress =gmail.getText().toString();
 
+        //Animation Slide_Left :-
         slide_left=AnimationUtils.loadAnimation(LoginActivity.this,R.anim.slide_left);
 
         /* Create New Account :-*/
@@ -81,6 +72,9 @@ public class LoginActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "Email sent.");
+                                    Toast toast=Toast.makeText(getApplicationContext(), "Check Your Gmail for Password Reset", Toast.LENGTH_SHORT);
+                                    toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.START,50,50);
+                                    toast.show();
                                 }
                             }
                         });

@@ -1,26 +1,128 @@
 <resources>
     <string name="app_name">Final Year Project</string>
 
-    <!--    Splash Page :- -->
+    <!--    Splash Activity :- -->
     <string name="payroll">Payrolls Manage App</string>
 
-    <!--    Veiw Page :- -->
+    <!--    Veiw Activity :- -->
     <string name="payrollsytem">Payroll System</string>
     <string name="message">
         Welcome in Payroll System of mns_uet.
-        It helps to manage our payrolls easy.</string>
+        It helps to manage our payrolls easy.
+    </string>
     <string name="login">LogIn</string>
     <string name="signup">SignUp</string>
 
-    <!--    Login Page :- -->
+    <!--    Login Activity :- -->
     <string name="welcometext">Welcome For LogIn!</string>
     <string name="help">Help</string>
     <string name="forget">Forget Password?</string>
     <string name="noaccount">I have no account.</string>
     <string name="craeteaccount"><u>Create New Account ?</u></string>
     <string name="password">Enter Password</string>
+    <string name="gmail_login">Enter Gmail</string>
+    <string name="error">Oops! Something went Wrong.Please try Again.Please LogIn with correct gmail and password.</string>
+    <string name="helpdialog">Click create new account and enter your data in the required fields then press the Submit Button for submit your data into Database and make sure that you remember Your Email and Password for Login.Thank You !</string>
 
-    <!--    Calculation Page :- -->
+    <!--    SignUp Activity :- -->
+    <string name="back">Back</string>
+    <string name="username">Username</string>
+    <string name="submit">Submit</string>
+    <string name="cnic">#####-#######-#</string>
+    <string name="gmail">Example@gmail.com</string>
+    <string name="contact">####-#######</string>
+    <string name="city">City Name</string>
+    <string name="or">OR</string>
+    <string name="password_signup">Enter Password</string>
+
+    <!--    Home Fragment :- -->
+    <string name="menu">Menu</string>
+    <string name="setting">Setting</string>
+    <string name="departs">Departments</string>
+    <string name="approve_files">Approve Files</string>
+    <string name="slips">Pay Slips</string>
+    <string name="help_main">Help</string>
+    <string name="navigation_drawer_Open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
+    <!--    Setting Fragment :- -->
+    <string name="approvals">Approvals</string>
+    <string name="Caluculate">Calculations</string>
+
+    <!--   Departments Activity :- -->
+    <string name="chemicaldepart">Chemical Engineering</string>
+    <string name="electricaldepart">Electrical Engineering</string>
+    <string name="civildepart">Civil Engineering Technology</string>
+    <string name="mechanicaldepart">Mech Engineering Technology</string>
+    <string name="csdepart">Computer Science</string>
+    <string name="bbadepart">Business Administration</string>
+    <string name="mathsdepart">Mathematics Department</string>
+    <string name="physicsdepart">Physics Department</string>
+    <string name="chemistrydepart">Chemistry Department</string>
+    <string name="employee">Employees Department</string>
+    <string name="admin">Administration</string>
+
+    <!--   Help Activity :- -->
+    <string name="helptexta">How to Upload data into the System?</string>
+    <string name="helptextb">Why Documents are not Uploading?</string>
+    <string name="helptextc">How to Apply for Advance Salary?</string>
+    <string name="helptextd">How to Frame a New Salary Structure?</string>
+    <string name="aboutsystem">About the System</string>
+    <string name="more"><u>More..</u></string>
+    <string name="systempurpose">
+        <a href="https://www.google.com/">System Purpose</a>
+    </string>
+    <string name="intface">
+        <a href="https://www.google.com/">Interface</a>
+    </string>
+    <string name="aboutdata">
+        <a href="https://www.google.com/">About Data</a>
+    </string>
+    <string name="updates">
+        <a href="https://www.google.com/">Software &amp; Technical Updates</a>
+    </string>
+
+    <!--    Questions Activity :- -->
+    <string name="helptextQ1">How to Upload data into the System?</string>
+    <string name="helptextQ2">Why Documents are not Uploading?</string>
+    <string name="helptextQ3">How to Apply for Advance Salary?</string>
+    <string name="helptextQ4">How to Frame a New Salary Structure?</string>
+    <string name="ansa">Select the Utilities Tab then Load Data Tab.Use the File Upload Link on left navigation bar.Uploading
+        a document that already exists in digital form is relatively straightforward. Often, all you need to do is choose the
+        upload option on the destination website or program you are using then select the file from the browser that pops up.
+        We recommend uploading only Tab Delimited Files.
+        Upload and view files
+        On your Android phone or tablet open the Google Drive app.
+        Tap Add.
+        Tap Upload.
+        Find and tap the files you want to upload.
+        View uploaded files in My Drive until you move them.
+                Upload files and folders
+        On your computer go to drive.google.com.
+        At the top left click New. File Upload or Folder Upload.
+        Choose the file or folder you want to upload.
+    </string>
+    <string name="ansb">
+        Your file may be corrupted, which means there are metadata issues in the file that occurred during original document generation
+        scanning or some other conversion process, has produced an invalid PDF.Upload your file using a different browser or Incognito
+        or Private browsing to make sure that certain browser extensions do not affect the process or the site you are loading.
+    </string>
+    <string name="ansc">National Bank of Pakistan Loan Scheme is an ideal chance for regular and service workers who plan to receive some
+        cash advance. It is among the top public banks in Pakistan and offers various loans for NBP bank account holders federal employees
+        and semi government workers as well as  government employees.
+    </string>
+    <string name="ansd">
+        How to Establish Salary Ranges
+        Determine the Organizations Compensation Philosophy.
+        Conduct a Job Analysis.
+        Group into Job Families.
+        Rank Positions Using a Job Evaluation Method.
+        Conduct Market Research.
+        Create Job Grades.
+        Create a Salary Range Based on Research.
+    </string>
+
+    <!--    Calculation Activity :- -->
     <string name="salaries">Salary</string>
     <string name="selectfy">Select Date</string>
     <string name="pay_period">Pay Period</string>
@@ -48,73 +150,8 @@
     <string name="price">00.000</string>
 
 
-    <string name="payperiod">Pay Period</string>
-    <string name="approvals">Approvals</string>
-    <string name="Caluculate">Calculations</string>
-    <string name="slips">Pay Slips</string>
-    <string name="setting">Setting</string>
-    <string name="departs">Departments</string>
-    <string name="instruction">Instructions</string>
-    <string name="username">Username</string>
-    <string name="submit">Submit</string>
-    <string name="back">Back</string>
-    <string name="cnic">XXXXX-XXXXXXX-X</string>
-    <string name="gmail">Someone@gmail.com</string>
-    <string name="contact">XXXXXXXXXXXX</string>
-    <string name="city">City</string>
-    <string name="or">OR</string>
-    <string name="payroll_setting">Payroll Setting</string>
-    <string name="pf_setting">PF Settings</string>
-    <string name="decleration_setting">Decleration Settings</string>
-    <string name="payout_setting">Payout Settings</string>
-    <string name="frequency">Pay Frequency</string>
-    <string name="from">From :</string>
-    <string name="to">To :</string>
-    <string name="pay_calculate">Pay Calculation</string>
-    <string name="weekends">Include Weekends</string>
-    <string name="holidays">Include Holidays</string>
-    <string name="save">Save</string>
-    <string name="chemicaldepart">Chemical Engineering</string>
-    <string name="electricaldepart">Electrical Engineering</string>
-    <string name="civildepart">Civil Engineering Technology</string>
-    <string name="mechanicaldepart">Mech Engineering Technology</string>
-    <string name="csdepart">Computer Science</string>
-    <string name="bbadepart">Business Administration</string>
-    <string name="mathsdepart">Mathematics Department</string>
-    <string name="physicsdepart">Physics Department</string>
-    <string name="chemistrydepart">Chemistry Department</string>
-    <string name="employee">Employees Department</string>
-    <string name="admin">Administration</string>
-    <string name="helptexta">How to Upload data into the System?</string>
-    <string name="helptextb">Why Documents are not Uploading?</string>
-    <string name="helptextc">How to Apply for Advance Salary?</string>
-    <string name="helptextd">How to Frame a New Salary Structure?</string>
-    <string name="aboutsystem">About the System</string>
-    <string name="systempurpose">
-        <a href="https://www.google.com/">System Purpose</a>
-    </string>
-    <string name="intface">
-        <a href="https://www.google.com/">Interface</a>
-    </string>
-    <string name="aboutdata">
-        <a href="https://www.google.com/">About Data</a>
-    </string>
-    <string name="updates">
-        <a href="https://www.google.com/">Software &amp; Technical Updates</a>
-    </string>
-    <string name="Searchstaff">Search Employees</string>
-    <string name="depratments">Departments</string>
-    <string name="year">2020-21</string>
-    <string name="more"><u>More..</u></string>
-    <string name="amount">Amount</string>
-    <string name="salarystructure">Salary Structure</string>
-    <string name="declaration">Declarations</string>
-    <string name="payout">Payouts</string>
-    <string name="calculate">Calculate Payrolls</string>
-    <string name="download">Download</string>
-    <string name="navigation_drawer_Open">Open Navigation Drawer</string>
-    <string name="navigation_drawer_close">Close Navigation Drawer</string>
-    <string name="error">Oops! Something went Wrong.Please try Again.Please LogIn with correct gmail and password.</string>
+    <!--    Payslip Template Activity :- -->
+    <string name="uniname">Muhammad Nawaz Sharif University of Engineering &amp; Technology Multan.</string>
     <string name="payslip">(<u>Pay Slip</u>)</string>
     <string name="number">01</string>
     <string name="number1">02</string>
@@ -129,6 +166,8 @@
     <string name="number10">10</string>
     <string name="number11">11</string>
     <string name="number12">12</string>
+    <string name="nos">No.s</string>
+    <string name="name">Information</string>
     <string name="emoluments"><u>EMOLUMENTS</u></string>
     <string name="basicpayallowance">Basic Pay</string>
     <string name="seniorpost">Senior Post Allowance</string>
@@ -156,50 +195,38 @@
     <string name="groupinsurance">Group Insurance</string>
     <string name="tradetax">Trade Tax</string>
     <string name="treasurer"><u>Additional Treasurer</u></string>
-    <string name="filedel">Are You want to delete this User ?</string>
-    <string name="objection">Please do not write below this line.</string>
-    <string name="uniname">Muhammad Nawaz Sharif University of Engineering and Technology Multan.
-    </string>
-    <string name="helpdialog">Click create new account and enter your data in the required fields then press the Submit Button for submit your data into Database and make sure that you remember Your Email and Password for Login.Thank You !</string>
+    <string name="deisgnation">Designation</string>
+    <string name="employee_name">Name</string>
 
+    <!--    Approvals Generate Activity :- -->
+    <string name="employeename">Employee Name</string>
+    <string name="designation">Designation</string>
+    <string name="employee_qualification">Qualification</string>
+    <string name="employee_depart">Department</string>
+    <string name="employee_subject">Subject</string>
+    <string name="payroll_date">00-Month-0000</string>
+    <string name="subject_type">Subject</string>
+    <string name="section">Section</string>
+    <string name="session">Sesssion</string>
+    <string name="morning">Morning</string>
+    <string name="evening">Evening</string>
+    <string name="practical">Practical</string>
+    <string name="theory">Theory</string>
+    <string name="approvals_submit">Submit</string>
 
-    <!-- Questions Area:- -->
+    <!--    Cheque Generate Activity :- -->
+    <string name="uni_half">UNIVERSITY OF ENGINEERING &amp; TECHNOLOGY,MULTAN.</string>
+    <string name="uni_scndhalf">c/o.Govt.College of Technology, BCG Chowk, Bahawalpur Road,Multan, Pakistan.</string>
+    <string name="date_set"><b>Date :</b></string>
+    <string name="cheque_no">Cheque No.</string>
+    <string name="instruction_cheque">Please do not write below this line.</string>
+    <string name="signature">Signature</string>
+    <string name="rupees">Rupees</string>
+    <string name="date.">Date.</string>
 
-    <string name="ansa">Select the Utilities Tab then Load Data Tab.Use the File Upload Link on left navigation bar.Uploading
-        a document that already exists in digitalform is relatively straightforward. Often, all you need to do is choose the
-        upload option on the destination website or program you are using then select the file from the browser that pops up.
-        We recommend uploading only Tab Delimited Files.
-        Upload and view files
-On your Android phone or tablet open the Google Drive app.
-Tap Add.
-Tap Upload.
-Find and tap the files you want to upload.
-View uploaded files in My Drive until you move them.
-        Upload files and folders
-On your computer go to drive.google.com.
-At the top left click New. File Upload or Folder Upload.
-Choose the file or folder you want to upload.</string>
-
-    <string name="ansb">
-        Your file may be corrupted, which means there are metadata issues in the file that occurred during original document generation
-        scanning or some other conversion process, has produced an invalid PDF.Upload your file using a different browser or Incognito
-        or Private browsing to make sure that certain browser extensions do not affect the process or the site you are loading.
-    </string>
-
-    <string name="ansc">National Bank of Pakistan Loan Scheme is an ideal chance for regular and service workers who plan to receive some
-        cash advance. It is among the top public banks in Pakistan and offers various loans for NBP bank account holders federal employees
-        and semi government workers as well as  government employees.</string>
-
-    <string name="ansd">
-        How to Establish Salary Ranges
-Determine the Organizations Compensation Philosophy.
-Conduct a Job Analysis.
-Group into Job Families.
-Rank Positions Using a Job Evaluation Method.
-Conduct Market Research.
-Create Job Grades.
-Create a Salary Range Based on Research.
-    </string>
+    <!--    Approvals Activity :- -->
+    <string name="uni_frsthalf">UNIVERSITY OF ENGINEERING &amp; TECHNOLOGY,MULTAN.</string>
+    <string name="uni_scondhalf">c/o.Govt.College of Technology, BCG Chowk, Bahawalpur Road,Multan, Pakistan.</string>
     <string name="subject"><b>Subject :</b></string>
     <string name="programme">Morning</string>
     <string name="sir"><b>Respected Sir</b></string>
@@ -208,8 +235,14 @@ Create a Salary Range Based on Research.
     <string name="semister">Fall_2018</string>
     <string name="scnd_half_approval">Computer Science</string>
     <string name="half_approval">Approval for Visiting Teachers for the Department of</string>
-    <string name="uni_half">UNIVERSITY OF ENGINEERING &amp; TECHNOLOGY,MULTAN.</string>
-    <string name="date_set"><b>Date :</b></string>
-    <string name="uni_scndhalf">c/o.Govt.College of Technology, BCG Chowk, Bahawalpur Road,Multan, Pakistan.</string>
+
+    <!--    Different Activities :- -->
+    <string name="instruction">Instructions</string>
+    <string name="save">Save</string>
+    <string name="Searchstaff">Search Employees</string>
+    <string name="depratments">Departments</string>
+    <string name="year">2020-21</string>
+    <string name="filedel">Are You want to delete this User ?</string>
+    <string name="objection">Please do not write below this line.</string>
 
 </resources>

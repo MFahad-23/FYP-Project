@@ -61,7 +61,7 @@
             android:id="@+id/employee_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:hint="Employee Name"
+            android:hint="@string/employeename"
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:background="@drawable/spinner_background_design"
@@ -88,7 +88,7 @@
             android:fontFamily="@font/adamina"
             android:textFontWeight="500"
             android:textSize="14sp"
-            android:hint="Designation" />
+            android:hint="@string/designation" />
 
         <EditText
             android:id="@+id/employee_qualification"
@@ -105,7 +105,7 @@
             android:fontFamily="@font/adamina"
             android:textFontWeight="500"
             android:textSize="14sp"
-            android:hint="Qualification" />
+            android:hint="@string/employee_qualification" />
 
         <EditText
             android:id="@+id/department"
@@ -122,7 +122,7 @@
             android:fontFamily="@font/adamina"
             android:textFontWeight="500"
             android:textSize="14sp"
-            android:hint="Department" />
+            android:hint="@string/employee_depart" />
 
         <EditText
             android:id="@+id/teaching_subject"
@@ -139,7 +139,7 @@
             android:fontFamily="@font/adamina"
             android:textFontWeight="500"
             android:textSize="14sp"
-            android:hint="Subject"
+            android:hint="@string/employee_subject"
             tools:ignore="DuplicateIds" />
 
     </LinearLayout>
@@ -172,7 +172,7 @@
                 android:drawableRight="@drawable/calender"
                 android:drawablePadding="20dp"
                 android:editable="false"
-                android:hint="00-Month-0000"
+                android:hint="@string/payroll_date"
                 android:inputType="none"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
@@ -272,7 +272,7 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Section"
+                android:text="@string/section"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="14sp" />
@@ -302,7 +302,9 @@
                     android:text="B"
                     android:layout_weight="1"
                     android:textSize="12sp" />
+
             </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
@@ -319,7 +321,7 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Session"
+                android:text="@string/session"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="14sp" />
@@ -335,7 +337,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:text="Morning"
+                    android:text="@string/morning"
                     android:textSize="12sp" />
 
                 <RadioButton
@@ -343,9 +345,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:text="Evenning"
+                    android:text="@string/evening"
                     android:textSize="12sp" />
+
             </RadioGroup>
+
         </LinearLayout>
 
         <LinearLayout
@@ -362,7 +366,7 @@
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Subject"
+                android:text="@string/subject_type"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="14sp" />
@@ -378,7 +382,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:text="Theory"
+                    android:text="@string/theory"
                     android:textSize="12sp" />
 
                 <RadioButton
@@ -386,10 +390,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:clickable="true"
-                    android:text="Practical"
+                    android:text="@string/practical"
                     android:textSize="12sp" />
+
             </RadioGroup>
+
         </LinearLayout>
+
     </LinearLayout>
 
     <Button
@@ -398,7 +405,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/login_button"
-        android:text="@string/submit"
+        android:text="@string/approvals_submit"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"

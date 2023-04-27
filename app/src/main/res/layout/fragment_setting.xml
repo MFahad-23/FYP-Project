@@ -53,9 +53,10 @@
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
 
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/approvals_calculation"
@@ -69,6 +70,7 @@
         app:layout_constraintStart_toEndOf="@+id/calculate_payrolls"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.287">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -94,7 +96,9 @@
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

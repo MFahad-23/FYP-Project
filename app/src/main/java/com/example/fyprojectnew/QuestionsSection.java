@@ -1,9 +1,7 @@
 package com.example.fyprojectnew;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-
 public class QuestionsSection extends AppCompatActivity {
 
     @Override

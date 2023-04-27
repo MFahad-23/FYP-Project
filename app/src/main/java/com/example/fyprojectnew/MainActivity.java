@@ -2,28 +2,18 @@ package com.example.fyprojectnew;
 
 
 import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-import com.github.drjacky.imagepicker.ImagePicker;
-import com.github.drjacky.imagepicker.constant.ImageProvider;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -62,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-
+        /*For side Navigation Menus Action Perform:-*/
         TextView user_name_header= navigation_view.getHeaderView(0).findViewById(R.id.username);
         TextView user_mail_header= navigation_view.getHeaderView(0).findViewById(R.id.usermail);
         ImageView user_image_header=navigation_view.getHeaderView(0).findViewById(R.id.userimage);
@@ -102,7 +92,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
                 /*    Navigation Menue Click Actions :-*/
-
                 navigation_view.setNavigationItemSelectedListener(this);
     }
     public void openDrawer() {

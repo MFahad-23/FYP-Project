@@ -8,14 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class DepartListAdapter extends RecyclerView.Adapter<DepartListAdapter.ViewHolder> {
@@ -62,7 +57,6 @@ holder.setdata(image,name);
             if (name.equals("Administration"))
             {
                 Glide.with(context).load(image).into(departsimage);
-//                departsimage.setImageResource(R.drawable.admin_staff);
             }else if(name.equals("Mechanical Department")) {
                 Glide.with(context).load(image).into(departsimage);
             }
@@ -118,5 +112,4 @@ holder.setdata(image,name);
             });
         }
     }
-
 }

@@ -14,9 +14,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="195dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +28,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="@string/helptexta"
+                android:text="@string/helptextQ1"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
                 android:textSize="16sp" />
@@ -59,7 +57,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="@string/helptextb"
+                android:text="@string/helptextQ2"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
                 android:textSize="16sp" />
@@ -83,7 +81,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="@string/helptextc"
+                android:text="@string/helptextQ3"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
                 android:textSize="16sp" />
@@ -106,7 +104,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="@string/helptextd"
+                android:text="@string/helptextQ4"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
                 android:textSize="16sp" />
@@ -124,5 +122,7 @@
                 android:textSize="16sp" />
 
         </LinearLayout>
+
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

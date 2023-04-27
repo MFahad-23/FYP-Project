@@ -53,5 +53,7 @@
             app:sideMargins="80dp"
             app:textColor="@color/black"
             app:textSize="10sp" />
+
     </RelativeLayout>
+
 </androidx.drawerlayout.widget.DrawerLayout>

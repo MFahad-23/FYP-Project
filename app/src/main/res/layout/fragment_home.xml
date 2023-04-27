@@ -47,7 +47,7 @@
             android:layout_marginRight="15dp"
             android:fontFamily="@font/adamina"
             android:justificationMode="none"
-            android:text="Menu"
+            android:text="@string/menu"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textFontWeight="600"
@@ -133,7 +133,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/adamina"
-                        android:text="Approve Files"
+                        android:text="@string/approve_files"
                         android:textFontWeight="600"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -217,7 +217,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/adamina"
-                android:text="@string/help"
+                android:text="@string/help_main"
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 android:textStyle="bold" />

@@ -78,16 +78,12 @@ dependencies {
 //    File Screeshot Share :-
     implementation 'com.github.maityamit:Share_Layout_Android_Library:1.0.0'
 
-
 //   Drop Down Menue :-
     implementation 'com.jaredrummler:material-spinner:1.3.1'
 
 //    Convert XML To PDF File :-
-//    implementation 'com.github.Gkemon:Android-XML-to-PDF-Generator:2.6.8'
-    
-////     English Date Spinner :-
-    implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
+    implementation 'com.github.Gkemon:Android-XML-to-PDF-Generator:2.6.8'
 
-//PDf generator Chk :-
-//            implementation 'com.github.Gkemon:XML-to-PDF-generator:1.0'
+//    English Date Spinner :-
+    implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
 }

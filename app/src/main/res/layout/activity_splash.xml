@@ -8,7 +8,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SplashActivity">
 
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lotti"
         android:layout_width="match_parent"

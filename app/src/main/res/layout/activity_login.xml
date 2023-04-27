@@ -14,7 +14,6 @@
         android:scaleType="fitXY"
         android:src="@drawable/setbaxckground" />
 
-
     <TextView
         android:id="@+id/tev6"
         android:layout_width="wrap_content"
@@ -45,7 +44,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottie2"
             android:layout_width="200dp"
@@ -56,7 +54,6 @@
             android:scaleType="fitCenter"
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/userlottie" />
-
 
         <LinearLayout
             android:id="@+id/linear"
@@ -80,7 +77,7 @@
                     android:drawableStart="@drawable/ic_username_white"
                     android:drawablePadding="20dp"
                     android:fontFamily="@font/adamina"
-                    android:hint="Someone@gmail.com"
+                    android:hint="@string/gmail_login"
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLength="20"
