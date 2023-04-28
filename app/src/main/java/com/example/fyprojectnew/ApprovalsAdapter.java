@@ -148,7 +148,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
     private void openDialog(String key) {
       Dialog deldialog=new Dialog(context);
         deldialog.setContentView(R.layout.file_delete_dialog);
-        deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_transparent_background);
+        deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
         TextView cancel,ok;
         cancel=deldialog.findViewById(R.id.cancel);
         ok=deldialog.findViewById(R.id.ok);

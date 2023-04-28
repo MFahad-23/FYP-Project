@@ -103,14 +103,17 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
             employee_designation=itemView.findViewById(R.id.employee_designation);
             employeelist=itemView.findViewById(R.id.employeelist);
         }
-        public void setdata( String key,String image, String name, String designation, String delimage) {
+        public void setdata( String key,String image, String name, String designation, String delimag) {
             employeename.setText(designation);
             employee_designation.setText(name);
 
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context,PayrollSlipTemp.class));
+                    Intent intent=new Intent(context,PayrollSlipTemp.class);
+                    intent.putExtra("name",designation);
+                    intent.putExtra("designation",name);
+                    context.startActivity(intent);
                 }
             });
 

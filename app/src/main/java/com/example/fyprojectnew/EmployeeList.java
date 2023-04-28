@@ -1,15 +1,11 @@
 package com.example.fyprojectnew;
 
 import static android.content.ContentValues.TAG;
-
-import static com.example.fyprojectnew.R.drawable.background;
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;

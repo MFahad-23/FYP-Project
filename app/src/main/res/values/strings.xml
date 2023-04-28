@@ -148,6 +148,7 @@
     <string name="adhocreliefe">Adhoc Relief-2021</string>
     <string name="social_security">Social Security Benefit(30%)</string>
     <string name="price">00.000</string>
+    <string name="amount">Total amount</string>
 
 
     <!--    Payslip Template Activity :- -->

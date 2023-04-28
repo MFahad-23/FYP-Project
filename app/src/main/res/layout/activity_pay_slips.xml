@@ -9,14 +9,14 @@
     tools:context=".PaySlipsActivity">
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/logo" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/payslips"
         android:layout_width="match_parent"
         android:layout_height="600dp"
         android:layout_margin="10dp"
