@@ -29,7 +29,7 @@
     <string name="username">Username</string>
     <string name="submit">Submit</string>
     <string name="cnic">#####-#######-#</string>
-    <string name="gmail">Example@gmail.com</string>
+    <string name="gmail">Example0%@gmail.com</string>
     <string name="contact">####-#######</string>
     <string name="city">City Name</string>
     <string name="or">OR</string>
@@ -69,15 +69,19 @@
     <string name="helptextd">How to Frame a New Salary Structure?</string>
     <string name="aboutsystem">About the System</string>
     <string name="more"><u>More..</u></string>
+
     <string name="systempurpose">
         <a href="https://www.google.com/">System Purpose</a>
     </string>
+
     <string name="intface">
         <a href="https://www.google.com/">Interface</a>
     </string>
+
     <string name="aboutdata">
         <a href="https://www.google.com/">About Data</a>
     </string>
+
     <string name="updates">
         <a href="https://www.google.com/">Software &amp; Technical Updates</a>
     </string>

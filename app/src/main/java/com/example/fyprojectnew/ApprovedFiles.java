@@ -52,11 +52,12 @@ public class ApprovedFiles extends AppCompatActivity {
                 for (DataSnapshot item : dataSnapshot.getChildren()) {
                     ApprovalsModel user = item.getValue(ApprovalsModel.class);
                     user.key=item.getKey().toString();
-//                    if(item.child("employee_image").exists())
-//                    {
-//                        Log.d("test",item.child("employee_image").getValue().toString());
-//                        user.employee_image=item.child("employee_image").getValue().toString();
-//                    }
+
+                    /*if(item.child("employee_image").exists())
+                    {
+                        Log.d("test",item.child("employee_image").getValue().toString());
+                        user.employee_image=item.child("employee_image").getValue().toString();
+                    }*/
                     aprovedlist.add(user);
                 }
                 initRecyclerView();
@@ -67,7 +68,7 @@ public class ApprovedFiles extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
+                // If Fails Check Logcat
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };

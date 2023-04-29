@@ -2,30 +2,27 @@ package com.example.fyprojectnew;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CreateNewPassword extends AppCompatActivity {
     private FirebaseUser user;
-    private FirebaseAuth mAuth;
     TextInputEditText password,confirm_password;
     Button submit_button;
     String TAG;
+    Timer timer;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +32,6 @@ public class CreateNewPassword extends AppCompatActivity {
         confirm_password=(TextInputEditText) findViewById(R.id.confirm_password);
         submit_button=(Button) findViewById(R.id.submit_button);
         user = FirebaseAuth.getInstance().getCurrentUser();
-        mAuth = FirebaseAuth.getInstance();
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +45,13 @@ public class CreateNewPassword extends AppCompatActivity {
                            password.setText("");
                            confirm_password.setText("");
                            FirebaseAuth.getInstance().signOut();
+                           timer=new Timer();
+                           timer.schedule(new TimerTask() {
+                               @Override
+                               public void run() {
+                                   startActivity(new Intent(CreateNewPassword.this,LoginActivity.class));
+                               }
+                           },2000);
                            Toast.makeText(CreateNewPassword.this,"Password Update Successfully",Toast.LENGTH_SHORT);
                        }
                    }).addOnFailureListener(new OnFailureListener() {
@@ -62,7 +65,6 @@ public class CreateNewPassword extends AppCompatActivity {
                 {
                     Toast.makeText(CreateNewPassword.this,"Something Went Wrong!",Toast.LENGTH_SHORT);
                 }
-
             }
         });
     }

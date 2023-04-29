@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_centerInParent="true"
     android:background="@color/white"
     tools:context=".SettingFragment">
 
@@ -16,7 +15,7 @@
         android:src="@drawable/setbaxckground" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/calculate_payrolls"
+        android:id="@+id/Calculate_Payrolls_Card"
         android:layout_width="140dp"
         android:layout_height="140dp"
         app:cardCornerRadius="10dp"
@@ -59,7 +58,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/approvals_calculation"
+        android:id="@+id/Approvals_Calculation_Card"
         android:layout_width="140dp"
         android:layout_height="140dp"
         app:cardCornerRadius="10dp"
@@ -67,7 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toEndOf="@+id/calculate_payrolls"
+        app:layout_constraintStart_toEndOf="@+id/Calculate_Payrolls_Card"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.287">
 

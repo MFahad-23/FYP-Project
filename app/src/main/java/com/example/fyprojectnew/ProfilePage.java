@@ -1,29 +1,20 @@
 package com.example.fyprojectnew;
 
 import static android.content.ContentValues.TAG;
-
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.github.drjacky.imagepicker.ImagePicker;
 import com.github.drjacky.imagepicker.constant.ImageProvider;
@@ -41,13 +32,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -75,17 +62,19 @@ public class ProfilePage extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-
+        /* Capture Image Set :- */
         ActivityResultLauncher<Intent> launcher=
                 registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
                     if(result.getResultCode()==RESULT_OK){
                         Uri uri=result.getData().getData();
                         circleimage.setImageURI(uri);
 
+                        /* Auto Progress Dialog:- */
                         ProgressDialog pd= new ProgressDialog(ProfilePage.this);
                         pd.setTitle("Uploading...");
                         pd.show();
 
+                       /* For Taking Link & Save it into FireBase Storage & DataBase :- */
                         File file = new File(String.valueOf(uri));
                         FirebaseStorage storage = FirebaseStorage.getInstance();
                         StorageReference storageRef = storage.getReference().child("userImages");
@@ -102,7 +91,7 @@ public class ProfilePage extends AppCompatActivity {
                                                     @Override
                                                     public void onComplete(@NonNull Task<Uri> task) {
 
-                                                        /*Update Data into the Dtaatbase :-*/
+                                                        /*Update Data into the DataBase :-*/
                                                         String generatedFilePath = task.getResult().toString();
                                                         HashMap<String,Object> data= new HashMap<>();
                                                         data.put("profile_pic",generatedFilePath);
@@ -122,7 +111,6 @@ public class ProfilePage extends AppCompatActivity {
                                                                                 Toast.LENGTH_SHORT).show();
                                                                     }
                                                                 });
-                                                        /*-End-*/
                                                     }
                                                 });
                                     }
@@ -139,7 +127,7 @@ public class ProfilePage extends AppCompatActivity {
                     }
                 });
 
-        /*Floating Action Button Function :-*/
+        /* Image Capture & Set into Demo Image :-*/
         imagecapture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,7 +151,7 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
-        /*Data push to save into the Database :-*/
+        /* Read Data From DataBase and set it into TextViews :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -177,11 +165,10 @@ public class ProfilePage extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
+                // If Fails Check Logcat
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(postListener);
     }
-
 }

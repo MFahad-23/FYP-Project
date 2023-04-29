@@ -15,7 +15,7 @@
         android:scaleType="fitXY"/>
 
     <TextView
-        android:id="@+id/backoption"
+        android:id="@+id/BackOption"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/rightarrow"
@@ -36,7 +36,7 @@
         android:id="@+id/lottie1"
         android:layout_width="130dp"
         android:layout_height="100dp"
-        android:layout_below="@id/backoption"
+        android:layout_below="@id/BackOption"
         android:layout_centerHorizontal="true"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"

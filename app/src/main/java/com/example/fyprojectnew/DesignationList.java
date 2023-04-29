@@ -1,14 +1,12 @@
 package com.example.fyprojectnew;
 
 import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -16,7 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +26,7 @@ public class DesignationList extends AppCompatActivity {
     List<DesignationModel>designation_listview;
     DesignationViewAdpter adpapter;
     ShimmerFrameLayout shimmereffect;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +39,7 @@ public class DesignationList extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         arrayList=new ArrayList<>();
 
-        /*Departsmnets Data Post into the arraylist :-*/
+        /* Departments Data Set ArrayList :- */
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -54,17 +52,16 @@ public class DesignationList extends AppCompatActivity {
                 shimmereffect.stopShimmer();
                 shimmereffect.setVisibility(View.GONE);
                 designationrecyclerview.setVisibility(View.VISIBLE);
-
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
+                // If Fails check error in Logcat
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
         mDatabase.child("Designations").addListenerForSingleValueEvent(postListener);
-
     }
+
     /*ArrayList Functionalities :-*/
     private void initRecyclerView() {
         designationrecyclerview=findViewById(R.id.designationrecyclerview);
@@ -75,6 +72,7 @@ public class DesignationList extends AppCompatActivity {
         designationrecyclerview.setLayoutManager(layoutManager);
     }
 
+   /* Back Option :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

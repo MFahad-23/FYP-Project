@@ -11,18 +11,13 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.ViewHolder> implements Filterable {
-    //Data Delete From Database :-
     private List<EmployeeModel> employee_items_view;
     List<EmployeeModel>employee_items_viewFull;
     Context context;
@@ -32,14 +27,12 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
         this.employee_items_viewFull=employee_items_view;
         this.employee_items_view=new ArrayList<>(employee_items_viewFull);
     }
-
     @NonNull
     @Override
     public EmployeListAdpter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.employee_list_design,parent,false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull EmployeListAdpter.ViewHolder holder, int position) {
         String key=employee_items_view.get(position).key;
@@ -60,6 +53,7 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
         return EmployeeFilter;
     }
 
+   /* Activity Search Option :- */
     private final Filter EmployeeFilter=new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
@@ -107,6 +101,7 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
             employeename.setText(designation);
             employee_designation.setText(name);
 
+            /* Post Data to other Activity To Set On TextViews :- */
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -117,6 +112,7 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
                 }
             });
 
+           /* Employee Delete From  FireBase Database as well as List :- */
             deleteimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

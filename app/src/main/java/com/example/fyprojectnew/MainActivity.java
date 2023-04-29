@@ -1,6 +1,5 @@
 package com.example.fyprojectnew;
 
-
 import static android.content.ContentValues.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,18 +20,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.Timer;
 import java.util.TimerTask;
-
 import me.ibrahimsn.lib.OnItemSelectedListener;
 import me.ibrahimsn.lib.SmoothBottomBar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    SmoothBottomBar bottombar;
-    NavigationView navigation_view;
+    SmoothBottomBar BottomBar;
+    NavigationView side_navigation_view;
     DrawerLayout drawerlayout;
     Timer timer;
     User user;
@@ -44,20 +41,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bottombar = (SmoothBottomBar) findViewById(R.id.bottombar);
-        navigation_view = (NavigationView) findViewById(R.id.navigation_view);
+        BottomBar = (SmoothBottomBar) findViewById(R.id.BottomBar);
         drawerlayout = (DrawerLayout) findViewById(R.id.drawerlayout);
-        navigation_view.bringToFront();
-        navigation_view.setCheckedItem(R.id.home);
+
+        side_navigation_view = (NavigationView) findViewById(R.id.side_navigation_view);
+        side_navigation_view.bringToFront();
+        side_navigation_view.setCheckedItem(R.id.home);
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
-        /*For side Navigation Menus Action Perform:-*/
-        TextView user_name_header= navigation_view.getHeaderView(0).findViewById(R.id.username);
-        TextView user_mail_header= navigation_view.getHeaderView(0).findViewById(R.id.usermail);
-        ImageView user_image_header=navigation_view.getHeaderView(0).findViewById(R.id.userimage);
+        /*For Side Navigation Menus Action Perform:-*/
+        TextView user_name_header= side_navigation_view.getHeaderView(0).findViewById(R.id.username);
+        TextView user_mail_header= side_navigation_view.getHeaderView(0).findViewById(R.id.usermail);
+        ImageView user_image_header=side_navigation_view.getHeaderView(0).findViewById(R.id.userimage);
 
-        /*Data push to save into the Database :-*/
+        /*Push Data into FireBase DataBase :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -68,16 +67,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
+                // If Failed Check Error in Logcat
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(postListener);
 
-        /*Fragment Moving :-*/
+        /* Fragments Replacement :- */
         getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout, homeFragment).commit();
-
-        bottombar.setOnItemSelectedListener(new OnItemSelectedListener() {
+        BottomBar.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public boolean onItemSelect(int i) {
                 if(i==0)
@@ -91,12 +89,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-                /*    Navigation Menue Click Actions :-*/
-                navigation_view.setNavigationItemSelectedListener(this);
+        /* Navigation Menu Click Actions :- */
+        side_navigation_view.setNavigationItemSelectedListener(this);
     }
+
+    /*  For DrawerLayout Open :- */
     public void openDrawer() {
         drawerlayout.open();
     }
+
+    /*  Back Press For DrawerLayout :- */
     public void onBackPressed(){
         if (drawerlayout.isDrawerOpen(GravityCompat.START)){
             drawerlayout.closeDrawer(GravityCompat.START);
@@ -106,9 +108,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    /* Action Performs in Side NavigationView Menus :- */
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
         switch(item.getItemId()){
             case R.id.home:
                 break;
@@ -117,8 +119,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent profilepage=new Intent(MainActivity.this,ProfilePage.class);
-                        startActivity(profilepage);
+                        Intent ProfilePage=new Intent(MainActivity.this,ProfilePage.class);
+                        startActivity(ProfilePage);
                     }
                 },1000);
                 break;
@@ -128,8 +130,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent createnewpage=new Intent(MainActivity.this,LoginActivity.class);
-                        startActivity(createnewpage);
+                        Intent LogIn=new Intent(MainActivity.this,LoginActivity.class);
+                        startActivity(LogIn);
                     }
                 },100);
                 break;
@@ -138,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent loginepage=new Intent(MainActivity.this,SignUpActivity.class);
-                        startActivity(loginepage);
+                        Intent CreateNewAccount=new Intent(MainActivity.this,SignUpActivity.class);
+                        startActivity(CreateNewAccount);
                     }
                 },1000);
                 break;
@@ -148,8 +150,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        Intent createnew_password=new Intent(MainActivity.this,CreateNewPassword.class);
-                        startActivity(createnew_password);
+                        Intent PasswordReset=new Intent(MainActivity.this,CreateNewPassword.class);
+                        startActivity(PasswordReset);
                     }
                 },100);
         }

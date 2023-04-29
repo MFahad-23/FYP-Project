@@ -2,41 +2,48 @@ package com.example.fyprojectnew;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class HelpPageActivity extends AppCompatActivity {
-CardView uploddata,docsupload,newsalarystructure,advancesalary;
-TextView morepage,system_purpose,intface,about_data,updates;
+CardView UploadData,DocsUpload,NewSalaryStructure,AdvanceSalary;
+TextView MorePage,System_Purpose,Interface,About_Data,Updates;
+    Animation slide_left;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help_page);
-        uploddata=(CardView) findViewById(R.id.uploddata);
-        docsupload=(CardView) findViewById(R.id.docsupload);
-        newsalarystructure=(CardView) findViewById(R.id.newsalarystructure);
-        advancesalary=(CardView) findViewById(R.id.advancesalary);
-        morepage=(TextView) findViewById(R.id.morepage);
-        system_purpose=(TextView) findViewById(R.id.system_purpose);
-        intface=(TextView) findViewById(R.id.intface);
-        about_data=(TextView) findViewById(R.id.about_data);
-        updates=(TextView) findViewById(R.id.updates);
+        UploadData=(CardView) findViewById(R.id.UploadData);
+        DocsUpload=(CardView) findViewById(R.id.DocsUpload);
+        NewSalaryStructure=(CardView) findViewById(R.id.NewSalaryStructure);
+        AdvanceSalary=(CardView) findViewById(R.id.AdvanceSalary);
+        MorePage=(TextView) findViewById(R.id.MorePage);
+        System_Purpose=(TextView) findViewById(R.id.System_Purpose);
+        Interface=(TextView) findViewById(R.id.Interface);
+        About_Data=(TextView) findViewById(R.id.About_Data);
+        Updates=(TextView) findViewById(R.id.Updates);
 
-//        Text Link :-
-        system_purpose.setMovementMethod(LinkMovementMethod.getInstance());
-        intface.setMovementMethod(LinkMovementMethod.getInstance());
-        about_data.setMovementMethod(LinkMovementMethod.getInstance());
-        updates.setMovementMethod(LinkMovementMethod.getInstance());
+        /* Animation Slide Left :- */
+        slide_left= AnimationUtils.loadAnimation(HelpPageActivity.this,R.anim.slide_left);
 
-        /*Question Upload Data :-*/
-        uploddata.setOnClickListener(new View.OnClickListener() {
+        /* Text Link :- */
+        System_Purpose.setMovementMethod(LinkMovementMethod.getInstance());
+        Interface.setMovementMethod(LinkMovementMethod.getInstance());
+        About_Data.setMovementMethod(LinkMovementMethod.getInstance());
+        Updates.setMovementMethod(LinkMovementMethod.getInstance());
+
+        /* Question1 Upload Data :- */
+        UploadData.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View view) {
-
                 gotourl("https://support.zinghr.com//");
                 }
 
@@ -46,11 +53,10 @@ TextView morepage,system_purpose,intface,about_data,updates;
             }
         });
 
-        /* Question Documents Upload :-*/
-        docsupload.setOnClickListener(new View.OnClickListener() {
+        /* Question2 Documents Upload :- */
+        DocsUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 gotourl("https://support.docusign.com//");
             }
 
@@ -60,8 +66,8 @@ TextView morepage,system_purpose,intface,about_data,updates;
             }
         });
 
-        /*Question Advance Salary :-*/
-        advancesalary.setOnClickListener(new View.OnClickListener() {
+        /*Question3 Advance Salary :- */
+        AdvanceSalary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gotourl("https://www.indeed.com/");
@@ -72,8 +78,8 @@ TextView morepage,system_purpose,intface,about_data,updates;
             }
         });
 
-       /* Question New Salary Structure :-*/
-        newsalarystructure.setOnClickListener(new View.OnClickListener() {
+       /* Question4 New Salary Structure :- */
+        NewSalaryStructure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 gotourl("https://www.indeed.com/");
@@ -84,10 +90,11 @@ TextView morepage,system_purpose,intface,about_data,updates;
             }
         });
 
-      /*  Answers for Questions more Detail Page :-*/
-        morepage.setOnClickListener(new View.OnClickListener() {
+        /* Answers for Questions more Detail Activity :- */
+        MorePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                MorePage.startAnimation(slide_left);
                 startActivity(new Intent(HelpPageActivity.this,QuestionsSection.class));
             }
         });

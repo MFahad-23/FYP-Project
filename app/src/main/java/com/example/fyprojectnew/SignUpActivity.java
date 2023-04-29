@@ -33,10 +33,9 @@ public class SignUpActivity extends AppCompatActivity {
     Button submit;
     String TAG;
     Timer timer;
-    Dialog dialogbox;
     String emailPattern = "[A-ZA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-//    String passwordpattern = "[^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,30}$]";
-//    String cncicpattern="[0-9+]{5}-[0-9+]{7}-[0-9]{1}";
+    /*    String passwordpattern = "[^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,30}$]";
+    String cncicpattern="[0-9+]{5}-[0-9+]{7}-[0-9]{1}";*/
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
@@ -50,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
         gmail = (TextInputEditText) findViewById(R.id.gmail);
         contact = (TextInputEditText) findViewById(R.id.contact);
         city = (TextInputEditText) findViewById(R.id.city);
-        TextView backoption = (TextView) findViewById(R.id.backoption);
+        TextView BackOption = (TextView) findViewById(R.id.BackOption);
         password = (TextInputEditText) findViewById(R.id.password);
         submit = (Button) findViewById(R.id.submit);
         googlelink = (ImageView) findViewById(R.id.googlelink);
@@ -58,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        /*Google Link:-*/
+        /* Google Link:- */
         googlelink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +70,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-       /* Facebook Link :-*/
+       /* Facebook Link :- */
         facebooklink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -84,18 +83,20 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        /*Back Option :-*/
-        backoption.setOnClickListener(new View.OnClickListener() {
+        /* Back Option :- */
+        BackOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
 
-        /* Firebase Athentication Validity Checking:-*/
+        /* Submit Button :- */
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /* Check Credentials :- */
                 if(username.getText().toString().isEmpty()){
                     username.setError("*Please complete the field*");
                 }
@@ -112,9 +113,9 @@ public class SignUpActivity extends AppCompatActivity {
                 else if (gmail.getText().toString().isEmpty()){
                     gmail.setError("*Please complete the field*");
                 }
-                else if (gmail.getText().toString().matches(emailPattern)){
+                else if (gmail.getText().toString() != emailPattern){
                    Toast toast=Toast.makeText(SignUpActivity.this,"Please Follow Email Pattern"+
-                           "Example@gmail.com",Toast.LENGTH_LONG);
+                           "Example0%@gmail.com",Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.START,50,50);
                     toast.show();
                 }
@@ -140,7 +141,7 @@ public class SignUpActivity extends AppCompatActivity {
                     toast.show();
                 }
                 else{
-                   /* Firebase Authentication :-*/
+                   /* Firebase Authentication :- */
                     mAuth.createUserWithEmailAndPassword(gmail.getText().toString(), password.getText().toString())
                             .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -160,11 +161,11 @@ public class SignUpActivity extends AppCompatActivity {
                                             }
                                         },3000);
 
-                                        /*Data save into the Database :-*/
-                                        User tempuser = new User(username.getText().toString(),cnic.getText().toString(),
+                                        /* Push Data into FireBase DataBase :-*/
+                                        User TempUser = new User(username.getText().toString(),cnic.getText().toString(),
                                                 gmail.getText().toString(),contact.getText().toString(),city.getText().toString(),
                                                 password.getText().toString(),"");
-                                        mDatabase.child("users").child(user.getUid().toString()).setValue(tempuser)
+                                        mDatabase.child("users").child(user.getUid().toString()).setValue(TempUser)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                     @Override
                                                     public void onSuccess(Void aVoid) {
@@ -186,7 +187,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 });
 
                                     } else {
-                                        // If sign in fails, display a message to the user.
+                                        // If sign Up fails, display a message to the user.
                                         Log.w(TAG, "Something went wrong.Please LogIn with correct User!", task.getException());
                                         Toast.makeText(SignUpActivity.this, task.getException().getMessage(),
                                                 Toast.LENGTH_SHORT).show();

@@ -1,5 +1,7 @@
 package com.example.fyprojectnew;
 
+import java.io.Serializable;
+
 public class AdministrationModel {
     private String employeeimage;
     private String employeename;

@@ -20,14 +20,12 @@ public class DesignationViewAdpter extends RecyclerView.Adapter<DesignationViewA
          this.context=context;
          this.designation_listview=designation_listview;
      }
-
     @NonNull
     @Override
     public DesignationViewAdpter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.designation_view_design,parent,false);
         return new ViewHolder(view);
     }
-
     @Override
     public void onBindViewHolder(@NonNull DesignationViewAdpter.ViewHolder holder, int position) {
 String  empimage=designation_listview.get(position).getImage();
@@ -54,6 +52,7 @@ holder.setdata(empimage,name);
            //image.setImageResource(Integer.parseInt(empimage));
             employeedesignation.setText(name);
 
+           /* Employee List :- */
             designationlayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

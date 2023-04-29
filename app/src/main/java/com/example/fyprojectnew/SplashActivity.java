@@ -11,16 +11,14 @@ import com.google.firebase.database.FirebaseDatabase;
 @SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
 private FirebaseAuth mauth;
-private FirebaseDatabase mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mauth =FirebaseAuth.getInstance();
-        mDatabase=FirebaseDatabase.getInstance();
     }
 
-   /* Splash Activity Running :-*/
+   /* Splash Activity using thread for Authentication :- */
     @Override
         protected void onResume(){
                 super.onResume();

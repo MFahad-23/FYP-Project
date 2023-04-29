@@ -1,32 +1,23 @@
 package com.example.fyprojectnew;
 
 import static android.content.ContentValues.TAG;
-
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,9 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Administration_staff extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -51,7 +40,7 @@ public class Administration_staff extends AppCompatActivity {
     Button newlogin;
     Dialog dialog;
     ImageView cut,addmore;
-//    EditText textwatcher;
+
     ArrayList<AdministrationModel>administration_listview;
     LinearLayoutManager layoutManager;
     AdministrtaionAdapter myadpter;
@@ -62,7 +51,6 @@ public class Administration_staff extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Administration Staff");
         addmore=(ImageView) findViewById(R.id.addmore);
-//        textwatcher=(EditText) findViewById(R.id.textwatcher);
         shimmereffect=(ShimmerFrameLayout) findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
         adminstaff=(RecyclerView) findViewById(R.id.adminstaff);
@@ -70,29 +58,15 @@ public class Administration_staff extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         administration_listview=new ArrayList<>();
 
-//        textwatcher.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//            myadpter.getFilter().filter(charSequence);
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//            }
-//        });
-
+       /* Create New Employee  Dialog :- */
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialog();
+                OpenDialog();
             }
         });
-        /*Departsmnets Data Post into the arraylist :-*/
+
+        /* Departments Data Post into ArrayList :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -118,7 +92,7 @@ public class Administration_staff extends AppCompatActivity {
         mDatabase.child("Administration").addValueEventListener(postListener);
     }
 
-    private void openDialog() {
+    private void OpenDialog() {
         dialog =new Dialog(Administration_staff.this);
         dialog.setContentView(R.layout.employees_creating_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
@@ -128,7 +102,7 @@ public class Administration_staff extends AppCompatActivity {
         newlogin=(Button) dialog.findViewById(R.id.newlogin);
         dialog.show();
 
-        /* Dialog Dissmiss Function :-*/
+        /* Dialog Dismiss :- */
         cut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,23 +110,22 @@ public class Administration_staff extends AppCompatActivity {
             }
         });
 
-        /*Create New Employee Function :-*/
+        /* Create New Employee & Post Data into FireBase DataBase :-*/
         newlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /* Check Credentials :- */
                 if (employeename.getText().toString().isEmpty()){
                     employeename.setError("Please Complete the fields");
                 }else if (employeedesignation.getText().toString().isEmpty()){
                     employeedesignation.setError("Please Complete the fields");
                 }else{
-
-                    /*Data pust to DataBase for save :-*/
-                    NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
-
-                    /*For get Ket to firebase auto :-*/
+                    /* For Generate Key Auto :- */
                     String key=  mDatabase.child("Administration").push().getKey();
 
-                    mDatabase.child("Administration").child(key).setValue(tempuser)
+                    /* Data Push to  FireBase DataBase :-*/
+                    NewEmployees TempUser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
+                    mDatabase.child("Administration").child(key).setValue(TempUser)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -170,9 +143,7 @@ public class Administration_staff extends AppCompatActivity {
                 }
             }
         });
-
     }
-
     private void initRecyclerView() {
         adminstaff = findViewById(R.id.adminstaff);
         layoutManager = new LinearLayoutManager(this);
@@ -182,35 +153,33 @@ public class Administration_staff extends AppCompatActivity {
         adminstaff.setLayoutManager(layoutManager);
     }
 
+    /* Activity Search Option :- */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.serachview_option,menu);
-        MenuItem menueitems=menu.findItem(R.id.search);
-        SearchView searchView=(SearchView) menueitems.getActionView();
+        MenuItem MenuItems=menu.findItem(R.id.search);
+        SearchView searchView=(SearchView) MenuItems.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             searchView.setBackgroundColor(getColor(R.color.lightblue));
             int paddingRight = searchView.getPaddingRight();
         }
         searchView.setQueryHint("Search Here!");
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String s) {
                 myadpter.getFilter().filter(s);
-
                 return false;
             }
         });
-
         return super.onCreateOptionsMenu(menu);
     }
 
+    /* Activity Back Option :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

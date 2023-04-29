@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
         forget_password = (TextView) findViewById(R.id.forget_password);
         mauth = FirebaseAuth.getInstance();
         helpcard =(LinearLayout)findViewById(R.id.helpcard);
-        String emailAddress =gmail.getText().toString();
 
         //Animation Slide_Left :-
         slide_left=AnimationUtils.loadAnimation(LoginActivity.this,R.anim.slide_left);
@@ -56,13 +55,16 @@ public class LoginActivity extends AppCompatActivity {
         create_account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                create_account.startAnimation(slide_left);
                 Intent next = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(next);
-                create_account.startAnimation(slide_left);
             }
         });
 
         /* Foreget Password :-*/
+        /*Get email from our Field :-*/
+        String emailAddress =gmail.getText().toString();
+
         forget_password.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,16 +83,18 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Login Activity Button:-
+        // Login Button:-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*  checkcredencials();*/
+
+                /*  Check Credentials :- */
                 if (gmail.getText().toString().isEmpty()) {
                     gmail.setError("*Please Complete the Fields*");
                 } else if (password.getText().toString().isEmpty()) {
                     password.setError("*Please Complete the Field*");
                 } else {
+
                     /*Firebase Authentication :-*/
                     mauth.signInWithEmailAndPassword(gmail.getText().toString(), password.getText().toString())
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -112,24 +116,26 @@ public class LoginActivity extends AppCompatActivity {
                                     } else
                                     {
                                         /*Error Dialog :-*/
-                                        Openerrordialog();
+                                        OpenErrorDialog();
                                     }
                                 }
                             });
                 }
             }
         });
+
         /*  Help Dialog :-*/
         helpcard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Openhelpdialog();
+                helpcard.startAnimation(slide_left);
+                OpenHelpDialog();
             }
         });
     }
 
-    /*Error Dialog Method :-*/
-    private void Openerrordialog() {
+    /* Error Dialog :-*/
+    private void OpenErrorDialog() {
         errordialog = new Dialog(LoginActivity.this);
         errordialog.setContentView(R.layout.custom_error_dialog);
         errordialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));
@@ -144,8 +150,8 @@ public class LoginActivity extends AppCompatActivity {
         errordialog.show();
     }
 
-    /*Help Dialog Method :-*/
-    private void Openhelpdialog() {
+    /* Help Dialog :-*/
+    private void OpenHelpDialog() {
         helpdialog = new Dialog(LoginActivity.this);
         helpdialog.setContentView(R.layout.help_dialog_box);
         helpdialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_background));

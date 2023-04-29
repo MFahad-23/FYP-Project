@@ -2,36 +2,24 @@ package com.example.fyprojectnew;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.jaredrummler.materialspinner.MaterialSpinner;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class CalculationPageActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -39,10 +27,10 @@ public class CalculationPageActivity extends AppCompatActivity {
     final Calendar myCalendar = Calendar.getInstance();
     Button calculate;
     Timer timer;
-    EditText employee,spinner, designation, baisic_pay, trade_tax, income_tax,
+    EditText employee, spinner, designation, baisic_pay, trade_tax, income_tax,
             senior_post_allowance, house_rent_allowance, conveyance_allowance, qualification_allowance,
             medical_allowance, adhoc_relief_2016, adhoc_relief_2017, adhoc_relief_2018, adhoc_relief_2019,
-            adhoc_relief_2021, social_security_benefit, leave_deduction, deduction, total_pay,total_allowances;
+            adhoc_relief_2021, social_security_benefit, leave_deduction, deduction, total_pay, total_allowances;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -77,6 +65,7 @@ public class CalculationPageActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
 
+        /* Calculate Payroll Formulas :- */
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,25 +86,29 @@ public class CalculationPageActivity extends AppCompatActivity {
                 int o = Integer.parseInt(leave_deduction.getText().toString());
                 int p = Integer.parseInt(deduction.getText().toString());
 
+                /* Total Allowances Result :- */
                 int allowances;
-                allowances=a+d+e+f+g+h+i+j+k+l+m+n;
-                total_allowances.setText(allowances +"");
+                allowances = a + d + e + f + g + h + i + j + k + l + m + n;
+                total_allowances.setText(allowances + "");
 
+                /* Total Result :- */
                 int result;
                 result = a - b - c + d + e + f + g + h + i + j + k + l + m + n - o - p;
                 total_pay.setText(result + "");
 
-                //Data Save into Database :-
-                ClaculationModel tempuser = new ClaculationModel(employee.getText().toString(), designation.getText().toString(),
-                        spinner.getText().toString(),Integer.parseInt(baisic_pay.getText().toString()),Integer.parseInt(trade_tax.getText().toString()),
-                        Integer.parseInt(income_tax.getText().toString()), Integer.parseInt(senior_post_allowance.getText().toString()),Integer.parseInt(house_rent_allowance.getText().toString()),
-                        Integer.parseInt(conveyance_allowance.getText().toString()),Integer.parseInt(qualification_allowance.getText().toString()),Integer.parseInt(medical_allowance.getText().toString()),
-                        Integer.parseInt(adhoc_relief_2016.getText().toString()), Integer.parseInt(adhoc_relief_2017.getText().toString()),Integer.parseInt(adhoc_relief_2019.getText().toString()),
-                        Integer.parseInt(adhoc_relief_2019.getText().toString()),Integer.parseInt(adhoc_relief_2021.getText().toString()),Integer.parseInt(social_security_benefit.getText().toString()),
-                        Integer.parseInt(leave_deduction.getText().toString()), Integer.parseInt(deduction.getText().toString()),result,allowances);
                 /*For get Ket to firebase auto :-*/
                 String key = mDatabase.child("Payrolls").push().getKey();
-                mDatabase.child("Payrolls").child(key).setValue(tempuser)
+
+                /* Data Push into FireBase Database :- */
+                ClaculationModel TempUser = new ClaculationModel(employee.getText().toString(), designation.getText().toString(),
+                        spinner.getText().toString(), Integer.parseInt(baisic_pay.getText().toString()), Integer.parseInt(trade_tax.getText().toString()),
+                        Integer.parseInt(income_tax.getText().toString()), Integer.parseInt(senior_post_allowance.getText().toString()), Integer.parseInt(house_rent_allowance.getText().toString()),
+                        Integer.parseInt(conveyance_allowance.getText().toString()), Integer.parseInt(qualification_allowance.getText().toString()), Integer.parseInt(medical_allowance.getText().toString()),
+                        Integer.parseInt(adhoc_relief_2016.getText().toString()), Integer.parseInt(adhoc_relief_2017.getText().toString()), Integer.parseInt(adhoc_relief_2019.getText().toString()),
+                        Integer.parseInt(adhoc_relief_2019.getText().toString()), Integer.parseInt(adhoc_relief_2021.getText().toString()), Integer.parseInt(social_security_benefit.getText().toString()),
+                        Integer.parseInt(leave_deduction.getText().toString()), Integer.parseInt(deduction.getText().toString()), result, allowances);
+
+                mDatabase.child("Payrolls").child(key).setValue(TempUser)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
@@ -139,7 +132,7 @@ public class CalculationPageActivity extends AppCompatActivity {
                                 leave_deduction.setText("");
                                 deduction.setText("");
                                 total_pay.setText("");
-                                Toast.makeText(CalculationPageActivity.this,"Data Saved Successfully",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CalculationPageActivity.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
@@ -149,7 +142,42 @@ public class CalculationPageActivity extends AppCompatActivity {
                                         Toast.LENGTH_SHORT).show();
                             }
                         });
+            }
+        });
 
+        /* Date Picker :- */
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int day) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, month);
+                myCalendar.set(Calendar.DAY_OF_MONTH, day);
+                updateLabel();
+                Log.d("key", "chk");
+            }
+        };
+        spinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("ky", "Error");
+                new DatePickerDialog(CalculationPageActivity.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+    }
+    private void updateLabel() {
+        Log.d("on", "Msg");
+        String myFormat = "MM/dd/yy";
+        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
+        spinner.setText(dateFormat.format(myCalendar.getTime()));
+    }
+
+    /* Activity Back Option :- */
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
+    }
+}
 //        Session Spinner :-
 //        MaterialSpinner spinner = (MaterialSpinner) findViewById(R.id.spinner);
 //        spinner.setItems("Session", "2019-2020", "2019-2020", "2019-2020", "2019-2020", "2019-2020",
@@ -161,44 +189,3 @@ public class CalculationPageActivity extends AppCompatActivity {
 //                Snackbar.make(view, "Clicked " + item, Snackbar.LENGTH_INDEFINITE).show();
 //            }
 //        });
-
-//        Date Picker :-
-
-
-            }
-        });
-
-
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, month);
-                myCalendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel();
-                Log.d("key","chk");
-            }
-        };
-
-        spinner.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("ky","Error");
-                new DatePickerDialog(CalculationPageActivity.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-    }
-
-    private void updateLabel() {
-        Log.d("on","Msg");
-        String myFormat = "MM/dd/yy";
-        SimpleDateFormat dateFormat = new SimpleDateFormat(myFormat, Locale.US);
-        spinner.setText(dateFormat.format(myCalendar.getTime()));
-    }
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return super.onSupportNavigateUp();
-    }
-}

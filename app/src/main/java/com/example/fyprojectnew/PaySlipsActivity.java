@@ -3,7 +3,6 @@ package com.example.fyprojectnew;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
@@ -31,6 +30,7 @@ PaySlipModal paySlipModal;
         payslips.setAdapter(myadpter);
     }
 
+    /* Back Option :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

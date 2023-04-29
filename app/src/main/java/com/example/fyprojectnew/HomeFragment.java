@@ -10,31 +10,38 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 public class HomeFragment extends Fragment {
 
-    CardView departcard,payrollscard,slipscard,helpcard;
-    LinearLayout meunebar;
+    CardView DepartmentCard,ApprovalCard,HistorySlipsCard,HelpCard;
+    LinearLayout MenuBar;
+    Animation slide_left;
 
+    /* Fragment Back Code :- */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_home, container, false);
-
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        departcard = view.findViewById(R.id.departcard);
-        helpcard = view.findViewById(R.id.helpcard);
-        payrollscard = view.findViewById(R.id.payrollscard);
-        slipscard=view.findViewById(R.id.slipscard);
-        meunebar=view.findViewById(R.id.meunebar);
+        DepartmentCard = view.findViewById(R.id.DepartmentCard);
+        HelpCard = view.findViewById(R.id.HelpCard);
+        ApprovalCard = view.findViewById(R.id.ApprovalCard);
+        HistorySlipsCard=view.findViewById(R.id.HistorySlipsCard);
+        MenuBar=view.findViewById(R.id.MenuBar);
+
+        /* Animation Slide Left :- */
+        slide_left= AnimationUtils.loadAnimation(getActivity(),R.anim.slide_left);
 
 
-        /*Department List ;-*/
-        departcard.setOnClickListener(new View.OnClickListener() {
+        /* Department Activity :- */
+        DepartmentCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getActivity(), DepartmentsList.class);
@@ -42,18 +49,17 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        /*Help Page :-*/
-        helpcard.setOnClickListener(new View.OnClickListener() {
+        /* Help Activity :- */
+        HelpCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getActivity(), HelpPageActivity.class);
                 startActivity(next);
-
             }
         });
 
-        /*Payrolls Activities :-*/
-        payrollscard.setOnClickListener(new View.OnClickListener() {
+        /* Approvals Activity :- */
+        ApprovalCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getActivity(), ApprovedFiles.class);
@@ -61,8 +67,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-      /* Payrolls History Slips :-*/
-         slipscard.setOnClickListener(new View.OnClickListener() {
+      /* HistorySlips Activity :- */
+        HistorySlipsCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent next = new Intent(getActivity(),PaySlipsActivity.class);
@@ -70,11 +76,12 @@ public class HomeFragment extends Fragment {
             }
         });
 
-         /*Side menue Bar Option :-*/
-        meunebar.setOnClickListener(new View.OnClickListener() {
+         /* Open Side MenuBar :- */
+        MenuBar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
+                MenuBar.startAnimation(slide_left);
                 ((MainActivity)requireActivity()).openDrawer();
                 Log.d("Prob","Solution");
             }

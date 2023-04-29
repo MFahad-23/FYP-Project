@@ -18,11 +18,12 @@
         android:src="@drawable/setbaxckground" />
 
     <LinearLayout
-        android:id="@+id/meunebar"
+        android:id="@+id/MenuBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:orientation="horizontal"
+        android:background="@color/SelfBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.053"
@@ -56,7 +57,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-            android:id="@+id/departcard"
+            android:id="@+id/DepartmentCard"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:cardCornerRadius="10dp"
@@ -66,7 +67,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.170"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/meunebar"
+            app:layout_constraintTop_toBottomOf="@+id/MenuBar"
             app:layout_constraintVertical_bias="0.170">
 
             <RelativeLayout
@@ -99,7 +100,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/payrollscard"
+            android:id="@+id/ApprovalCard"
             android:layout_width="140dp"
             android:layout_height="140dp"
             app:cardCornerRadius="10dp"
@@ -107,8 +108,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.481"
-            app:layout_constraintStart_toEndOf="@+id/departcard"
-            app:layout_constraintTop_toBottomOf="@+id/meunebar"
+            app:layout_constraintStart_toEndOf="@+id/DepartmentCard"
+            app:layout_constraintTop_toBottomOf="@+id/MenuBar"
             app:layout_constraintVertical_bias="0.17">
 
             <RelativeLayout
@@ -140,16 +141,16 @@
         </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/slipscard"
+        android:id="@+id/HistorySlipsCard"
         android:layout_width="140dp"
         android:layout_height="140dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/departcard"
+        app:layout_constraintEnd_toEndOf="@+id/DepartmentCard"
         app:layout_constraintHorizontal_bias="0.169"
-        app:layout_constraintStart_toStartOf="@+id/departcard"
-        app:layout_constraintTop_toBottomOf="@+id/departcard"
+        app:layout_constraintStart_toStartOf="@+id/DepartmentCard"
+        app:layout_constraintTop_toBottomOf="@+id/DepartmentCard"
         app:layout_constraintVertical_bias="0.080">
 
         <RelativeLayout
@@ -183,7 +184,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/helpcard"
+        android:id="@+id/HelpCard"
         android:layout_width="140dp"
         android:layout_height="140dp"
         app:cardCornerRadius="10dp"
@@ -191,8 +192,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toEndOf="@+id/slipscard"
-        app:layout_constraintTop_toBottomOf="@+id/payrollscard"
+        app:layout_constraintStart_toEndOf="@+id/HistorySlipsCard"
+        app:layout_constraintTop_toBottomOf="@+id/ApprovalCard"
         app:layout_constraintVertical_bias="0.080">
 
         <RelativeLayout

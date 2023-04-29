@@ -16,12 +16,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -32,9 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class EmployeeList extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -64,16 +58,15 @@ public class EmployeeList extends AppCompatActivity {
         addmore =(ImageButton) findViewById(R.id.addmore);
         employee_items_view = new ArrayList<>();
 
-        /*Add New Employee Dialog Button :-*/
+        /* Create New Employee :- */
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Field Dialog :-*/
                 showDialog();
-
             }
         });
-        /*Departsmnets Data Post into the arraylist :-*/
+
+        /* Departments Data set into arraylist :- */
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -88,9 +81,7 @@ public class EmployeeList extends AppCompatActivity {
                 shimmereffect.stopShimmer();
                 shimmereffect.setVisibility(View.GONE);
                 employeerecyclerview.setVisibility(View.VISIBLE);
-
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
@@ -100,7 +91,7 @@ public class EmployeeList extends AppCompatActivity {
         mDatabase.child("Employees").addValueEventListener(postListener);
     }
 
-    /*New Employee Dialog :-*/
+    /* Employee Creating Dialog :- */
     public void showDialog()
     {
         fielddialog = new Dialog(EmployeeList.this);
@@ -111,7 +102,7 @@ public class EmployeeList extends AppCompatActivity {
         employeename= (TextInputEditText) fielddialog.findViewById(R.id.employeename);
         newlogin=(Button)fielddialog.findViewById(R.id.newlogin);
 
-       /* Dialog close Function :-*/
+       /* Dialog Cancel Button :- */
         cut.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
@@ -119,23 +110,24 @@ public class EmployeeList extends AppCompatActivity {
     }
     });
 
-        /*Data Pust to Firebase Function :-*/
+        /* Dialog Cancel Button :- */
         newlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+               /* Check Credentials :- */
                 if (employeename.getText().toString().isEmpty()){
                     employeename.setError("Please Complete the fields");
                 }else if (employee_designation.getText().toString().isEmpty()){
                     employee_designation.setError("Please Complete the fields");
                 }else{
 
-                    /*Data pust to DataBase for save :-*/
-                    NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employee_designation.getText().toString());
-
                     /*For get Ket to firebase auto :-*/
                     String key=  mDatabase.child("Employees").push().getKey();
 
-                    mDatabase.child("Employees").child(key).setValue(tempuser)
+                    /* Data Push to  FireBase DataBase :- */
+                    NewEmployees TempUser = new NewEmployees(employeename.getText().toString(),employee_designation.getText().toString());
+                    mDatabase.child("Employees").child(key).setValue(TempUser)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -167,16 +159,16 @@ public class EmployeeList extends AppCompatActivity {
         employeerecyclerview.setAdapter(adapter);
 
     }
-
+   /* Toolbar Menu Option :- */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.serachview_option,menu);
         MenuItem menueitems=menu.findItem(R.id.search);
         SearchView searchView=(SearchView) menueitems.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setQueryHint("Search Here!");
 
+        /* Toolbar Menu Option  Action :- */
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -191,6 +183,7 @@ public class EmployeeList extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+   /* Back Option :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

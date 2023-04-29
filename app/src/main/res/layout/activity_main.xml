@@ -5,14 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerInParent="true"
     android:background="@color/white"
     tools:OpenDrawer="start"
     android:id="@+id/drawerlayout"
     tools:context=".MainActivity">
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
+        android:id="@+id/side_navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
@@ -30,12 +29,12 @@
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/bottombar">
+            android:layout_above="@id/BottomBar">
 
         </RelativeLayout>
 
         <me.ibrahimsn.lib.SmoothBottomBar
-            android:id="@+id/bottombar"
+            android:id="@+id/BottomBar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="5dp"

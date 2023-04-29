@@ -40,7 +40,7 @@ public class DepartmentsList extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         departlist=new ArrayList<>();
 
-        /*Departsmnets Data Post into the arraylist :-*/
+        /* Departments Data Set in ArrayList :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -61,12 +61,11 @@ public class DepartmentsList extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Getting Post failed, log a message
+                // If Fails Check Error In Logcat
                 Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
         };
         mDatabase.child("departments").addListenerForSingleValueEvent(postListener);
-
     }
 
     /*ArrayList Functionalities :-*/
@@ -80,6 +79,7 @@ public class DepartmentsList extends AppCompatActivity {
         departrecyclerview.setAdapter(myadpter);
     }
 
+    /* Back  Options :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

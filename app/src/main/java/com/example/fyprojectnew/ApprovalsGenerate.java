@@ -143,7 +143,7 @@ public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha
             }
         });
 
-        //Date Picker :-
+//        Date Picker :-
         DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int day) {
@@ -154,7 +154,7 @@ public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha
                 Log.d("key", "chk");
             }
         };
-//Date-Picker Implementation :-
+
 //        English Datepicker Implemetntaion :-
         english_date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,11 +217,11 @@ public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha
             }
         });
 
-//Data Push into Database :-
+//Data Push into FireBase Database :-
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//            Image Save to Database :-
+//            Progress dialog  Auto :-
                 ProgressDialog pd = new ProgressDialog(ApprovalsGenerate.this);
                 pd.setTitle("Uploading Image to the System.Please Wait for a Second...");
                 pd.show();

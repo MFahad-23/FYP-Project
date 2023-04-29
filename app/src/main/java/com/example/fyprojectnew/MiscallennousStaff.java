@@ -1,17 +1,13 @@
 package com.example.fyprojectnew;
 
 import static android.content.ContentValues.TAG;
-
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -21,8 +17,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,7 +30,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class MiscallennousStaff extends AppCompatActivity {
@@ -64,15 +59,15 @@ public class MiscallennousStaff extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         miscellenouslist=new ArrayList<>();
 
-       /* Add More Employee Button :-*/
+       /* Employee Create :-*/
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialog();
+                OpenDialog();
             }
         });
 
-        /*Departsmnets Data Post into the arraylist :-*/
+        /*Departments Data Post into the ArrayList :-*/
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -97,7 +92,9 @@ public class MiscallennousStaff extends AppCompatActivity {
         };
         mDatabase.child("Miscallenous").addValueEventListener(postListener);
     }
-    private void openDialog() {
+
+   /* Employee Creating Dilaog :- */
+    private void OpenDialog() {
         dialog =new Dialog(MiscallennousStaff.this);
         dialog.setContentView(R.layout.employees_creating_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
@@ -107,7 +104,7 @@ public class MiscallennousStaff extends AppCompatActivity {
         newlogin=(Button) dialog.findViewById(R.id.newlogin);
         dialog.show();
 
-       /* Dialog Dissmiss Function :-*/
+       /* Dialog Dismiss :-*/
         cut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,23 +112,24 @@ public class MiscallennousStaff extends AppCompatActivity {
             }
         });
 
-        /*Create New Employee Function :-*/
+        /* Create New Employees :-*/
                 newlogin.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
+                       /* Check Credentials :- */
                         if (employeename.getText().toString().isEmpty()){
                             employeename.setError("Please Complete the fields");
                         }else if (employeedesignation.getText().toString().isEmpty()){
                             employeedesignation.setError("Please Complete the fields");
                         }else{
 
-                            /*Data pust to DataBase for save :-*/
-                            NewEmployees tempuser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
-
                             /*For get Ket to firebase auto :-*/
                             String key=  mDatabase.child("Miscallenous").push().getKey();
 
-                            mDatabase.child("Miscallenous").child(key).setValue(tempuser)
+                            /*Data Push to FireBase DataBase :-*/
+                            NewEmployees TempUser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
+                            mDatabase.child("Miscallenous").child(key).setValue(TempUser)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void aVoid) {
@@ -162,6 +160,7 @@ public class MiscallennousStaff extends AppCompatActivity {
         miscallenouslist.setAdapter(myadpter);
     }
 
+   /* Toolbar Menu Option Actions :- */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.serachview_option,menu);
@@ -169,24 +168,21 @@ public class MiscallennousStaff extends AppCompatActivity {
         SearchView searchView=(SearchView) menueitems.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setQueryHint("Search Here!");
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 return false;
             }
-
             @Override
             public boolean onQueryTextChange(String s) {
                 myadpter.getFilter().filter(s);
-
                 return false;
             }
         });
-
         return super.onCreateOptionsMenu(menu);
     }
 
+   /* Activity Back Option :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();

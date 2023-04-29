@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/approvedfiles_layout"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ApprovedFiles">
 
     <com.facebook.shimmer.ShimmerFrameLayout
@@ -30,6 +29,7 @@
             <include layout="@layout/approved_employees_shimmereffect"/>
 
         </LinearLayout>
+
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -37,6 +37,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />
-
 
 </RelativeLayout>

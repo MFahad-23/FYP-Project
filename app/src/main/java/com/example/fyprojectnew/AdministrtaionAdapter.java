@@ -74,13 +74,11 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
 
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-
             adminstafflist.clear();
             adminstafflist.addAll((ArrayList)filterResults.values);
             notifyDataSetChanged();
         }
     };
-
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView employeeimage;
         private TextView employeename;
@@ -96,11 +94,11 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
             employeedesignation=itemView.findViewById(R.id.employeedesignation);
             employeelist=itemView.findViewById(R.id.employeelist);
         }
-
         public void setdata(String name, String designation, String image,String key) {
-            employeename.setText(name);
+            employeename.setText(designation);
             employeedesignation.setText(designation);
 
+           /* Payroll Slips Activity :- */
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -108,6 +106,7 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
                 }
             });
 
+           /* Delete Employee from List as well as From FireBase DataBase :- */
             deleteimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -119,6 +118,7 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
                     cancel=deldialog.findViewById(R.id.cancel);
                     ok=deldialog.findViewById(R.id.ok);
 
+                    /* Dialog Cancel Option :- */
                     cancel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -126,6 +126,7 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
                         }
                     });
 
+                    /* Dialog Ok Option :- */
                     ok.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -137,5 +138,4 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
             });
         }
     }
-
 }

@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,6 +38,7 @@ public class PayslipsAdapter extends RecyclerView.Adapter<PayslipsAdapter.ViewHo
             name=itemView.findViewById(R.id.name);
             historyslips=itemView.findViewById(R.id.historyslips);
 
+          /* History slips List :- */
             historyslips.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

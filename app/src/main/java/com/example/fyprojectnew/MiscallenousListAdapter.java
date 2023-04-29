@@ -11,13 +11,11 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +30,6 @@ public class MiscallenousListAdapter extends RecyclerView.Adapter<MiscallenousLi
         this.getMiscellenouslistFull = miscellenouslist;
         this.miscellenouslist=new ArrayList<>(getMiscellenouslistFull);
     }
-
 
     @NonNull
     @Override
@@ -61,9 +58,10 @@ String key=miscellenouslist.get(position).Key;
     }
 
     private final Filter EmployeeFilter=new Filter() {
+
+       /* Activity Search Option :- */
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
-
             ArrayList<MiscallenousModel> miscellenouslist=new ArrayList<>();
             if (charSequence ==null || charSequence.length() == 0){
              miscellenouslist.addAll(getMiscellenouslistFull);
@@ -109,6 +107,8 @@ String key=miscellenouslist.get(position).Key;
         public void setdata(String name, String designation, String image,String key) {
             employeename.setText(name);
             employeedesignation.setText(designation);
+
+           /* Pay Slip Template Activity :- */
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -116,6 +116,7 @@ String key=miscellenouslist.get(position).Key;
                 }
             });
 
+           /* Employee Delete :- */
             deleteimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -125,6 +126,7 @@ String key=miscellenouslist.get(position).Key;
         }
     }
 
+    /* Employee Delete Dialog :- */
     private void OpenDialog(String key) {
         Dialog deldialog=new Dialog(context);
         deldialog.setContentView(R.layout.file_delete_dialog);
@@ -134,13 +136,14 @@ String key=miscellenouslist.get(position).Key;
         cancel=deldialog.findViewById(R.id.cancel);
         ok=deldialog.findViewById(R.id.ok);
 
+        /* Dialog Cancel Button  :- */
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 deldialog.dismiss();
             }
         });
-
+        /* Dialog Ok Button :- */
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

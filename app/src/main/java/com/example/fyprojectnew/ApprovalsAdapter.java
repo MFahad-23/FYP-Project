@@ -12,13 +12,10 @@ import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +57,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
         return Approvelist;
     }
 
+    /* Activity Search Option :- */
     private final Filter Approvelist = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
@@ -104,6 +102,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
         }
 
         public void setdata(String key,String image, String name, String designation,String date,ApprovalsModel model) {
+           /* Set Data into the Image :- */
             if(image!=null) {
                 Glide.with(context).load(image).into(employeeimage);
             }
@@ -111,6 +110,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
             employee_designation.setText(designation);
             spinner_datepicker.setText(date);
 
+           /* Employee Approvals Activity :- */
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -119,13 +119,16 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
                     context.startActivity(intent);
                 }
             });
+
+            /* Employee Delete :- */
             deleteimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    openDialog(key);
+                    OpenDialog(key);
                 }
             });
 
+            /* Employee Image Check :- */
             employeeimage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -145,7 +148,8 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
         }
     }
 
-    private void openDialog(String key) {
+    /* Employee Delete Dialog :-  */
+    private void OpenDialog(String key) {
       Dialog deldialog=new Dialog(context);
         deldialog.setContentView(R.layout.file_delete_dialog);
         deldialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_dialog_background);
@@ -154,6 +158,8 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
         ok=deldialog.findViewById(R.id.ok);
         deldialog.show();
 
+        /* Dialog Cancel Button :- */
+
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -161,10 +167,10 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
             }
         });
 
+        /* Dialog Ok Button :- */
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 FirebaseDatabase.getInstance().getReference().child("Employee Approvals").child(key).removeValue();
                 deldialog.dismiss();
             }

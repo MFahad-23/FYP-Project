@@ -54,6 +54,8 @@ holder.setdata(image,name);
 
         public void setdata(String image, String name) {
             departname.setText(name);
+
+            /* Check Credentials :- */
             if (name.equals("Administration"))
             {
                 Glide.with(context).load(image).into(departsimage);
@@ -95,9 +97,12 @@ holder.setdata(image,name);
             }
             else {
             }
+
+           /* Miscallenous Staff Activity :- */
             departmentlist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                   /* Check Credentials :- */
                     if(name.equals("Miscallaneous"))
                     {
                         context.startActivity(new Intent(context,MiscallennousStaff.class));

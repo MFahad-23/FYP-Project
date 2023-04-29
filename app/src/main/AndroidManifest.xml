@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light"
         tools:targetApi="31">
+
         <activity
             android:name=".CreateNewPassword"
             android:theme="@style/Theme.FYProjectNew"
@@ -25,6 +26,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false"
@@ -33,6 +35,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".ApprovalsGenerate"
             android:exported="true"
@@ -41,6 +44,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".ApprovedFiles"
             android:exported="false">
@@ -48,6 +52,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".CheckGenerate"
             android:exported="false"
@@ -56,6 +61,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".Administration_staff"
             android:exported="false"
@@ -64,6 +70,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".MiscallennousStaff"
             android:exported="false"
@@ -72,6 +79,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".PayrollSlipTemp"
             android:exported="false"
@@ -80,6 +88,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".ProfilePage"
             android:exported="true"
@@ -88,6 +97,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".DesignationList"
             android:exported="false">
@@ -95,6 +105,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".QuestionsSection"
             android:exported="false"
@@ -103,6 +114,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".PaySlipsActivity"
             android:exported="false"
@@ -111,6 +123,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".PayrollsPageActivity"
             android:exported="true"
@@ -119,6 +132,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".CalculationPageActivity"
             android:exported="false"
@@ -127,6 +141,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".HelpPageActivity"
             android:exported="false"
@@ -135,6 +150,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".DepartmentsList"
             android:exported="false">
@@ -142,6 +158,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".PayrollSettingsActivity"
             android:exported="false">
@@ -149,6 +166,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".SignUpActivity"
             android:exported="false"
@@ -157,6 +175,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".LoginActivity"
             android:exported="false"
@@ -165,6 +184,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".VeiwPageActivity"
             android:exported="false"
@@ -173,10 +193,12 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.FYProjectNew">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -187,6 +209,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
             android:name=".EmployeeList"
             android:exported="false"

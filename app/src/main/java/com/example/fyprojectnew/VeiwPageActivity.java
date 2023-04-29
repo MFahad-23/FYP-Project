@@ -8,17 +8,17 @@ import android.view.View;
 import android.widget.Button;
 
 public class VeiwPageActivity extends AppCompatActivity {
-    Button buttSignup,buttlogin;
+    Button LoginButton,SignUpButton;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_veiw_page);
-        buttlogin=(Button)findViewById(R.id.buttlogin);
-        buttSignup=(Button)findViewById(R.id.buttSignup);
+        LoginButton=(Button)findViewById(R.id.LoginButton);
+        SignUpButton=(Button)findViewById(R.id.SignUpButton);
 
-         /*Login Button for Login :-*/
-        buttlogin.setOnClickListener(new View.OnClickListener() {
+         /* Button for Login :-*/
+        LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent login = new Intent(getApplicationContext(),LoginActivity.class);
@@ -26,8 +26,8 @@ public class VeiwPageActivity extends AppCompatActivity {
             }
         });
 
-        /*Signup Button for Signup :-*/
-        buttSignup.setOnClickListener(new View.OnClickListener() {
+        /* Button for Signup :-*/
+        SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent signup = new Intent(getApplicationContext(),SignUpActivity.class);
