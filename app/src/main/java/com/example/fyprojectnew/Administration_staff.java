@@ -13,7 +13,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -36,10 +39,12 @@ public class Administration_staff extends AppCompatActivity {
     ShimmerFrameLayout shimmereffect;
     RecyclerView adminstaff;
     RelativeLayout adminstafflist;
-    TextInputEditText employeename,employeedesignation;
+    com.google.android.material.textfield.TextInputEditText employeename,employeedesignation;
     Button newlogin;
     Dialog dialog;
-    ImageView cut,addmore;
+    ImageView cut;
+    ImageButton addmore;
+    Animation scale_up_animation;
 
     ArrayList<AdministrationModel>administration_listview;
     LinearLayoutManager layoutManager;
@@ -50,7 +55,7 @@ public class Administration_staff extends AppCompatActivity {
         setContentView(R.layout.activity_administration_staff);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Administration Staff");
-        addmore=(ImageView) findViewById(R.id.addmore);
+        addmore=(ImageButton) findViewById(R.id.addmore);
         shimmereffect=(ShimmerFrameLayout) findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
         adminstaff=(RecyclerView) findViewById(R.id.adminstaff);
@@ -58,10 +63,13 @@ public class Administration_staff extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         administration_listview=new ArrayList<>();
 
+        scale_up_animation= AnimationUtils.loadAnimation(Administration_staff.this,R.anim.scale_up_animation);
+
        /* Create New Employee  Dialog :- */
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addmore.startAnimation(scale_up_animation);
                 OpenDialog();
             }
         });
@@ -96,8 +104,8 @@ public class Administration_staff extends AppCompatActivity {
         dialog =new Dialog(Administration_staff.this);
         dialog.setContentView(R.layout.employees_creating_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
-        employeename=(TextInputEditText)dialog.findViewById(R.id.employeename);
-        employeedesignation=(TextInputEditText)dialog.findViewById(R.id.employeedesignation);
+        employeename=(com.google.android.material.textfield.TextInputEditText) dialog.findViewById(R.id.employeename);
+        employeedesignation=(com.google.android.material.textfield.TextInputEditText)dialog.findViewById(R.id.employeedesignation1);
         cut=(ImageView) dialog.findViewById(R.id.cut);
         newlogin=(Button) dialog.findViewById(R.id.newlogin);
         dialog.show();

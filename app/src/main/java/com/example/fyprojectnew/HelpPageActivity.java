@@ -12,10 +12,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class HelpPageActivity extends AppCompatActivity {
 CardView UploadData,DocsUpload,NewSalaryStructure,AdvanceSalary;
 TextView MorePage,System_Purpose,Interface,About_Data,Updates;
     Animation slide_left;
+    FloatingActionButton Back_Button;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,18 @@ TextView MorePage,System_Purpose,Interface,About_Data,Updates;
         MorePage=(TextView) findViewById(R.id.MorePage);
         System_Purpose=(TextView) findViewById(R.id.System_Purpose);
         Interface=(TextView) findViewById(R.id.Interface);
+        Back_Button=(FloatingActionButton) findViewById(R.id.Back_Button);
         About_Data=(TextView) findViewById(R.id.About_Data);
         Updates=(TextView) findViewById(R.id.Updates);
+
+
+       /* Back_Button :- */
+        Back_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         /* Animation Slide Left :- */
         slide_left= AnimationUtils.loadAnimation(HelpPageActivity.this,R.anim.slide_left);

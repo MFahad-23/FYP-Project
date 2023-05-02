@@ -29,7 +29,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/employee_designation"
+            android:id="@+id/employee_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -43,10 +43,10 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/employeename"
+            android:id="@+id/employee_designation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/employee_designation"
+            android:layout_below="@id/employee_name"
             android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/cardview"
             android:fontFamily="@font/adamina"

@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -38,11 +40,13 @@ public class EmployeeList extends AppCompatActivity {
     ImageButton addmore;
     Button newlogin;
     ShimmerFrameLayout shimmereffect;
-    TextInputEditText employeename,employee_designation;
+    TextInputEditText employeename,employeedesignation;
     RecyclerView employeerecyclerview;
     LinearLayoutManager layoutmanager;
     ArrayList<EmployeeModel> employee_items_view;
     EmployeListAdpter adapter;
+    Animation scale_up_animation;
+
 
     @SuppressLint({"MissingInflatedId", "ResourceAsColor"})
     @Override
@@ -58,10 +62,14 @@ public class EmployeeList extends AppCompatActivity {
         addmore =(ImageButton) findViewById(R.id.addmore);
         employee_items_view = new ArrayList<>();
 
+       /* Animation :- */
+        scale_up_animation=AnimationUtils.loadAnimation(EmployeeList.this,R.anim.scale_up_animation);
+
         /* Create New Employee :- */
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addmore.startAnimation(scale_up_animation);
                 showDialog();
             }
         });
@@ -97,7 +105,7 @@ public class EmployeeList extends AppCompatActivity {
         fielddialog = new Dialog(EmployeeList.this);
         fielddialog.setContentView(R.layout.employees_creating_dialog);
         fielddialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
-        employee_designation=(TextInputEditText)fielddialog.findViewById(R.id.employee_designation);
+        employeedesignation=(TextInputEditText)fielddialog.findViewById(R.id.employeedesignation1);
         cut=(ImageView)fielddialog.findViewById(R.id.cut);
         employeename= (TextInputEditText) fielddialog.findViewById(R.id.employeename);
         newlogin=(Button)fielddialog.findViewById(R.id.newlogin);
@@ -118,21 +126,21 @@ public class EmployeeList extends AppCompatActivity {
                /* Check Credentials :- */
                 if (employeename.getText().toString().isEmpty()){
                     employeename.setError("Please Complete the fields");
-                }else if (employee_designation.getText().toString().isEmpty()){
-                    employee_designation.setError("Please Complete the fields");
+                }else if (employeedesignation.getText().toString().isEmpty()){
+                    employeedesignation.setError("Please Complete the fields");
                 }else{
 
                     /*For get Ket to firebase auto :-*/
                     String key=  mDatabase.child("Employees").push().getKey();
 
                     /* Data Push to  FireBase DataBase :- */
-                    NewEmployees TempUser = new NewEmployees(employeename.getText().toString(),employee_designation.getText().toString());
+                    NewEmployees TempUser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());
                     mDatabase.child("Employees").child(key).setValue(TempUser)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     employeename.setText("");
-                                    employee_designation.setText("");
+                                    employeedesignation.setText("");
                                     fielddialog.dismiss();
                                 }
                             })

@@ -120,7 +120,7 @@
                 android:background="@drawable/tablelayout_border"/>
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1.5"
@@ -182,16 +182,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/EmpName"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -228,16 +229,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/designation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/EmpName"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -306,16 +308,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/baisic_pay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -351,16 +354,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/senior_post_allowance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -396,16 +400,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/house_rent_allowance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -441,16 +446,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/conveyance_allowance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -486,16 +492,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/qualification_allowance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -531,16 +538,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/medical_allowance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -576,16 +584,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/adhoc_relief_2016"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -621,16 +630,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/adhoc_relief_2017"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -666,16 +676,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/adhoc_relief_2018"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -711,16 +722,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/adhoc_relief_2019"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
 
         </TableRow>
 
@@ -756,16 +768,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/adhoc_relief_2021"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
         </TableRow>
 
         <TableRow
@@ -800,16 +813,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/social_security_benefit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
         </TableRow>
 
 
@@ -845,16 +859,17 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/total_allowances"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
         </TableRow>
 
     </TableLayout>
@@ -924,16 +939,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/income_tax"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
         </TableRow>
 
         <TableRow
@@ -1408,16 +1424,17 @@
                 android:textSize="12sp" />
 
             <TextView
+                android:id="@+id/trade_tax"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
         </TableRow>
 
         <TableRow
@@ -1496,16 +1513,17 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/total_pay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text=""
-                android:textAlignment="center"
+                android:text="@string/example"
+                android:paddingLeft="5dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="14sp" />
+                android:textFontWeight="500"
+                android:textSize="12sp" />
         </TableRow>
 
     </TableLayout>

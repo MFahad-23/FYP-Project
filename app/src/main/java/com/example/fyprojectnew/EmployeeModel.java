@@ -4,7 +4,7 @@ public class EmployeeModel {
     private String employeeimage;
     private String delimage;
     private String employeename;
-    private String employee_designation;
+    private String employeedesignation;
     public String key;
 
     public EmployeeModel() {
@@ -14,7 +14,7 @@ public class EmployeeModel {
         this.delimage = "";
         this.employeeimage="";
         this.employeename=employeename;
-        this.employee_designation=employee_designation;
+        this.employeedesignation=employee_designation;
         this.key=key;
     }
     public String getDelimage() {
@@ -28,8 +28,8 @@ public class EmployeeModel {
         return employeename;
     }
 
-    public String getEmployee_designation() {
-        return employee_designation;
+    public String getEmployeedesignation() {
+        return employeedesignation;
     }
 
 }

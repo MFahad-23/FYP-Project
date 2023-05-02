@@ -45,7 +45,7 @@ public class ProfilePage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextView name,location,mail,idendity,phone;
     CircleImageView circleimage;
-    FloatingActionButton imagecapture;
+    FloatingActionButton imagecapture,Back_Button;
     User user;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,6 +54,7 @@ public class ProfilePage extends AppCompatActivity {
         setContentView(R.layout.activity_profile_page);
         circleimage=(CircleImageView)findViewById(R.id.circleimage);
         imagecapture=(FloatingActionButton)findViewById(R.id.imagecapture);
+        Back_Button=(FloatingActionButton)findViewById(R.id.Back_Button);
         name=(TextView) findViewById(R.id.name);
         location=(TextView) findViewById(R.id.location);
         mail=(TextView) findViewById(R.id.mail);
@@ -61,6 +62,14 @@ public class ProfilePage extends AppCompatActivity {
         phone=(TextView) findViewById(R.id.phone);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+
+        /* Back Button :- */
+        Back_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         /* Capture Image Set :- */
         ActivityResultLauncher<Intent> launcher=

@@ -3,16 +3,15 @@ package com.example.fyprojectnew;
 import java.io.Serializable;
 
 public class PaySlipModal implements Serializable {
-    public String Name;
-    public String Department;
-    private String uri;
+    public String filePath;
+    public String name;
+    public String department;
+    String generated_date;
 
-    public PaySlipModal(String generatedFilePath) {
-    }
-
-    public PaySlipModal(String name, String department, String uri) {
-        Name = name;
-        Department = department;
-        this.uri = uri;
+    public PaySlipModal(String filePath, String name, String department,String generated_date) {
+        filePath = filePath;
+        name = name;
+        department = department;
+        generated_date = generated_date;
     }
 }

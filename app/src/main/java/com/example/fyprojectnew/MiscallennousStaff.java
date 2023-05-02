@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 import static com.example.fyprojectnew.R.drawable.custom_dialog_background;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
@@ -13,7 +14,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
@@ -42,7 +46,9 @@ public class MiscallennousStaff extends AppCompatActivity {
     TextInputEditText employeename,employeedesignation;
     Button newlogin;
     Dialog dialog;
-    ImageView cut,addmore;
+    ImageView cut;
+    ImageButton addmore;
+    Animation scale_up_animation;
     ArrayList<MiscallenousModel>miscellenouslist;
     LinearLayoutManager layoutManager;
     @Override
@@ -51,7 +57,7 @@ public class MiscallennousStaff extends AppCompatActivity {
         setContentView(R.layout.activity_miscallennous_staff);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Miscallennous Staff");
-        addmore=(ImageView) findViewById(R.id.addmore);
+        addmore=(ImageButton) findViewById(R.id.addmore);
         shimmereffect=(ShimmerFrameLayout)findViewById(R.id.shimmereffect);
         shimmereffect.startShimmer();
 
@@ -59,10 +65,14 @@ public class MiscallennousStaff extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         miscellenouslist=new ArrayList<>();
 
+        /* Animation :- */
+        scale_up_animation= AnimationUtils.loadAnimation(MiscallennousStaff.this,R.anim.scale_up_animation);
+
        /* Employee Create :-*/
         addmore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                addmore.startAnimation(scale_up_animation);
                 OpenDialog();
             }
         });
@@ -99,7 +109,7 @@ public class MiscallennousStaff extends AppCompatActivity {
         dialog.setContentView(R.layout.employees_creating_dialog);
         dialog.getWindow().setBackgroundDrawable(getDrawable(custom_dialog_background));
         employeename= (TextInputEditText) dialog.findViewById(R.id.employeename);
-        employeedesignation=(TextInputEditText)dialog.findViewById(R.id.employeedesignation);
+        employeedesignation=(TextInputEditText)dialog.findViewById(R.id.employeedesignation1);
         cut=(ImageView) dialog.findViewById(R.id.cut);
         newlogin=(Button) dialog.findViewById(R.id.newlogin);
         dialog.show();
@@ -123,9 +133,8 @@ public class MiscallennousStaff extends AppCompatActivity {
                         }else if (employeedesignation.getText().toString().isEmpty()){
                             employeedesignation.setError("Please Complete the fields");
                         }else{
-
                             /*For get Ket to firebase auto :-*/
-                            String key=  mDatabase.child("Miscallenous").push().getKey();
+                            String key= mDatabase.child("Miscallenous").push().getKey();
 
                             /*Data Push to FireBase DataBase :-*/
                             NewEmployees TempUser = new NewEmployees(employeename.getText().toString(),employeedesignation.getText().toString());

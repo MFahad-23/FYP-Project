@@ -319,4 +319,19 @@
         app:layout_constraintVertical_bias="0.937"
         app:srcCompat="@drawable/camera" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Back_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/selfcolor_grey"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/ic_top_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/layoutmain"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/layoutmain"
+        app:layout_constraintTop_toBottomOf="@+id/layoutmain"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

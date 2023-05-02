@@ -1,5 +1,6 @@
 package com.example.fyprojectnew;
 
+import static android.Manifest.permission.MANAGE_EXTERNAL_STORAGE;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import androidx.annotation.NonNull;
@@ -11,6 +12,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +33,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.util.Date;
+
 import sharelayoutbyamit.example.sharelibrary.ShareLayout;
 
 public class PayrollSlipTemp extends AppCompatActivity {
@@ -58,16 +64,33 @@ public class PayrollSlipTemp extends AppCompatActivity {
         designation=getIntent().getStringExtra("designation");
         name=getIntent().getStringExtra("name");
 
-        verifyStoragePermissions(PayrollSlipTemp.this);
-    }
+        Log.d("test",designation +" : "+name);
 
+        ActivityCompat.requestPermissions( this,
+                new String[]{
+                        READ_EXTERNAL_STORAGE,
+                        MANAGE_EXTERNAL_STORAGE
+                }, 1
+        );
+        // If you have access to the external storage, do whatever you need
+        if (Environment.isExternalStorageManager()){
+        // If you don't have access, launch a new activity to show the user the system's dialog
+        // to allow access to the external storage
+        }else{
+            Intent intent = new Intent();
+            intent.setAction(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
+            Uri uri = Uri.fromParts("package", this.getPackageName(), null);
+            intent.setData(uri);
+            startActivity(intent);
+        }
+
+    }
     // Storage Permissions
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             READ_EXTERNAL_STORAGE,
             WRITE_EXTERNAL_STORAGE
     };
-
 //    /**
 //     * Checks if the app has permission to write to device storage
 //     *
@@ -112,8 +135,8 @@ public class PayrollSlipTemp extends AppCompatActivity {
             //            PDF Generator :-
             PdfGenerator.getBuilder()
                     .setContext(PayrollSlipTemp.this)
-                    .fromLayoutXMLSource()
-                    .fromLayoutXML(R.layout.activity_payroll_slip_temp)
+                    .fromViewSource()
+                    .fromView(findViewById(R.id.sliplayout))
                     /* "fromLayoutXML()" takes array of layout resources.
                      * You can also invoke "fromLayoutXMLList()" method here which takes list of layout resources instead of array. */
                     .setFileName("Test-PDF")
@@ -165,7 +188,8 @@ public class PayrollSlipTemp extends AppCompatActivity {
                                                             String generatedFilePath = task.getResult().toString();
                                                             Toast.makeText(PayrollSlipTemp.this, "File Saved Successfully", Toast.LENGTH_SHORT).show();
                                                             String key = mDatabase.child("Download PaySlips").push().getKey();
-                                                            PaySlipModal approvals=new PaySlipModal(generatedFilePath,name,designation);
+
+                                                            PaySlipModal approvals=new PaySlipModal(generatedFilePath,name,designation,new Date().toString());
 
                                                             mDatabase.child("Download PaySlips").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                 @Override

@@ -1,8 +1,11 @@
 package com.example.fyprojectnew;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +16,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +37,7 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
         this.adminstafflistFull = adminstafflist;
         this.adminstafflist=new ArrayList<>(adminstafflistFull);
     }
+
     @NonNull
     @Override
     public AdministrtaionAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -95,14 +106,17 @@ public class AdministrtaionAdapter extends RecyclerView.Adapter<AdministrtaionAd
             employeelist=itemView.findViewById(R.id.employeelist);
         }
         public void setdata(String name, String designation, String image,String key) {
-            employeename.setText(designation);
+            employeename.setText(name);
             employeedesignation.setText(designation);
 
            /* Payroll Slips Activity :- */
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    context.startActivity(new Intent(context,PayrollSlipTemp.class));
+                    Intent intent=new Intent(context,PayrollSlipTemp.class);
+                    intent.putExtra("name",designation);
+                    intent.putExtra("designation",name);
+                    context.startActivity(intent);
                 }
             });
 

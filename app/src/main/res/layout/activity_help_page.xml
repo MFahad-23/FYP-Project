@@ -8,6 +8,21 @@
     android:background="@color/white"
     tools:context=".HelpPageActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/Back_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/selfwhite"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout19"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout19"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_top_arrow" />
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -168,20 +183,21 @@
         android:id="@+id/MorePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:fontFamily="@font/adamina"
         android:text="@string/more"
-        android:background="@color/white"
         android:textColor="@color/black"
         android:textFontWeight="500"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.887"
+        app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NewSalaryStructure"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintVertical_bias="0.080" />
 
     <LinearLayout
+        android:id="@+id/linearLayout19"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -191,7 +207,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MorePage"
-        app:layout_constraintVertical_bias="0.30">
+        app:layout_constraintVertical_bias="0.10">
 
         <TextView
             android:id="@+id/textView15"
@@ -207,9 +223,9 @@
             android:id="@+id/System_Purpose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/adamina"
             android:text="@string/systempurpose"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="14sp" />
@@ -246,7 +262,6 @@
             android:textColor="@color/black"
             android:textFontWeight="500"
             android:textSize="14sp" />
-
 
     </LinearLayout>
 

@@ -1,8 +1,8 @@
 package com.example.fyprojectnew;
 
 public class ClaculationModel {
-    public String employee;
-    public String designation;
+    public String departments;
+    public String employeename;
     public String spinner;
     public int baisic_pay;
     public int trade_tax;
@@ -22,18 +22,19 @@ public class ClaculationModel {
     public int deduction;
     public int total_pay;
     public int allowances;
+    public String key;
+    public String user_id;
 
     public ClaculationModel() {
     }
 
-
-    public ClaculationModel(String employee, String designation, String spinner, int baisic_pay, int trade_tax,
+    public ClaculationModel(String departments, String employeename, String spinner, int baisic_pay, int trade_tax,
                             int income_tax, int senior_post_allowance, int house_rent_allowance, int conveyance_allowance,
                             int qualification_allowance, int medical_allowance, int adhoc_relief_2016, int adhoc_relief_2017,
                             int adhoc_relief_2018, int adhoc_relief_2019, int adhoc_relief_2021, int social_security_benefit,
-                            int leave_deduction, int deduction, int total_pay,int allowances) {
-        this.employee = employee;
-        this.designation = designation;
+                            int leave_deduction, int deduction, int total_pay,int allowances,String key,String user_id) {
+        this.departments = departments;
+        this.employeename = employeename;
         this.spinner = spinner;
         this.baisic_pay = baisic_pay;
         this.trade_tax = trade_tax;
@@ -53,5 +54,7 @@ public class ClaculationModel {
         this.deduction = deduction;
         this.total_pay = total_pay;
         this.allowances =allowances;
+        this.key =key;
+        this.user_id =user_id;
     }
 }

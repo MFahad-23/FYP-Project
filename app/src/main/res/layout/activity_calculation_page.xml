@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".CalculationPageActivity">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,24 +23,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/employee"
+            <com.jaredrummler.materialspinner.MaterialSpinner
+                android:id="@+id/departments"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_alignParentBottom="true"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/spinner_background_design"
-                android:drawableStart="@drawable/ic_username_white"
-                android:drawablePadding="10dp"
-                android:ems="10"
-                android:hint="Enter Name..."
-                android:inputType="text"
-                android:paddingLeft="15dp" />
+                android:background="@drawable/edittext_stroke"
+                android:backgroundTint="@color/selfcolor_grey" />
 
             <EditText
-                android:id="@+id/designation"
+                android:id="@+id/employeename"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginLeft="20dp"
@@ -51,9 +45,18 @@
                 android:drawableStart="@drawable/ic_designation"
                 android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Enter Designation..."
+                android:hint="Enter Employee Name"
                 android:inputType="text"
                 android:paddingLeft="15dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/employee_searching"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/text1"

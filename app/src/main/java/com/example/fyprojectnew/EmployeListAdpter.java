@@ -3,6 +3,7 @@ package com.example.fyprojectnew;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.ViewHolder> implements Filterable {
+    /*private List<ClaculationModel>calculationmodal;*/
     private List<EmployeeModel> employee_items_view;
     List<EmployeeModel>employee_items_viewFull;
     Context context;
-
     public EmployeListAdpter(Context context, List<EmployeeModel> employee_items_view){
         this.context=context;
         this.employee_items_viewFull=employee_items_view;
@@ -39,7 +40,7 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
         String image=employee_items_view.get(position).getEmployeeimage();
         String delimage=employee_items_view.get(position).getDelimage();
         String name=employee_items_view.get(position).getEmployeename();
-        String designation=employee_items_view.get(position).getEmployee_designation();
+        String designation=employee_items_view.get(position).getEmployeedesignation();
         holder.setdata(key,image,delimage,name,designation);
     }
 
@@ -83,7 +84,7 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView employeeimage;
-        private TextView employeename;
+        private TextView employee_name;
         private TextView employee_designation;
         private RelativeLayout employeelist;
         private ImageView deleteimage;
@@ -93,19 +94,21 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
             super(itemView);
             employeeimage=itemView.findViewById(R.id.employeeimage);
             deleteimage=itemView.findViewById(R.id.deleteimage);
-            employeename=itemView.findViewById(R.id.employeename);
+            employee_name=itemView.findViewById(R.id.employee_name);
             employee_designation=itemView.findViewById(R.id.employee_designation);
             employeelist=itemView.findViewById(R.id.employeelist);
         }
-        public void setdata( String key,String image, String name, String designation, String delimag) {
-            employeename.setText(designation);
-            employee_designation.setText(name);
+        public void setdata( String key,String image, String delimag, String name, String designation ) {
+            Log.d("turn",":"+name);
+            employee_name.setText(name);
+            employee_designation.setText(designation);
 
             /* Post Data to other Activity To Set On TextViews :- */
             employeelist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent=new Intent(context,PayrollSlipTemp.class);
+                   /* intent.putExtra("data", (CharSequence) calculationmodal);*/
                     intent.putExtra("name",designation);
                     intent.putExtra("designation",name);
                     context.startActivity(intent);

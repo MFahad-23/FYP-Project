@@ -249,5 +249,7 @@
     <string name="year">2020-21</string>
     <string name="filedel">Are You want to delete this User ?</string>
     <string name="objection">Please do not write below this line.</string>
+    <string name="example">Example</string>
+    <string name="EmpName">Employee Name</string>
 
 </resources>

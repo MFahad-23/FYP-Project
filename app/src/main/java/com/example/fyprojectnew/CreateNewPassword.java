@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -21,6 +21,7 @@ public class CreateNewPassword extends AppCompatActivity {
     private FirebaseUser user;
     TextInputEditText password,confirm_password;
     Button submit_button;
+    FloatingActionButton Back_Button;
     String TAG;
     Timer timer;
     @SuppressLint("MissingInflatedId")
@@ -31,8 +32,18 @@ public class CreateNewPassword extends AppCompatActivity {
         password=(TextInputEditText) findViewById(R.id.password);
         confirm_password=(TextInputEditText) findViewById(R.id.confirm_password);
         submit_button=(Button) findViewById(R.id.submit_button);
+        Back_Button=(FloatingActionButton) findViewById(R.id.Back_Button);
         user = FirebaseAuth.getInstance().getCurrentUser();
 
+        /* Back_Button */
+        Back_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        /* Update Your Password */
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

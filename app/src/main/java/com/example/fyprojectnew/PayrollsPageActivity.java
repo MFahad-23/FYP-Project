@@ -94,8 +94,8 @@ public class PayrollsPageActivity extends AppCompatActivity {
             /* Online PDF File Generator :- */
             PdfGenerator.getBuilder()
                     .setContext(PayrollsPageActivity.this)
-                    .fromLayoutXMLSource()
-                    .fromLayoutXML(R.layout.activity_payrolls_page)
+                    .fromViewSource()
+                    .fromView(findViewById(R.id.approvedfile))
                     /* "fromLayoutXML()" takes array of layout resources.
                      * You can also invoke "fromLayoutXMLList()" method here which takes list of layout resources instead of array. */
                     .setFileName("Test-PDF")
