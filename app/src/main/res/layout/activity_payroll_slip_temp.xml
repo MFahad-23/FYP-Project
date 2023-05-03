@@ -182,7 +182,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/employee_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -229,7 +229,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/designation"
+                android:id="@+id/employee_designation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -308,7 +308,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/baisic_pay"
+                android:id="@+id/employee_pay"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -354,7 +354,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/senior_post_allowance"
+                android:id="@+id/senior_post"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -400,7 +400,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/house_rent_allowance"
+                android:id="@+id/house_rent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -446,7 +446,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/conveyance_allowance"
+                android:id="@+id/conveyance"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -492,13 +492,13 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/qualification_allowance"
+                android:id="@+id/qualification"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
                 android:fontFamily="@font/adamina"
-                android:text="@string/example"
                 android:paddingLeft="5dp"
+                android:text="@string/example"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
@@ -538,7 +538,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/medical_allowance"
+                android:id="@+id/medical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -584,7 +584,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/adhoc_relief_2016"
+                android:id="@+id/Relief_2016"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -630,7 +630,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/adhoc_relief_2017"
+                android:id="@+id/Relief_2017"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -676,7 +676,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/adhoc_relief_2018"
+                android:id="@+id/Relief_2018"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -722,7 +722,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/adhoc_relief_2019"
+                android:id="@+id/Relief_2019"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -768,7 +768,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/adhoc_relief_2021"
+                android:id="@+id/Relief_2021"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -813,7 +813,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/social_security_benefit"
+                android:id="@+id/social_security"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -939,7 +939,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/income_tax"
+                android:id="@+id/income"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -1424,7 +1424,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/trade_tax"
+                android:id="@+id/trade"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"
@@ -1513,7 +1513,7 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/total_pay"
+                android:id="@+id/total_payroll1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.8"

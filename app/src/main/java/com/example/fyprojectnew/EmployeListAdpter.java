@@ -109,8 +109,9 @@ public class EmployeListAdpter extends RecyclerView.Adapter<EmployeListAdpter.Vi
                 public void onClick(View view) {
                     Intent intent=new Intent(context,PayrollSlipTemp.class);
                    /* intent.putExtra("data", (CharSequence) calculationmodal);*/
-                    intent.putExtra("name",designation);
-                    intent.putExtra("designation",name);
+                    intent.putExtra("name",name);
+                    intent.putExtra("designation",designation);
+                    intent.putExtra("user_id",key);
                     context.startActivity(intent);
                 }
             });

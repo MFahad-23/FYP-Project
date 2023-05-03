@@ -3,6 +3,8 @@ package com.example.fyprojectnew;
 import static android.Manifest.permission.MANAGE_EXTERNAL_STORAGE;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -18,7 +20,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import com.gkemon.XMLtoPDF.PdfGenerator;
 import com.gkemon.XMLtoPDF.PdfGeneratorListener;
 import com.gkemon.XMLtoPDF.model.FailureResponse;
@@ -28,8 +32,11 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -43,7 +50,14 @@ public class PayrollSlipTemp extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
-    String name,designation;
+    String name,designation,key;
+    TextView employee_name,employee_designation;
+    ClaculationModel calculationmodal;
+    TextView employee_pay,senior_post,house_rent,
+            conveyance,qualification,medical,
+            Relief_2016,Relief_2017,Relief_2018,Relief_2019,
+            Relief_2021,social_security,total_allowances,income,
+            trade,total_payroll;
 
     private PdfGenerator.XmlToPDFLifecycleObserver xmlToPDFLifecycleObserver;
 
@@ -57,12 +71,72 @@ public class PayrollSlipTemp extends AppCompatActivity {
         sliplayout = (ScrollView) findViewById(R.id.sliplayout);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
+        employee_pay=(TextView) findViewById(R.id.employee_pay);
+        senior_post=(TextView) findViewById(R.id.senior_post);
+        house_rent=(TextView) findViewById(R.id.house_rent);
+        conveyance=(TextView) findViewById(R.id.conveyance);
+        qualification=(TextView) findViewById(R.id.qualification);
+        medical=(TextView) findViewById(R.id.medical);
+        Relief_2016=(TextView) findViewById(R.id.Relief_2016);
+        Relief_2017=(TextView) findViewById(R.id.Relief_2017);
+        Relief_2018=(TextView) findViewById(R.id.Relief_2018);
+        Relief_2019=(TextView) findViewById(R.id.Relief_2019);
+        Relief_2021=(TextView) findViewById(R.id.Relief_2021);
+        social_security=(TextView) findViewById(R.id.social_security);
+        total_allowances=(TextView) findViewById(R.id.total_allowances);
+        income=(TextView) findViewById(R.id.income);
+        trade=(TextView) findViewById(R.id.trade);
+        total_payroll=(TextView) findViewById(R.id.total_payroll1);
+
+        employee_name=(TextView) findViewById(R.id.employee_name);
+        employee_designation=(TextView) findViewById(R.id.employee_designation);
 
         xmlToPDFLifecycleObserver = new PdfGenerator.XmlToPDFLifecycleObserver(this);
         getLifecycle().addObserver(xmlToPDFLifecycleObserver);
 
         designation=getIntent().getStringExtra("designation");
         name=getIntent().getStringExtra("name");
+        key=getIntent().getStringExtra("user_id");
+        Log.d("id_check",":"+key);
+
+        employee_designation.setText(designation);
+        employee_name.setText(name);
+
+        /* Read Data From DataBase and set it into TextViews :-*/
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    for (DataSnapshot item:dataSnapshot.getChildren()) {
+                        calculationmodal = item.getValue(ClaculationModel.class);
+                        employee_pay.setText(calculationmodal.baisic_pay + "");
+                        senior_post.setText(calculationmodal.senior_post_allowance + "");
+                        house_rent.setText(calculationmodal.house_rent_allowance + "");
+                        conveyance.setText(calculationmodal.conveyance_allowance + "");
+                        qualification.setText(calculationmodal.qualification_allowance + "");
+                        medical.setText(calculationmodal.medical_allowance + "");
+                        Relief_2016.setText(calculationmodal.adhoc_relief_2016 + "");
+                        Relief_2017.setText(calculationmodal.adhoc_relief_2017 + "");
+                        Relief_2018.setText(calculationmodal.adhoc_relief_2018 + "");
+                        Relief_2019.setText(calculationmodal.adhoc_relief_2019 + "");
+                        Relief_2021.setText(calculationmodal.adhoc_relief_2021 + "");
+                        social_security.setText(calculationmodal.social_security_benefit + "");
+                        total_allowances.setText(calculationmodal.allowances + "");
+                        income.setText(calculationmodal.income_tax + "");
+                        trade.setText(calculationmodal.trade_tax + "");
+                        total_payroll.setText(calculationmodal.total_pay + "");
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // If Fails Check Logcat
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        mDatabase.child("Payrolls").orderByChild("user_id").equalTo(key).addValueEventListener(postListener);
+
+
 
         Log.d("test",designation +" : "+name);
 
