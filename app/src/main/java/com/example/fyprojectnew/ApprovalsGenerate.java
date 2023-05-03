@@ -80,7 +80,7 @@ public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha
         datepicker = (EditText) findViewById(R.id.datepicker);
 
         section = (RadioGroup) findViewById(R.id.section);
-        session = (RadioGroup) findViewById(R.id.session);
+        session = (RadioGroup) findViewById(R.id.session1);
         subject = (RadioGroup) findViewById(R.id.subject);
 
         submit_button = (Button) findViewById(R.id.submit_button);

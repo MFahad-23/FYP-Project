@@ -18,7 +18,7 @@ public class HomeFragment extends Fragment {
 
     CardView DepartmentCard,ApprovalCard,HistorySlipsCard,HelpCard;
     LinearLayout MenuBar;
-    Animation slide_left;
+    Animation scale_down_animation;
 
     /* Fragment Back Code :- */
     @Override
@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
         MenuBar=view.findViewById(R.id.MenuBar);
 
         /* Animation Slide Left :- */
-        slide_left= AnimationUtils.loadAnimation(getActivity(),R.anim.slide_left);
+        scale_down_animation= AnimationUtils.loadAnimation(getActivity(),R.anim.scale_down_animation);
 
 
         /* Department Activity :- */
@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                MenuBar.startAnimation(slide_left);
+                MenuBar.startAnimation(scale_down_animation);
                 ((MainActivity)requireActivity()).openDrawer();
                 Log.d("Prob","Solution");
             }

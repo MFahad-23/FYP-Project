@@ -57,7 +57,7 @@ public class PayrollSlipTemp extends AppCompatActivity {
             conveyance,qualification,medical,
             Relief_2016,Relief_2017,Relief_2018,Relief_2019,
             Relief_2021,social_security,total_allowances,income,
-            trade,total_payroll;
+            trade,total_payroll,date;
 
     private PdfGenerator.XmlToPDFLifecycleObserver xmlToPDFLifecycleObserver;
 
@@ -72,6 +72,7 @@ public class PayrollSlipTemp extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         employee_pay=(TextView) findViewById(R.id.employee_pay);
+        date=(TextView) findViewById(R.id.date);
         senior_post=(TextView) findViewById(R.id.senior_post);
         house_rent=(TextView) findViewById(R.id.house_rent);
         conveyance=(TextView) findViewById(R.id.conveyance);
@@ -125,6 +126,7 @@ public class PayrollSlipTemp extends AppCompatActivity {
                         income.setText(calculationmodal.income_tax + "");
                         trade.setText(calculationmodal.trade_tax + "");
                         total_payroll.setText(calculationmodal.total_pay + "");
+                        date.setText(calculationmodal.spinner);
                     }
                 }
             }

@@ -327,7 +327,7 @@
                 android:textSize="14sp" />
 
             <RadioGroup
-                android:id="@id/session"
+                android:id="@+id/session1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
