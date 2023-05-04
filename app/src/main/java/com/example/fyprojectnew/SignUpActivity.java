@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -33,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
     Button submit;
     String TAG;
     Timer timer;
+    Animation scale_up_animation;
     String emailPattern = "[A-ZA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     /*    String passwordpattern = "[^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,30}$]";
     String cncicpattern="[0-9+]{5}-[0-9+]{7}-[0-9]{1}";*/
@@ -56,6 +59,8 @@ public class SignUpActivity extends AppCompatActivity {
         facebooklink = (ImageView) findViewById(R.id.facebooklink);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        scale_up_animation= AnimationUtils.loadAnimation(SignUpActivity.this,R.anim.scale_up_animation);
 
         /* Google Link:- */
         googlelink.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
         BackOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                BackOption.startAnimation(scale_up_animation);
                 finish();
             }
         });
@@ -106,7 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
                 }
                   else if (cnic.getText().toString().length()>15 ||cnic.getText().toString().length()<15) {
                    Toast toast=Toast.makeText(SignUpActivity.this,"Please Follow CNIC Pattern"+
-                           "#####-#######-#",Toast.LENGTH_LONG);
+                           "#####_#######_#",Toast.LENGTH_LONG);
                            toast.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.START,50,50);
                            toast.show();
                 }

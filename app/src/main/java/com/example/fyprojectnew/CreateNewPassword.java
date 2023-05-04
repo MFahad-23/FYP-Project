@@ -74,7 +74,7 @@ public class CreateNewPassword extends AppCompatActivity {
                    });
                 }else
                 {
-                    Toast.makeText(CreateNewPassword.this,"Something Went Wrong!",Toast.LENGTH_SHORT);
+                    Toast.makeText(CreateNewPassword.this,"Please Match the Passwords",Toast.LENGTH_SHORT);
                 }
             }
         });
