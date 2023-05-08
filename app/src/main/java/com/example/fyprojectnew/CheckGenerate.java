@@ -13,7 +13,6 @@ import com.gkemon.XMLtoPDF.PdfGenerator;
 import com.gkemon.XMLtoPDF.PdfGeneratorListener;
 import com.gkemon.XMLtoPDF.model.FailureResponse;
 import com.gkemon.XMLtoPDF.model.SuccessResponse;
-import sharelayoutbyamit.example.sharelibrary.ShareLayout;
 
 public class CheckGenerate extends AppCompatActivity {
     ConstraintLayout cheque;
@@ -43,7 +42,6 @@ public class CheckGenerate extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId()== R.id.share){
-            ShareLayout.simpleLayoutShare(CheckGenerate.this,cheque,"");
         }
         else if(item.getItemId() == R.id.download ){
             Log.d("Msg", "Error");

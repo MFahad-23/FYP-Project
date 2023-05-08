@@ -51,7 +51,7 @@
             app:menu="@menu/bottom_navigation_veiw"
             app:sideMargins="80dp"
             app:textColor="@color/black"
-            app:textSize="10sp" />
+            app:textSize="14sp" />
 
     </RelativeLayout>
 

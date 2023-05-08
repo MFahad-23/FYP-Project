@@ -76,7 +76,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
 
 //    File Screeshot Share :-
-    implementation 'com.github.maityamit:Share_Layout_Android_Library:1.0.0'
+    /*implementation 'com.github.maityamit:Share_Layout_Android_Library:1.0.0'*/
 
 //   Drop Down Menue :-
     implementation 'com.jaredrummler:material-spinner:1.3.1'

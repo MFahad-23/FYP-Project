@@ -24,7 +24,6 @@ import android.widget.Toast;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -169,7 +168,6 @@ public class Administration_staff extends AppCompatActivity {
         SearchView searchView=(SearchView) MenuItems.getActionView();
         searchView.setMaxWidth(Integer.MAX_VALUE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            searchView.setBackgroundColor(getColor(R.color.lightblue));
             int paddingRight = searchView.getPaddingRight();
         }
         searchView.setQueryHint("Search Here!");

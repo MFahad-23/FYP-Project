@@ -4,12 +4,12 @@ import static android.Manifest.permission.MANAGE_EXTERNAL_STORAGE;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static android.content.ContentValues.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -22,7 +22,6 @@ import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.gkemon.XMLtoPDF.PdfGenerator;
 import com.gkemon.XMLtoPDF.PdfGeneratorListener;
 import com.gkemon.XMLtoPDF.model.FailureResponse;
@@ -40,24 +39,21 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.util.Date;
-
-import sharelayoutbyamit.example.sharelibrary.ShareLayout;
 
 public class PayrollSlipTemp extends AppCompatActivity {
     ScrollView sliplayout;
     private DatabaseReference mDatabase;
     private FirebaseDatabase database;
     private FirebaseAuth mAuth;
-    String name,designation,key;
-    TextView employee_name,employee_designation;
+    String name, designation, key;
+    TextView employee_name, employee_designation;
     ClaculationModel calculationmodal;
-    TextView employee_pay,senior_post,house_rent,
-            conveyance,qualification,medical,
-            Relief_2016,Relief_2017,Relief_2018,Relief_2019,
-            Relief_2021,social_security,total_allowances,income,
-            trade,total_payroll,date;
+    TextView employee_pay, senior_post, house_rent,
+            conveyance, qualification, medical,
+            Relief_2016, Relief_2017, Relief_2018, Relief_2019,
+            Relief_2021, social_security, total_allowances, income,
+            trade, total_payroll, date;
 
     private PdfGenerator.XmlToPDFLifecycleObserver xmlToPDFLifecycleObserver;
 
@@ -68,37 +64,37 @@ public class PayrollSlipTemp extends AppCompatActivity {
         setContentView(R.layout.activity_payroll_slip_temp);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Pay Slip");
-        sliplayout = (ScrollView) findViewById(R.id.sliplayout);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
-        employee_pay=(TextView) findViewById(R.id.employee_pay);
-        date=(TextView) findViewById(R.id.date);
-        senior_post=(TextView) findViewById(R.id.senior_post);
-        house_rent=(TextView) findViewById(R.id.house_rent);
-        conveyance=(TextView) findViewById(R.id.conveyance);
-        qualification=(TextView) findViewById(R.id.qualification);
-        medical=(TextView) findViewById(R.id.medical);
-        Relief_2016=(TextView) findViewById(R.id.Relief_2016);
-        Relief_2017=(TextView) findViewById(R.id.Relief_2017);
-        Relief_2018=(TextView) findViewById(R.id.Relief_2018);
-        Relief_2019=(TextView) findViewById(R.id.Relief_2019);
-        Relief_2021=(TextView) findViewById(R.id.Relief_2021);
-        social_security=(TextView) findViewById(R.id.social_security);
-        total_allowances=(TextView) findViewById(R.id.total_allowances);
-        income=(TextView) findViewById(R.id.income);
-        trade=(TextView) findViewById(R.id.trade);
-        total_payroll=(TextView) findViewById(R.id.total_payroll1);
+        employee_pay = (TextView) findViewById(R.id.employee_pay);
+        date = (TextView) findViewById(R.id.date);
+        sliplayout=(ScrollView)findViewById(R.id.sliplayout);
+        senior_post = (TextView) findViewById(R.id.senior_post);
+        house_rent = (TextView) findViewById(R.id.house_rent);
+        conveyance = (TextView) findViewById(R.id.conveyance);
+        qualification = (TextView) findViewById(R.id.qualification);
+        medical = (TextView) findViewById(R.id.medical);
+        Relief_2016 = (TextView) findViewById(R.id.Relief_2016);
+        Relief_2017 = (TextView) findViewById(R.id.Relief_2017);
+        Relief_2018 = (TextView) findViewById(R.id.Relief_2018);
+        Relief_2019 = (TextView) findViewById(R.id.Relief_2019);
+        Relief_2021 = (TextView) findViewById(R.id.Relief_2021);
+        social_security = (TextView) findViewById(R.id.social_security);
+        total_allowances = (TextView) findViewById(R.id.total_allowances);
+        income = (TextView) findViewById(R.id.income);
+        trade = (TextView) findViewById(R.id.trade);
+        total_payroll = (TextView) findViewById(R.id.total_payroll1);
 
-        employee_name=(TextView) findViewById(R.id.employee_name);
-        employee_designation=(TextView) findViewById(R.id.employee_designation);
+        employee_name = (TextView) findViewById(R.id.employee_name);
+        employee_designation = (TextView) findViewById(R.id.employee_designation);
 
         xmlToPDFLifecycleObserver = new PdfGenerator.XmlToPDFLifecycleObserver(this);
         getLifecycle().addObserver(xmlToPDFLifecycleObserver);
 
-        designation=getIntent().getStringExtra("designation");
-        name=getIntent().getStringExtra("name");
-        key=getIntent().getStringExtra("user_id");
-        Log.d("id_check",":"+key);
+        designation = getIntent().getStringExtra("designation");
+        name = getIntent().getStringExtra("name");
+        key = getIntent().getStringExtra("user_id");
+        Log.d("id_check", ":" + key);
 
         employee_designation.setText(designation);
         employee_name.setText(name);
@@ -107,8 +103,8 @@ public class PayrollSlipTemp extends AppCompatActivity {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) {
-                    for (DataSnapshot item:dataSnapshot.getChildren()) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot item : dataSnapshot.getChildren()) {
                         calculationmodal = item.getValue(ClaculationModel.class);
                         employee_pay.setText(calculationmodal.baisic_pay + "");
                         senior_post.setText(calculationmodal.senior_post_allowance + "");
@@ -130,6 +126,7 @@ public class PayrollSlipTemp extends AppCompatActivity {
                     }
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // If Fails Check Logcat
@@ -139,20 +136,19 @@ public class PayrollSlipTemp extends AppCompatActivity {
         mDatabase.child("Payrolls").orderByChild("user_id").equalTo(key).addValueEventListener(postListener);
 
 
+        Log.d("test", designation + " : " + name);
 
-        Log.d("test",designation +" : "+name);
-
-        ActivityCompat.requestPermissions( this,
+        ActivityCompat.requestPermissions(this,
                 new String[]{
                         READ_EXTERNAL_STORAGE,
                         MANAGE_EXTERNAL_STORAGE
                 }, 1
         );
         // If you have access to the external storage, do whatever you need
-        if (Environment.isExternalStorageManager()){
-        // If you don't have access, launch a new activity to show the user the system's dialog
-        // to allow access to the external storage
-        }else{
+        if (Environment.isExternalStorageManager()) {
+            // If you don't have access, launch a new activity to show the user the system's dialog
+            // to allow access to the external storage
+        } else {
             Intent intent = new Intent();
             intent.setAction(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION);
             Uri uri = Uri.fromParts("package", this.getPackageName(), null);
@@ -161,13 +157,15 @@ public class PayrollSlipTemp extends AppCompatActivity {
         }
 
     }
+
     // Storage Permissions
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             READ_EXTERNAL_STORAGE,
             WRITE_EXTERNAL_STORAGE
     };
-//    /**
+
+    //    /**
 //     * Checks if the app has permission to write to device storage
 //     *
 //     * If the app does not has permission then the user will be prompted to grant permissions
@@ -198,16 +196,12 @@ public class PayrollSlipTemp extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-   /* Toolbar Menu Option Actions :- */
+    /* Toolbar Menu Option Actions :- */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.option) {
             startActivity(new Intent(PayrollSlipTemp.this, CheckGenerate.class));
         } else if (item.getItemId() == R.id.share) {
-            ShareLayout.simpleLayoutShare(PayrollSlipTemp.this, sliplayout, "");
-        } else if (item.getItemId() == R.id.download) {
-            Log.d("Msg", "Error");
-
             //            PDF Generator :-
             PdfGenerator.getBuilder()
                     .setContext(PayrollSlipTemp.this)
@@ -230,47 +224,102 @@ public class PayrollSlipTemp extends AppCompatActivity {
                             /* If pdf is not generated by an error then you will findout the reason behind it
                              * from this FailureResponse. */
                         }
+
                         @Override
                         public void onStartPDFGeneration() {
                             /*When PDF generation begins to start*/
                         }
+
                         @Override
                         public void onFinishPDFGeneration() {
                             /*When PDF generation is finished*/
                         }
+
                         @Override
                         public void showLog(String log) {
                             super.showLog(log);
                             /*It shows logs of events inside the pdf generation process*/
                         }
+
                         @Override
                         public void onSuccess(SuccessResponse response) {
                             super.onSuccess(response);
 
+                                                    }
+                    });
+        } else if (item.getItemId() == R.id.download) {
+            //            PDF Generator :-
+            PdfGenerator.getBuilder()
+                    .setContext(PayrollSlipTemp.this)
+                    .fromViewSource()
+                    .fromView(findViewById(R.id.sliplayout))
+                    /* "fromLayoutXML()" takes array of layout resources.
+                     * You can also invoke "fromLayoutXMLList()" method here which takes list of layout resources instead of array. */
+                    .setFileName("Test-PDF")
+                    /* It is file name */
+                    .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.NONE)
+                    .savePDFSharedStorage(xmlToPDFLifecycleObserver)
+                    /*If you want to save your pdf in shared storage (where other apps can also see your pdf even after the app is uninstall).
+                     * You need to pass an xmt to pdf lifecycle observer by the following method. To get complete overview please see the MainActivity of 'sample' folder */
+                    .build(new PdfGeneratorListener() {
+                        @Override
+                        public void onFailure(FailureResponse failureResponse) {
+                            super.onFailure(failureResponse);
+                            Log.d("error", failureResponse.getErrorMessage());
+                            Toast.makeText(PayrollSlipTemp.this, failureResponse.getErrorMessage(), Toast.LENGTH_LONG).show();
+                            /* If pdf is not generated by an error then you will findout the reason behind it
+                             * from this FailureResponse. */
+                        }
+
+                        @Override
+                        public void onStartPDFGeneration() {
+                            /*When PDF generation begins to start*/
+                        }
+
+                        @Override
+                        public void onFinishPDFGeneration() {
+                            /*When PDF generation is finished*/
+                        }
+
+                        @Override
+                        public void showLog(String log) {
+                            super.showLog(log);
+                            /*It shows logs of events inside the pdf generation process*/
+                        }
+
+                        @Override
+                        public void onSuccess(SuccessResponse response) {
+                            super.onSuccess(response);
+                            ProgressDialog progressDialog =new ProgressDialog(PayrollSlipTemp.this);
+                            progressDialog.setMessage("Uploading..");
+                            progressDialog.show();
+
                             FirebaseStorage storage = FirebaseStorage.getInstance();
                             StorageReference storageRef = storage.getReference().child("HistoryPdfs");
-
                             storageRef.child(response.getFile().getName()).putFile(Uri.fromFile(response.getFile()))
                                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                         @Override
                                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                                            taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
-                                                    new OnCompleteListener<Uri>() {
-
+                                            taskSnapshot.getStorage().getDownloadUrl().
+                                                    addOnCompleteListener(new OnCompleteListener<Uri>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Uri> task) {
-                                                            /*Update Data into the Dtaatbase :-*/
+                                                            /*Update Data into the Database :-*/
+                                                            Log.d("method","Error");
+
+                                                            progressDialog.hide();
                                                             String generatedFilePath = task.getResult().toString();
                                                             Toast.makeText(PayrollSlipTemp.this, "File Saved Successfully", Toast.LENGTH_SHORT).show();
-                                                            String key = mDatabase.child("Download PaySlips").push().getKey();
+                                                            String Key = mDatabase.child("Download-Payslips").push().getKey();
+                                                            Log.d("key",":"+key);
+                                                            /*mDatabase.child("Download-Payslips").child(Key).setValue(generatedFilePath,key);*/
 
-                                                            PaySlipModal approvals=new PaySlipModal(generatedFilePath,name,designation,new Date().toString());
+                                                            PaySlipModal approvals = new PaySlipModal(generatedFilePath,name,designation,new Date().toString(),key);
 
-                                                            mDatabase.child("Download PaySlips").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                            mDatabase.child("Download-Payslips").child(key).setValue(approvals).addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                 @Override
                                                                 public void onSuccess(Void unused) {
-                                                                    Toast.makeText(PayrollSlipTemp.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
+                                                                    Toast.makeText(PayrollSlipTemp.this, "Data Saved Successfully!!!!", Toast.LENGTH_SHORT).show();
                                                                 }
                                                             }).addOnFailureListener(new OnFailureListener() {
                                                                 @Override
@@ -284,12 +333,10 @@ public class PayrollSlipTemp extends AppCompatActivity {
                                     });
                         }
                     });
-            return super.onOptionsItemSelected(item);
         }
         return false;
     }
-
-    /* Activity Back Option :- */
+    /* Back Option :- */
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
