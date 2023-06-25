@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_200">#34AFFF</color>
+    <color name="purple_500">#34AFFF</color>
+    <color name="purple_700">#34AFFF</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!-- Self Color :- -->
     <color name="selfcolor_grey">#F0EEF3</color>
     <color name="selfcolor_blue">#1E89A5</color>
     <color name="selfcolor_orange">#e65c00</color>
@@ -15,10 +16,16 @@
     <color name="transparent">#3fff</color>
     <color name="ripple_color">#2193b0</color>
     <color name="grey">#B4B3B6</color>
-    <color name="SelfBlue">#34AFFF</color>
+    <color name="SelfBlue">#E634AFFF</color>
     <color name="uniname">#03165E</color>
-
     <color name="lightblue1">#E2F1F5</color>
     <color name="selfwhite">#E6FFFFFF</color>
     <color name="self_black">#A8000000</color>
+
+    <color name="light_yellow">#4DF5AF19</color>
+    <color name="light_green">#4D00F260</color>
+    <color name="light_red">#4DF64F59</color>
+    <color name="statusbar_color">#0091EF</color>
+
+    <color name="frame_color">#6dd5ed</color>
 </resources>

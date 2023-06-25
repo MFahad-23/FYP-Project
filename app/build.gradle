@@ -44,7 +44,7 @@ dependencies {
     /*CardView :-*/
     implementation 'androidx.cardview:cardview:1.0.0'
 
-   /* Testing Repositary :-*/
+   /* Testing Repository :-*/
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
@@ -78,7 +78,7 @@ dependencies {
 //    File Screeshot Share :-
     /*implementation 'com.github.maityamit:Share_Layout_Android_Library:1.0.0'*/
 
-//   Drop Down Menue :-
+//   Material Spinner:-
     implementation 'com.jaredrummler:material-spinner:1.3.1'
 
 //    Convert XML To PDF File :-
@@ -86,4 +86,8 @@ dependencies {
 
 //    English Date Spinner :-
     implementation 'com.github.drawers:SpinnerDatePicker:2.0.1'
+
+   /* ImageSlider :- */
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+
 }

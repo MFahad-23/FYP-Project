@@ -5,47 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuestionsSection">
+    android:background="@color/white"
+    tools:context=".Activities.QuestionsSection">
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/imageView10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:src="@drawable/logo"
         tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="-118dp" />
-
-    <TextView
-        android:id="@+id/BackOption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/rightarrow"
-        android:fontFamily="@font/adamina"
-        android:gravity="center"
-        android:text="@string/back"
-        android:background="@color/white"
-        android:textColor="@color/black"
-        android:textFontWeight="600"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView10"
-        app:layout_constraintVertical_bias="0.030" />
+        tools:layout_editor_absoluteY="-118dp" />-->
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbarSize="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BackOption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.030">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/question1"
                 android:layout_width="wrap_content"
@@ -67,8 +53,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/adamina"
-                android:textAlignment="inherit"
                 android:text="@string/ansa"
+                android:textAlignment="inherit"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="16sp" />
@@ -79,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/helptextQ2"
                 android:textColor="@color/black"
@@ -91,6 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/adamina"
                 android:text="@string/ansb"
@@ -103,17 +90,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/helptextQ3"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
                 android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/ans3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/adamina"
                 android:text="@string/ansc"
@@ -126,19 +115,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/helptextQ4"
                 android:textColor="@color/black"
                 android:textFontWeight="600"
                 android:textSize="16sp" />
+
             <TextView
                 android:id="@+id/ans4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="30dp"
                 android:fontFamily="@font/adamina"
                 android:text="@string/ansd"
                 android:textColor="@color/black"
@@ -149,4 +140,22 @@
 
     </ScrollView>
 
+    <!--<TextView
+       android:id="@+id/BackOption"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:background="@color/white"
+       android:drawableStart="@drawable/rightarrow"
+       android:fontFamily="@font/adamina"
+       android:gravity="center"
+       android:text="@string/back"
+       android:textColor="@color/black"
+       android:textFontWeight="600"
+       android:textSize="14sp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.045"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.030" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

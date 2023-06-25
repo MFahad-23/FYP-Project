@@ -20,8 +20,8 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".CreateNewPassword"
-            android:theme="@style/Theme.FYProjectNew"
+            android:name=".Activities.CreateNewPassword"
+            android:theme="@style/SelfTheme"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -29,7 +29,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.FYProjectNew">
             <meta-data
@@ -38,16 +38,17 @@
         </activity>
 
         <activity
-            android:name=".ApprovalsGenerate"
+            android:name=".Activities.ApprovalsGenerate"
             android:exported="true"
-            android:theme="@style/Theme.FYProjectNew">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".ApprovedFiles"
+            android:name=".Activities.ApprovedFiles"
+            android:theme="@style/SelfTheme"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -55,52 +56,53 @@
         </activity>
 
         <activity
-            android:name=".CheckGenerate"
+            android:name=".Activities.CheckGenerate"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".Administration_staff"
+            android:name=".Activities.Administration_staff"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".MiscallennousStaff"
+            android:name=".Activities.MiscallennousStaff"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".PayrollSlipTemp"
+            android:name=".Activities.PayrollSlipTemp"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".ProfilePage"
+            android:name=".Activities.ProfilePage"
             android:exported="true"
-            android:theme="@style/Theme.FYProjectNew">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".DesignationList"
+            android:name=".Activities.DesignationList"
+            android:theme="@style/SelfTheme"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -108,52 +110,53 @@
         </activity>
 
         <activity
-            android:name=".QuestionsSection"
+            android:name=".Activities.QuestionsSection"
             android:exported="false"
-            android:theme="@style/Theme.FYProjectNew">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".PaySlipsActivity"
+            android:name=".Activities.PaySlipsActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".PayrollsPageActivity"
+            android:name=".Activities.PayrollsPageActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".CalculationPageActivity"
+            android:name=".Activities.CalculationPageActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".HelpPageActivity"
+            android:name=".Activities.HelpPageActivity"
             android:exported="false"
-            android:theme="@style/Theme.FYProjectNew">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
 
         <activity
-            android:name=".DepartmentsList"
+            android:name=".Activities.DepartmentsList"
+            android:theme="@style/SelfTheme"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -161,7 +164,7 @@
         </activity>
 
         <activity
-            android:name=".PayrollSettingsActivity"
+            android:name=".Activities.PayrollSettingsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -169,7 +172,16 @@
         </activity>
 
         <activity
-            android:name=".SignUpActivity"
+            android:name=".Activities.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/SelfTheme">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".Activities.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.FYProjectNew">
             <meta-data
@@ -178,7 +190,7 @@
         </activity>
 
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activities.VeiwPageActivity"
             android:exported="false"
             android:theme="@style/Theme.FYProjectNew">
             <meta-data
@@ -187,16 +199,7 @@
         </activity>
 
         <activity
-            android:name=".VeiwPageActivity"
-            android:exported="false"
-            android:theme="@style/Theme.FYProjectNew">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-
-        <activity
-            android:name=".SplashActivity"
+            android:name=".Activities.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.FYProjectNew">
 
@@ -212,9 +215,9 @@
         </activity>
 
         <activity
-            android:name=".EmployeeList"
+            android:name=".Activities.EmployeeList"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/SelfTheme">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

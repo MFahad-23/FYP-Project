@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:backgroundTint="@color/selfwhite"
+    android:backgroundTint="@color/white"
     android:orientation="vertical"
-    tools:context=".CalculationPageActivity">
+    tools:context=".Activities.CalculationPageActivity">
 
     <ScrollView
+        android:scrollbarSize="0dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -21,798 +22,794 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:orientation="vertical">
 
             <com.jaredrummler.materialspinner.MaterialSpinner
                 android:id="@+id/departments"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:layout_weight="1"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/edittext_stroke"
                 android:backgroundTint="@color/selfcolor_grey" />
 
             <EditText
                 android:id="@+id/employeename"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="20dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/spinner_background_design"
-                android:drawableStart="@drawable/ic_designation"
+                android:drawableStart="@drawable/ic_username_white"
                 android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Enter Employee Name"
                 android:inputType="text"
                 android:paddingLeft="15dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/employee_searching"
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_weight="1" />
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/adamina"
-                android:text="@string/salaries"
-                android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="18sp" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/employee_searching"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </ScrollView>
 
             <LinearLayout
-                android:id="@+id/salary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:inputType="date"
-                        android:text="@string/selectfy"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/spinner"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableRight="@drawable/calender"
-                        android:drawablePadding="20dp"
-                        android:hint="@string/date"
-                        android:editable="false"
-                        android:inputType="none"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:inputType="number"
-                        android:text="@string/basicpay"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/baisic_pay"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="20dp"
-                        android:hint="@string/price"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/tax"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:inputType="number"
-                        android:text="@string/trade"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/trade_tax"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:inputType="number"
-                        android:text="@string/tax"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/income_tax"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/text5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="3dp"
-                android:fontFamily="@font/adamina"
-                android:text="@string/allowance"
-                android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:inputType="number"
-                        android:text="@string/hra"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/senior_post_allowance"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:inputType="number"
-                        android:text="@string/others"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/house_rent_allowance"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="numberDecimal"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/conveyance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/conveyance_allowance"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/conveyance_allowance"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/qualification"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/qualification_allawance"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/qualification_allowance"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/medical"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/medical_allawance"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/medical_allowance"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/adhoc_relief"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/adhocreliefa"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/adhoc_relief_2016"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/adhocreliefb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/adhocreliefb"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/adhoc_relief_2017"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/adhocreliefc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/adhocreliefc"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/adhoc_relief_2018"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/adhocreliefd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/adhocreliefd"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/adhoc_relief_2019"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/adhocreliefe"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/adhocreliefe"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/adhoc_relief_2021"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/securitytax"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/social_security"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                    <EditText
-                        android:id="@+id/social_security_benefit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:layout_marginRight="20dp"
-                        android:layout_weight="1"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                    <EditText
-                        android:id="@+id/total_allowances"
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/text9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/adamina"
-                android:text="@string/deduction"
-                android:textColor="@color/black"
-                android:textFontWeight="600"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout12"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/leave"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/pf"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/leave_deduction"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableStart="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/adamina"
-                        android:text="@string/esi"
-                        android:textColor="@color/black"
-                        android:textFontWeight="500"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:id="@+id/deduction"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:drawableLeft="@drawable/rupee"
-                        android:drawablePadding="10dp"
-                        android:hint="@string/price"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/grey" />
-
-            <LinearLayout
-                android:id="@+id/linearLayou13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="20dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/text12"
+                    android:id="@+id/text1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
+                    android:layout_marginTop="5dp"
                     android:fontFamily="@font/adamina"
-                    android:text="@string/netpay"
+                    android:text="@string/salaries"
                     android:textColor="@color/black"
                     android:textFontWeight="500"
                     android:textSize="18sp" />
 
                 <LinearLayout
+                    android:id="@+id/salary"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:inputType="date"
+                            android:text="@string/selectfy"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/spinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableRight="@drawable/calender"
+                            android:drawablePadding="20dp"
+                            android:hint="@string/date"
+                            android:editable="false"
+                            android:inputType="none"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:inputType="number"
+                            android:text="@string/basicpay"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/baisic_pay"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="20dp"
+                            android:hint="@string/price"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:inputType="number"
+                            android:text="@string/trade"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/trade_tax"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:inputType="number"
+                            android:text="@string/tax"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/income_tax"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/adamina"
+                    android:text="@string/allowance"
+                    android:textColor="@color/black"
+                    android:textFontWeight="500"
+                    android:textSize="18sp" />
 
-                    <EditText
-                        android:id="@+id/total_pay"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@drawable/spinner_background_design"
-                        android:hint="@string/amount"
-                        android:inputType="number"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:textColorHint="@color/grey" />
+                <LinearLayout
+                    android:id="@+id/linearLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:inputType="number"
+                            android:text="@string/hra"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/senior_post_allowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:inputType="number"
+                            android:text="@string/others"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/house_rent_allowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="numberDecimal"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
 
-            <Button
-                android:id="@+id/calculate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="150dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/login_button"
-                android:text="@string/calculate_payroll"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="12dp" />
+                <LinearLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/conveyance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/conveyance_allowance"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/conveyance_allowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/qualification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/qualification_allawance"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/qualification_allowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/medical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/medical_allawance"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/medical_allowance"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/adhoc_relief"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/adhocreliefa"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/adhoc_relief_2016"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/adhocreliefb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/adhocreliefb"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/adhoc_relief_2017"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/adhocreliefc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/adhocreliefc"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/adhoc_relief_2018"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/adhocreliefd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/adhocreliefd"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/adhoc_relief_2019"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/adhocreliefe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/adhocreliefe"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/adhoc_relief_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/securitytax"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/social_security"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/social_security_benefit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/spinner_background_design"
+                                android:drawableStart="@drawable/rupee"
+                                android:drawablePadding="10dp"
+                                android:hint="@string/price"
+                                android:layout_marginRight="20dp"
+                                android:layout_weight="1"
+                                android:inputType="number"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:textColorHint="@color/grey" />
+                            <EditText
+                                android:id="@+id/total_allowances"
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/spinner_background_design"
+                                android:drawableLeft="@drawable/rupee"
+                                android:drawablePadding="10dp"
+                                android:hint="@string/price"
+                                android:inputType="number"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:textColorHint="@color/grey" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/adamina"
+                    android:text="@string/deduction"
+                    android:textColor="@color/black"
+                    android:textFontWeight="500"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/leave"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/pf"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/leave_deduction"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableStart="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/text11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/adamina"
+                            android:text="@string/esi"
+                            android:textColor="@color/black"
+                            android:textFontWeight="500"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/deduction"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:drawableLeft="@drawable/rupee"
+                            android:drawablePadding="10dp"
+                            android:hint="@string/price"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/grey" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayou13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textAlignment="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/adamina"
+                        android:text="@string/netpay"
+                        android:textColor="@color/black"
+                        android:textFontWeight="500"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/total_pay"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/spinner_background_design"
+                            android:hint="@string/amount"
+                            android:textSize="16sp"
+                            android:inputType="number"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:textColorHint="@color/grey" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/calculate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="130dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/login_button"
+                    android:text="@string/calculate_payroll"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textFontWeight="600"
+                    android:textColor="@color/grey"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

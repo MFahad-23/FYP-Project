@@ -6,28 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".HelpPageActivity">
+    tools:context=".Activities.HelpPageActivity">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/Back_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/selfwhite"
-        android:clickable="true"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout19"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout19"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_top_arrow" />
-
-    <ImageView
+ <!--   <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/logo"/>
+        android:src="@drawable/logo"/>-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/UploadData"
@@ -50,19 +35,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ripple_effect_background"
+            android:background="@drawable/grey_ripple_background"
             android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView"
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:fontFamily="@font/adamina"
             android:text="@string/helptexta"
             android:textFontWeight="500"
             android:textSize="16sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         </LinearLayout>
@@ -88,18 +73,18 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ripple_effect_background"
+    android:background="@drawable/grey_ripple_background"
     android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView"
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:fontFamily="@font/adamina"
             android:text="@string/helptextb"
             android:textFontWeight="500"
             android:textSize="16sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 </LinearLayout>
 
@@ -126,18 +111,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/ripple_effect_background">
+            android:background="@drawable/grey_ripple_background">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView"
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:fontFamily="@font/adamina"
             android:text="@string/helptextc"
             android:textFontWeight="500"
             android:textSize="16sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -162,18 +147,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/ripple_effect_background">
+            android:background="@drawable/grey_ripple_background">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView"
             android:layout_gravity="center"
             android:layout_margin="15dp"
             android:fontFamily="@font/adamina"
             android:text="@string/helptextd"
             android:textFontWeight="500"
             android:textSize="15sp"
+            android:textColor="@color/black"
             android:textStyle="bold" />
         </LinearLayout>
 
@@ -226,7 +211,7 @@
             android:fontFamily="@font/adamina"
             android:text="@string/systempurpose"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:textFontWeight="500"
             android:textSize="14sp" />
 
@@ -237,7 +222,7 @@
             android:fontFamily="@font/adamina"
             android:text="@string/intface"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
+            android:textColor="@color/grey"
             android:textFontWeight="500"
             android:textSize="14sp" />
 
@@ -265,4 +250,20 @@
 
     </LinearLayout>
 
+    <!--
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Back_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/selfwhite"
+            android:clickable="true"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout19"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout19"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout19"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_top_arrow" />
+    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

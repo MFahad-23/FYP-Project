@@ -5,14 +5,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilePage">
+    android:background="@color/white"
+    tools:context=".Activities.ProfilePage">
 
-    <ImageView
+   <!-- <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/setbaxckground" />
+        android:src="@drawable/setbaxckground" />-->
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleimage"
@@ -319,11 +320,11 @@
         app:layout_constraintVertical_bias="0.937"
         app:srcCompat="@drawable/camera" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+   <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Back_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/selfcolor_grey"
+        android:backgroundTint="@color/white"
         android:clickable="true"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/ic_top_arrow"
@@ -332,6 +333,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/layoutmain"
         app:layout_constraintTop_toBottomOf="@+id/layoutmain"
-        />
+        />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

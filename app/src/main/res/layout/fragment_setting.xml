@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    tools:context=".SettingFragment">
+    tools:context=".Fragments.SettingFragment">
 
     <ImageView
-        android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
@@ -16,21 +15,21 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Calculate_Payrolls_Card"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.288">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ripple_effect_background">
+            android:background="@drawable/grey_ripple_background">
 
             <ImageView
                 android:id="@+id/image1"
@@ -44,9 +43,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/adamina"
                 android:text="@string/Caluculate"
                 android:textFontWeight="600"
@@ -59,8 +58,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/Approvals_Calculation_Card"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +72,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/ripple_effect_background">
+            android:background="@drawable/grey_ripple_background">
 
             <ImageView
                 android:id="@+id/image2"
@@ -87,9 +86,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/image2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/adamina"
                 android:text="@string/approvals"
                 android:textFontWeight="600"

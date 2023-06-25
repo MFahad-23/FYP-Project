@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/miscallenousstaff"
-    tools:context=".MiscallennousStaff">
+    tools:context=".Activities.MiscallennousStaff">
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmereffect"

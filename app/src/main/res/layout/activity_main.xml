@@ -8,7 +8,7 @@
     android:background="@color/white"
     tools:OpenDrawer="start"
     android:id="@+id/drawerlayout"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/side_navigation_view"
@@ -16,6 +16,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:visibility="visible"
+        app:insetForeground="@android:color/transparent"
+        app:itemIconTint="@color/SelfBlue"
+        app:itemTextColor="@android:color/black"
         app:headerLayout="@layout/side_navigationbar_design"
         app:menu="@menu/side_navigationbar_menue" >
 
@@ -37,20 +40,23 @@
             android:id="@+id/BottomBar"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
             android:layout_alignParentBottom="true"
             android:scrollIndicators="start"
-            app:backgroundColor="@color/white"
-            app:cornerRadius="5dp"
-            app:corners="all"
+            app:backgroundColor="@color/SelfBlue"
             app:iconSize="25dp"
+            app:cornerRadius="10dp"
+            app:corners="all"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAlignment="center"
             app:iconTint="@color/grey"
             app:iconTintActive="@color/black"
-            app:indicatorColor="@color/SelfBlue"
-            app:indicatorRadius="50dp"
+            app:indicatorColor="@color/white"
+            app:indicatorRadius="10dp"
             app:menu="@menu/bottom_navigation_veiw"
-            app:sideMargins="80dp"
-            app:textColor="@color/black"
+            app:sideMargins="20dp"
+            app:textColor="@color/grey"
             app:textSize="14sp" />
 
     </RelativeLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/departlyout"
     android:layout_height="match_parent"
-    tools:context=".DepartmentsList">
+    tools:context=".Activities.DepartmentsList">
     
     <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
