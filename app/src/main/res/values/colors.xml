@@ -28,4 +28,6 @@
     <color name="statusbar_color">#0091EF</color>
 
     <color name="frame_color">#6dd5ed</color>
+
+    <color name="background">#00ffffff</color>
 </resources>

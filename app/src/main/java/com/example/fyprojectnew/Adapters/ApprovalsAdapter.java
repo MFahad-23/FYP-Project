@@ -138,6 +138,7 @@ public class ApprovalsAdapter extends RecyclerView.Adapter<ApprovalsAdapter.View
 
                    Dialog imagedialog=new Dialog(context);
                     imagedialog.setContentView(R.layout.imagedialog);
+                    imagedialog.getWindow().setBackgroundDrawableResource(R.color.background);
                     ImageView imageview;
                     imageview=imagedialog.findViewById(R.id.imageview09);
 

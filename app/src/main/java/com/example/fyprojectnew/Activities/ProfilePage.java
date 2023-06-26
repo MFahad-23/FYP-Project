@@ -59,9 +59,8 @@ public class ProfilePage extends AppCompatActivity {
         getSupportActionBar().setTitle("Profile Page");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
 
-
-        circleimage=(CircleImageView)findViewById(R.id.circleimage);
-        imagecapture=(FloatingActionButton)findViewById(R.id.imagecapture);
+/*        circleimage=(CircleImageView)findViewById(R.id.circleimage);
+        imagecapture=(FloatingActionButton)findViewById(R.id.imagecapture);*/
   /*      Back_Button=(FloatingActionButton)findViewById(R.id.Back_Button);*/
         name=(TextView) findViewById(R.id.name);
         location=(TextView) findViewById(R.id.location);
@@ -78,95 +77,95 @@ public class ProfilePage extends AppCompatActivity {
                 finish();
             }
         });*/
-
-        /* Capture Image Set :- */
-        ActivityResultLauncher<Intent> launcher=
-                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
-                    if(result.getResultCode()==RESULT_OK){
-                        Uri uri=result.getData().getData();
-                        circleimage.setImageURI(uri);
-
-                        /* Auto Progress Dialog:- */
-                        ProgressDialog pd= new ProgressDialog(ProfilePage.this);
-                        pd.setTitle("Uploading...");
-                        pd.show();
-
-                       /* For Taking Link & Save it into FireBase Storage & DataBase :- */
-                        File file = new File(String.valueOf(uri));
-                        FirebaseStorage storage = FirebaseStorage.getInstance();
-                        StorageReference storageRef = storage.getReference().child("userImages");
-
-                        storageRef.child(file.getName()).putFile(uri)
-                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                    @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                        pd.dismiss();
-
-                                        taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
-                                                new OnCompleteListener<Uri>() {
-
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Uri> task) {
-
-                                                        /*Update Data into the DataBase :-*/
-                                                        String generatedFilePath = task.getResult().toString();
-                                                        HashMap<String,Object> data= new HashMap<>();
-                                                        data.put("profile_pic",generatedFilePath);
-
-                                                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(data)
-                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                    @Override
-                                                                    public void onSuccess(Void aVoid) {
-                                                                        Toast.makeText(ProfilePage.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                })
-                                                                .addOnFailureListener(new OnFailureListener() {
-                                                                    @Override
-                                                                    public void onFailure(@NonNull Exception e) {
-                                                                        Log.w(TAG, "Something went wrong.Please try again!", e);
-                                                                        Toast.makeText(ProfilePage.this, e.getMessage(),
-                                                                                Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                });
-                                                    }
-                                                });
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        pd.dismiss();
-                                    }
-                                });
-
-                    }else if(result.getResultCode()==ImagePicker.RESULT_ERROR){
-                        // Use ImagePicker.Companion.getError(result.getData()) to show an error
-                    }
-                });
-
-        /* Image Capture & Set into Demo Image :-*/
-        imagecapture.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ImagePicker.Companion.with(ProfilePage.this)
-                        .crop()
-                        .cropOval()
-                        .maxResultSize(524,524,true)
-                        .provider(ImageProvider.BOTH) //Or bothCameraGallery()
-                        .createIntentFromDialog(
-                                (Function1)(new Function1(){
-                            public Object invoke(Object var1){
-                                this.invoke((Intent)var1);
-                                return Unit.INSTANCE;
-                            }
-
-                            public final void invoke(@NotNull Intent it){
-                                Intrinsics.checkNotNullParameter(it,"it");
-                                launcher.launch(it);
-                            }
-                        }));
-            }
-        });
+//
+//        /* Capture Image Set :- */
+//        ActivityResultLauncher<Intent> launcher=
+//                registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),(ActivityResult result)->{
+//                    if(result.getResultCode()==RESULT_OK){
+//                        Uri uri=result.getData().getData();
+//                        circleimage.setImageURI(uri);
+//
+//                        /* Auto Progress Dialog:- */
+//                        ProgressDialog pd= new ProgressDialog(ProfilePage.this);
+//                        pd.setTitle("Uploading...");
+//                        pd.show();
+//
+//                       /* For Taking Link & Save it into FireBase Storage & DataBase :- */
+//                        File file = new File(String.valueOf(uri));
+//                        FirebaseStorage storage = FirebaseStorage.getInstance();
+//                        StorageReference storageRef = storage.getReference().child("userImages");
+//
+//                        storageRef.child(file.getName()).putFile(uri)
+//                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                                    @Override
+//                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                                        pd.dismiss();
+//
+//                                        taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
+//                                                new OnCompleteListener<Uri>() {
+//
+//                                                    @Override
+//                                                    public void onComplete(@NonNull Task<Uri> task) {
+//
+//                                                        /*Update Data into the DataBase :-*/
+//                                                        String generatedFilePath = task.getResult().toString();
+//                                                        HashMap<String,Object> data= new HashMap<>();
+//                                                        data.put("profile_pic",generatedFilePath);
+//
+//                                                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(data)
+//                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                                                    @Override
+//                                                                    public void onSuccess(Void aVoid) {
+//                                                                        Toast.makeText(ProfilePage.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
+//                                                                    }
+//                                                                })
+//                                                                .addOnFailureListener(new OnFailureListener() {
+//                                                                    @Override
+//                                                                    public void onFailure(@NonNull Exception e) {
+//                                                                        Log.w(TAG, "Something went wrong.Please try again!", e);
+//                                                                        Toast.makeText(ProfilePage.this, e.getMessage(),
+//                                                                                Toast.LENGTH_SHORT).show();
+//                                                                    }
+//                                                                });
+//                                                    }
+//                                                });
+//                                    }
+//                                })
+//                                .addOnFailureListener(new OnFailureListener() {
+//                                    @Override
+//                                    public void onFailure(@NonNull Exception e) {
+//                                        pd.dismiss();
+//                                    }
+//                                });
+//
+//                    }else if(result.getResultCode()==ImagePicker.RESULT_ERROR){
+//                        // Use ImagePicker.Companion.getError(result.getData()) to show an error
+//                    }
+//                });
+//
+//        /* Image Capture & Set into Demo Image :-*/
+//        imagecapture.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                ImagePicker.Companion.with(ProfilePage.this)
+//                        .crop()
+//                        .cropOval()
+//                        .maxResultSize(524,524,true)
+//                        .provider(ImageProvider.BOTH) //Or bothCameraGallery()
+//                        .createIntentFromDialog(
+//                                (Function1)(new Function1(){
+//                            public Object invoke(Object var1){
+//                                this.invoke((Intent)var1);
+//                                return Unit.INSTANCE;
+//                            }
+//
+//                            public final void invoke(@NotNull Intent it){
+//                                Intrinsics.checkNotNullParameter(it,"it");
+//                                launcher.launch(it);
+//                            }
+//                        }));
+//            }
+//        });
 
         /* Read Data From DataBase and set it into TextViews :-*/
         ValueEventListener postListener = new ValueEventListener() {

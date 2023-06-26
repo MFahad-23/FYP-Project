@@ -26,6 +26,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.100" />
 
+
+    <ImageButton
+        android:id="@+id/imagecapture"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@color/transparent"
+        android:clickable="true"
+        android:elevation="30dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/circleimage"
+        app:layout_constraintEnd_toEndOf="@+id/circleimage"
+        app:layout_constraintHorizontal_bias="0.920"
+        app:layout_constraintStart_toStartOf="@+id/circleimage"
+        app:layout_constraintTop_toTopOf="@+id/circleimage"
+        app:layout_constraintVertical_bias="0.920"
+        app:srcCompat="@drawable/pht" />
+
     <TextView
         android:id="@+id/tev6"
         android:layout_width="wrap_content"

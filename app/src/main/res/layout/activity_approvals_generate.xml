@@ -34,7 +34,7 @@
         android:layout_height="35dp"
         android:background="@color/transparent"
         android:clickable="true"
-        android:elevation="20dp"
+        android:elevation="30dp"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="@+id/employee_image"
         app:layout_constraintEnd_toEndOf="@+id/employee_image"

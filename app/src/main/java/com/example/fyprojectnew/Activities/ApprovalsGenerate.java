@@ -208,7 +208,7 @@ public class ApprovalsGenerate extends AppCompatActivity implements com.tsongkha
             public void onClick(View view) {
                 ImagePicker.Companion.with(ApprovalsGenerate.this)
                         .crop()
-                        .cropOval()
+                        .cropSquare()
                         .maxResultSize(524, 524, true)
                         .provider(ImageProvider.BOTH) //Or bothCameraGallery()
                         .createIntentFromDialog(

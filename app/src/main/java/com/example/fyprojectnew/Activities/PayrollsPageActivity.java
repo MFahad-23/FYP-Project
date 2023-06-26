@@ -3,6 +3,9 @@ package com.example.fyprojectnew.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.annotation.SuppressLint;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fyprojectnew.Adapters.TablelayoutAdapter;
 import com.example.fyprojectnew.Models.ApprovalsModel;
 import com.example.fyprojectnew.R;
 import com.gkemon.XMLtoPDF.PdfGenerator;
@@ -22,6 +26,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PayrollsPageActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -30,6 +37,10 @@ public class PayrollsPageActivity extends AppCompatActivity {
     TextView date1,department_name,programme1,sessionno,date2,department,programme2,teacher_name,subject_name,
             subject,section,semister,qualification;
     ApprovalsModel model;
+    RecyclerView recyclerView;
+    LinearLayoutManager layoutManager;
+    List<ApprovalsModel> table_list;
+    TablelayoutAdapter myadapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,7 +50,15 @@ public class PayrollsPageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Approved File");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
+        recyclerView=findViewById(R.id.table_recyclerview);
+        table_list=new ArrayList<ApprovalsModel>();
 
+        recyclerView=new RecyclerView(getApplicationContext());
+        layoutManager=new LinearLayoutManager(getApplicationContext());
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        myadapter=new TablelayoutAdapter(table_list,getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(myadapter);
 
         date1 = (TextView) findViewById(R.id.date1);
         department_name = (TextView) findViewById(R.id.department_name);
@@ -48,12 +67,12 @@ public class PayrollsPageActivity extends AppCompatActivity {
         date2 = (TextView) findViewById(R.id.date2);
         department = (TextView) findViewById(R.id.department);
         programme2 = (TextView) findViewById(R.id.programme2);
-        teacher_name = (TextView) findViewById(R.id.teacher_name);
-        subject_name = (TextView) findViewById(R.id.subject_name);
-        subject = (TextView) findViewById(R.id.subject);
+/*        teacher_name = (TextView) findViewById(R.id.teacher_name);
+        subject_name = (TextView) findViewById(R.id.subject_name);*/
+/*        subject = (TextView) findViewById(R.id.subject);
         section = (TextView) findViewById(R.id.section);
         semister = (TextView) findViewById(R.id.semister);
-        qualification = (TextView) findViewById(R.id.qualification);
+        qualification = (TextView) findViewById(R.id.qualification);*/
         approvedfile=(ConstraintLayout)findViewById(R.id.approvedfile);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
@@ -68,12 +87,14 @@ public class PayrollsPageActivity extends AppCompatActivity {
         date2.setText(model.english_date);
         department.setText(model.department);
         programme2.setText(model.section);
+/*
         teacher_name.setText(model.employee_name);
         subject_name.setText(model.teaching_subject);
         subject.setText(model.subject);
         section.setText(model.session);
         semister.setText(model.semister_spinner);
         qualification.setText(model.employee_qualification);
+*/
 
         xmlToPDFLifecycleObserver = new PdfGenerator.XmlToPDFLifecycleObserver(this);
         getLifecycle().addObserver(xmlToPDFLifecycleObserver);

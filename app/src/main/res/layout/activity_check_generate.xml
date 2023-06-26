@@ -164,92 +164,17 @@
                     android:background="@drawable/edittext_stroke"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                    <EditText
+                        android:id="@+id/fetch_date"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:textFontWeight="500"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/adamina"
+                        android:backgroundTint="@color/white"
                         android:layout_marginLeft="3dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_stroke"
-                        android:hint="D"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:textAlignment="center"
-                        android:textColorHint="@color/selfcolor_grey" />
+                        android:layout_weight="1"/>
 
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_stroke"
-                        android:hint="D"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:textAlignment="center"
-                        android:textColorHint="@color/selfcolor_grey" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="3dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_stroke"
-                        android:hint=" M "
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:textAlignment="center"
-                        android:textColorHint="@color/selfcolor_grey" />
-
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_margin="3dp"
-                        android:background="@drawable/edittext_stroke"
-                        android:hint="M"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:textAlignment="center"
-                        android:textColorHint="@color/selfcolor_grey" />
-
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_stroke"
-                        android:hint="Y"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:textAlignment="center"
-                        android:textColorHint="@color/selfcolor_grey" />
-
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginRight="3dp"
-                        android:layout_marginBottom="3dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/edittext_stroke"
-                        android:hint="Y"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:textAlignment="center"
-                        android:textColorHint="@color/selfcolor_grey" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -270,35 +195,40 @@
                 android:id="@+id/pay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/adamina"
                 android:text="@string/employee_name"
-                android:textAlignment="center"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="2dp"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
                 android:textSize="14sp" />
 
-            <View
-                android:id="@+id/view6"
-                android:layout_width="160dp"
-                android:layout_height="1dp"
-                android:layout_gravity="bottom"
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textFontWeight="500"
+                android:textSize="12sp"
+                android:fontFamily="@font/adamina"
+                android:backgroundTintMode="add"
+                android:backgroundTint="@color/grey"
                 android:layout_marginLeft="3dp"
-                android:layout_weight="1"
-                android:background="@color/black" />
+                android:layout_weight="1"/>
 
             <EditText
-                android:id="@+id/view7"
-                android:layout_width="150dp"
+                android:id="@+id/employee_pay"
+                android:layout_width="wrap_content"
                 android:layout_height="35dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/edittext_stroke"
                 android:fontFamily="@font/adamina"
                 android:hint="PKR"
                 android:paddingLeft="5dp"
                 android:textFontWeight="500"
-                android:textSize="14dp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -318,7 +248,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/adamina"
                 android:text="@string/rupees"
-                android:textAlignment="center"
+                android:layout_gravity="bottom"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
@@ -326,7 +256,7 @@
 
             <View
                 android:id="@+id/rup"
-                android:layout_width="312dp"
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_gravity="bottom"
                 android:background="@color/black" />

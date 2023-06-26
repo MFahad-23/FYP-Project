@@ -23,10 +23,23 @@
             android:title="New Account"
             android:icon="@drawable/newaccount"/>
 
-        <item android:id="@+id/setting"
-            android:title="Settings"
-            android:icon="@drawable/setting"/>
+        <item android:title="Settings"
+            android:icon="@drawable/setting">
+            <menu>
+                <item
+                    android:id="@+id/setting"
+                    android:icon="@drawable/update_password"
+                    android:title="Update Password" />
 
+                <item
+                    android:id="@+id/Entexded"
+                    android:title="Future Purpose" />
+                <item
+                    android:id="@+id/Extend"
+                    android:title="Future Purpose" />
+
+            </menu>
+        </item>
 
     </group>
 

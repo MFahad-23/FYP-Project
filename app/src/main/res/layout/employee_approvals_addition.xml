@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TableLayout
+        android:id="@+id/tablelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tablelayout_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.03">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tablelayout_border">
+
+            <TextView
+                android:id="@+id/no"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text=""
+                android:gravity="center"
+                android:textSize="10sp"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/teacher"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:paddingLeft="3dp"
+                android:text=""
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/tablelayout_border"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/teach_subject"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text=""
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+            <TextView
+                android:id="@+id/subject"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/edittext_stroke"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text=""
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+            <TextView
+                android:id="@+id/setion"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text=""
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/tablelayout_border"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+            <TextView
+                android:id="@+id/semister"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text=""
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_weight="1"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+            <TextView
+                android:id="@+id/qualification"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text=""
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:background="@drawable/edittext_stroke"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="10sp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

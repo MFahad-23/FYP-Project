@@ -9,8 +9,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.fyprojectnew.Models.ClaculationModel;
 import com.example.fyprojectnew.R;
 import com.gkemon.XMLtoPDF.PdfGenerator;
 import com.gkemon.XMLtoPDF.PdfGeneratorListener;
@@ -19,12 +21,26 @@ import com.gkemon.XMLtoPDF.model.SuccessResponse;
 
 public class CheckGenerate extends AppCompatActivity {
     ConstraintLayout cheque;
+    EditText editText,editText1,editText2;
+    String date,name,totalPay;
     private PdfGenerator.XmlToPDFLifecycleObserver xmlToPDFLifecycleObserver;
  @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_generate);
+        editText=findViewById(R.id.fetch_date);
+        editText1=findViewById(R.id.name);
+        editText2=findViewById(R.id.employee_pay);
+
+        date= getIntent().getStringExtra("date");
+        name= getIntent().getStringExtra("name");
+        totalPay= getIntent().getStringExtra("totalPay");
+
+        editText.setText(date);
+        editText1.setText(name);
+        editText2.setText(totalPay);
+
         cheque=(ConstraintLayout) findViewById(R.id.cheque);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Employee Generated Cheque");

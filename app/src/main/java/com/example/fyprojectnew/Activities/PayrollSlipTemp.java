@@ -207,7 +207,13 @@ public class PayrollSlipTemp extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.option) {
-            startActivity(new Intent(PayrollSlipTemp.this, CheckGenerate.class));
+            Intent intent=new Intent(getApplicationContext(), CheckGenerate.class);
+            intent.putExtra("name",name);
+            intent.putExtra("date", date.getText().toString());
+            intent.putExtra("totalPay",total_payroll.getText().toString());
+            getApplicationContext().startActivity(intent);
+
+            /*startActivity(new Intent(PayrollSlipTemp.this, CheckGenerate.class));*/
         } else if (item.getItemId() == R.id.share) {
             //            PDF Generator :-
             PdfGenerator.getBuilder()
