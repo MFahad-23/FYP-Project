@@ -178,6 +178,7 @@ public class ProfilePage extends AppCompatActivity {
                 idendity.setText(user.cnic);
                 phone.setText(user.contact);
                 Glide.with(ProfilePage.this).load(user.profile_pic).into(circleimage);
+                /*Glide.with(ProfilePage.this).load(user.profile_pic).into(circleimage);*/
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {

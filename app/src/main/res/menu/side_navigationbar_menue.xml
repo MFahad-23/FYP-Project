@@ -31,13 +31,6 @@
                     android:icon="@drawable/update_password"
                     android:title="Update Password" />
 
-                <item
-                    android:id="@+id/Entexded"
-                    android:title="Future Purpose" />
-                <item
-                    android:id="@+id/Extend"
-                    android:title="Future Purpose" />
-
             </menu>
         </item>
 

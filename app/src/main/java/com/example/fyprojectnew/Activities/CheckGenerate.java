@@ -10,9 +10,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import com.example.fyprojectnew.Models.ClaculationModel;
+import com.example.fyprojectnew.Models.ValueCconvertor;
 import com.example.fyprojectnew.R;
 import com.gkemon.XMLtoPDF.PdfGenerator;
 import com.gkemon.XMLtoPDF.PdfGeneratorListener;
@@ -21,8 +22,9 @@ import com.gkemon.XMLtoPDF.model.SuccessResponse;
 
 public class CheckGenerate extends AppCompatActivity {
     ConstraintLayout cheque;
-    EditText editText,editText1,editText2;
+    EditText editText,editText1,editText2,editText3;
     String date,name,totalPay;
+    RelativeLayout sliplayout;
     private PdfGenerator.XmlToPDFLifecycleObserver xmlToPDFLifecycleObserver;
  @SuppressLint("MissingInflatedId")
     @Override
@@ -32,14 +34,19 @@ public class CheckGenerate extends AppCompatActivity {
         editText=findViewById(R.id.fetch_date);
         editText1=findViewById(R.id.name);
         editText2=findViewById(R.id.employee_pay);
+        editText3=findViewById(R.id.Eng_Money);
+        sliplayout=findViewById(R.id.sliplayout);
 
         date= getIntent().getStringExtra("date");
         name= getIntent().getStringExtra("name");
         totalPay= getIntent().getStringExtra("totalPay");
 
+        String Eng_Value= ValueCconvertor.convert(Integer.parseInt(totalPay));
+
         editText.setText(date);
         editText1.setText(name);
         editText2.setText(totalPay);
+        editText3.setText(Eng_Value);
 
         cheque=(ConstraintLayout) findViewById(R.id.cheque);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -70,8 +77,8 @@ public class CheckGenerate extends AppCompatActivity {
            /* Online PDF File Generator :- */
             PdfGenerator.getBuilder()
                     .setContext(CheckGenerate.this)
-                    .fromLayoutXMLSource()
-                    .fromLayoutXML(R.layout.activity_check_generate)
+                    .fromViewSource()
+                    .fromView(findViewById(R.id.sliplayout))
                     /* "fromLayoutXML()" takes array of layout resources.
                      * You can also invoke "fromLayoutXMLList()" method here which takes list of layout resources instead of array. */
                     .setFileName("Test-PDF")

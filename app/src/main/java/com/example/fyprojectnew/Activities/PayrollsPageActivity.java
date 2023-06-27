@@ -51,14 +51,16 @@ public class PayrollsPageActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Approved File");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.white)));
         recyclerView=findViewById(R.id.table_recyclerview);
-        table_list=new ArrayList<ApprovalsModel>();
 
+        table_list=new ArrayList<ApprovalsModel>();
         recyclerView=new RecyclerView(getApplicationContext());
         layoutManager=new LinearLayoutManager(getApplicationContext());
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         myadapter=new TablelayoutAdapter(table_list,getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(myadapter);
+
+        Log.d("Hell","" + table_list.size());
 
         date1 = (TextView) findViewById(R.id.date1);
         department_name = (TextView) findViewById(R.id.department_name);
@@ -87,14 +89,12 @@ public class PayrollsPageActivity extends AppCompatActivity {
         date2.setText(model.english_date);
         department.setText(model.department);
         programme2.setText(model.section);
-/*
         teacher_name.setText(model.employee_name);
         subject_name.setText(model.teaching_subject);
         subject.setText(model.subject);
         section.setText(model.session);
         semister.setText(model.semister_spinner);
         qualification.setText(model.employee_qualification);
-*/
 
         xmlToPDFLifecycleObserver = new PdfGenerator.XmlToPDFLifecycleObserver(this);
         getLifecycle().addObserver(xmlToPDFLifecycleObserver);

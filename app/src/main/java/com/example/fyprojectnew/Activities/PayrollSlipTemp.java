@@ -23,7 +23,6 @@ import android.view.MenuItem;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.fyprojectnew.Models.ClaculationModel;
 import com.example.fyprojectnew.Models.PaySlipModal;
 import com.example.fyprojectnew.R;
@@ -44,6 +43,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.text.BreakIterator;
 import java.util.Date;
 
 public class PayrollSlipTemp extends AppCompatActivity {
@@ -91,6 +92,7 @@ public class PayrollSlipTemp extends AppCompatActivity {
         income = (TextView) findViewById(R.id.income);
         trade = (TextView) findViewById(R.id.trade);
         total_payroll = (TextView) findViewById(R.id.total_payroll1);
+
 
         employee_name = (TextView) findViewById(R.id.employee_name);
         employee_designation = (TextView) findViewById(R.id.employee_designation);
@@ -211,7 +213,7 @@ public class PayrollSlipTemp extends AppCompatActivity {
             intent.putExtra("name",name);
             intent.putExtra("date", date.getText().toString());
             intent.putExtra("totalPay",total_payroll.getText().toString());
-            getApplicationContext().startActivity(intent);
+            startActivity(intent);
 
             /*startActivity(new Intent(PayrollSlipTemp.this, CheckGenerate.class));*/
         } else if (item.getItemId() == R.id.share) {

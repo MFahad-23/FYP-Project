@@ -10,6 +10,7 @@
     tools:context=".Activities.CheckGenerate">
 
     <RelativeLayout
+        android:id="@+id/sliplayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -169,7 +170,10 @@
                         android:layout_width="120dp"
                         android:layout_height="match_parent"
                         android:textFontWeight="500"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
+                        android:paddingLeft="10dp"
+                        android:textAlignment="gravity"
+                        android:gravity="bottom"
                         android:fontFamily="@font/adamina"
                         android:backgroundTint="@color/white"
                         android:layout_marginLeft="3dp"
@@ -194,25 +198,26 @@
             <TextView
                 android:id="@+id/pay"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/adamina"
                 android:text="@string/employee_name"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="2dp"
+                android:gravity="bottom"
+                android:textAlignment="gravity"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textFontWeight="500"
-                android:textSize="12sp"
+                android:textSize="16sp"
+                android:paddingLeft="10dp"
                 android:fontFamily="@font/adamina"
-                android:backgroundTintMode="add"
-                android:backgroundTint="@color/grey"
+                android:backgroundTintMode="src_in"
+                android:backgroundTint="@color/black"
                 android:layout_marginLeft="3dp"
                 android:layout_weight="1"/>
 
@@ -226,9 +231,9 @@
                 android:background="@drawable/edittext_stroke"
                 android:fontFamily="@font/adamina"
                 android:hint="PKR"
-                android:paddingLeft="5dp"
+                android:paddingLeft="20dp"
                 android:textFontWeight="500"
-                android:textSize="12sp" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -238,28 +243,35 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/employee"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/rupees"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/adamina"
                 android:text="@string/rupees"
-                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:textAlignment="gravity"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textFontWeight="500"
-                android:textSize="14sp" />
+                android:textSize="18sp" />
 
-            <View
-                android:id="@+id/rup"
+            <EditText
+                android:id="@+id/Eng_Money"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:background="@color/black" />
+                android:paddingLeft="10dp"
+                android:textFontWeight="500"
+                android:textSize="14sp"
+                android:backgroundTintMode="src_in"
+                android:backgroundTint="@color/black"
+                android:fontFamily="@font/adamina"
+                />
 
         </LinearLayout>
 

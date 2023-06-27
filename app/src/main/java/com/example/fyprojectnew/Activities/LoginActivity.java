@@ -83,60 +83,6 @@ public class LoginActivity extends AppCompatActivity {
                     if(result.getResultCode()==RESULT_OK){
                         Uri uri=result.getData().getData();
                         circleimage.setImageURI(uri);
-
-                        /* Auto Progress Dialog:- */
-                        ProgressDialog pd= new ProgressDialog(LoginActivity.this);
-                        pd.setTitle("Uploading...");
-                        pd.show();
-
-                       /* For Taking Link & Save it into FireBase Storage & DataBase :- */
-                        File file = new File(String.valueOf(uri));
-                        FirebaseStorage storage = FirebaseStorage.getInstance();
-                        StorageReference storageRef = storage.getReference().child("userImages");
-
-                        storageRef.child(file.getName()).putFile(uri)
-                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                    @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                        pd.dismiss();
-
-                                        taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
-                                                new OnCompleteListener<Uri>() {
-
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Uri> task) {
-
-                                                        /*Update Data into the DataBase :-*/
-                                                        String generatedFilePath = task.getResult().toString();
-                                                        HashMap<String,Object> data= new HashMap<>();
-                                                        data.put("profile_pic",generatedFilePath);
-
-                                                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(data)
-                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                                    @Override
-                                                                    public void onSuccess(Void aVoid) {
-                                                                        Toast.makeText(LoginActivity.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                })
-                                                                .addOnFailureListener(new OnFailureListener() {
-                                                                    @Override
-                                                                    public void onFailure(@NonNull Exception e) {
-                                                                        Log.w(TAG, "Something went wrong.Please try again!", e);
-                                                                        Toast.makeText(LoginActivity.this, e.getMessage(),
-                                                                                Toast.LENGTH_SHORT).show();
-                                                                    }
-                                                                });
-                                                    }
-                                                });
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        pd.dismiss();
-                                    }
-                                });
-
                     }else if(result.getResultCode()== ImagePicker.RESULT_ERROR){
                         // Use ImagePicker.Companion.getError(result.getData()) to show an error
                     }
@@ -217,21 +163,77 @@ public class LoginActivity extends AppCompatActivity {
                     /*Firebase Authentication :-*/
                     mauth.signInWithEmailAndPassword(gmail.getText().toString(), password.getText().toString())
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                                private String uri;
+
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "signInWithEmail:success");
-                                        FirebaseUser user = mauth.getCurrentUser();
-                                        Toast.makeText(getApplicationContext(), "Thanks for Login !", Toast.LENGTH_SHORT).show();
-                                        timer = new Timer();
-                                        timer.schedule(new TimerTask() {
-                                            @Override
-                                            public void run() {
-                                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                            }
-                                        }, 5000);
-                                        gmail.setText("");
-                                        password.setText("");
+                                        
+                                        /* Auto Progress Dialog:- */
+                                        ProgressDialog pd= new ProgressDialog(LoginActivity.this);
+                                        pd.setTitle("Uploading...");
+                                        pd.show();
+
+                                        /* For Taking Link & Save it into FireBase Storage & DataBase :- */
+                                        File file = new File(String.valueOf(uri));
+                                        FirebaseStorage storage = FirebaseStorage.getInstance();
+                                        StorageReference storageRef = storage.getReference().child("userImages");
+
+                                        storageRef.child(file.getName()).putFile(Uri.parse(uri))
+                                                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                                    @Override
+                                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                        pd.dismiss();
+
+                                                        taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
+                                                                new OnCompleteListener<Uri>() {
+
+                                                                    @Override
+                                                                    public void onComplete(@NonNull Task<Uri> task) {
+
+                                                                        /*Update Data into the DataBase :-*/
+                                                                        String generatedFilePath = task.getResult().toString();
+                                                                        HashMap<String,Object> data= new HashMap<>();
+                                                                        data.put("profile_pic",generatedFilePath);
+
+                                                                        mDatabase.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).updateChildren(data)
+                                                                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                    @Override
+                                                                                    public void onSuccess(Void aVoid) {
+                                                                                        FirebaseUser user = mauth.getCurrentUser();
+                                                                                        Toast.makeText(getApplicationContext(), "Thanks for Login !", Toast.LENGTH_SHORT).show();
+                                                                                        Toast.makeText(LoginActivity.this, "Image Uploaded Successfully", Toast.LENGTH_SHORT).show();
+                                                                                        timer = new Timer();
+                                                                                        timer.schedule(new TimerTask() {
+                                                                                            @Override
+                                                                                            public void run() {
+                                                                                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                                                                            }
+                                                                                        }, 20000);
+                                                                                        gmail.setText("");
+                                                                                        password.setText("");
+                                                                                    }
+                                                                                })
+                                                                                .addOnFailureListener(new OnFailureListener() {
+                                                                                    @Override
+                                                                                    public void onFailure(@NonNull Exception e) {
+                                                                                        Log.w(TAG, "Something went wrong.Please try again!", e);
+                                                                                        Toast.makeText(LoginActivity.this, e.getMessage(),
+                                                                                                Toast.LENGTH_SHORT).show();
+                                                                                    }
+                                                                                });
+                                                                    }
+                                                                });
+                                                    }
+                                                })
+                                                .addOnFailureListener(new OnFailureListener() {
+                                                    @Override
+                                                    public void onFailure(@NonNull Exception e) {
+                                                        pd.dismiss();
+                                                    }
+                                                });
+
                                     } else
                                     {
                                         /*Error Dialog :-*/
